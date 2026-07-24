@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de implantação no cliente | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Implantação no cliente</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#levantamento">Antes de instalar</a></li>
+      <li><a href="#sequencia">Sequência de implantação</a></li>
+      <li><a href="#hardening">Hardening do console</a></li>
+      <li><a href="#dominio">Domínio e tenants</a></li>
+      <li><a href="#validacao">Checklist de validação</a></li>
+      <li><a href="#handoff">Handoff para operação</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Guia prático para consultores</div>
+    <h1>Do kickoff ao primeiro login: implantando o AD360 num cliente</h1>
+    <p class="lead" style="max-width:680px;">Este é o roteiro de ponta a ponta pra quem está entrando na casa do cliente pela primeira vez: o que levantar antes, em que ordem instalar e integrar, o que travar de segurança antes de entregar o acesso, e como validar que ficou tudo redondo.</p>
+
+    <div class="callout note">
+      <span class="mark">RELAÇÃO COM OUTRAS PÁGINAS</span>
+      <p>Esta página foca na <strong>sequência do projeto</strong>. Para o passo a passo técnico de cada tela (modos de instalação, SSL, backup), veja <a href="instalacao.html" style="color:var(--teal);">Instalação &amp; operação</a>. Para o significado de cada componente, veja <a href="componentes.html" style="color:var(--teal);">Os 7 componentes</a>.</p>
+    </div>
+
+    <h2 id="levantamento">Antes de instalar: o que levantar com o cliente</h2>
+    <p>Boa parte dos retrabalhos em implantação de AD360 vem de informação que não foi levantada no kickoff. Confirme isso antes de tocar em qualquer instalador:</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Escopo de componentes</h3>
+        <p>Quais dos 7 componentes o cliente efetivamente licenciou/vai usar? Isso define o dimensionamento de hardware e quantos servidores serão necessários (lembrando: no máximo 2 componentes por máquina).</p>
+      </div>
+      <div class="card">
+        <h3>Conta de serviço</h3>
+        <p>Uma conta de domínio já provisionada, com os privilégios mínimos por componente (ver <a href="permissoes.html" style="color:var(--teal);">Permissões</a>) — idealmente Domain Admin para a implantação inicial, revisado depois.</p>
+      </div>
+      <div class="card">
+        <h3>Topologia de rede</h3>
+        <p>Onde ficarão o AD360 e cada componente (mesma VLAN dos DCs? DMZ? acesso via VPN?) — define quais portas da página de <a href="requisitos.html" style="color:var(--teal);">Requisitos &amp; portas</a> precisam ser liberadas antes do dia da instalação.</p>
+      </div>
+      <div class="card">
+        <h3>Certificado SSL</h3>
+        <p>O cliente já tem um certificado válido para o hostname que será usado, ou vamos gerar um autoassinado/CSR na implantação?</p>
+      </div>
+      <div class="card">
+        <h3>Servidor de e-mail</h3>
+        <p>Host, porta, tipo de autenticação e um destinatário de teste para validar alertas e notificações assim que o console subir.</p>
+      </div>
+      <div class="card">
+        <h3>Banco de dados</h3>
+        <p>PostgreSQL embutido é suficiente, ou o cliente exige MS SQL Server (política interna, equipe de DBA própria etc.)? Isso muda o prazo — migração de banco é uma etapa própria.</p>
+      </div>
+    </div>
+
+    <h2 id="sequencia">Sequência recomendada de implantação</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>1. Instalar o AD360</h4>
+          <p>Modo <strong>Standard</strong> se o cliente vai usar a maioria dos 7 componentes; <strong>Custom</strong> se só uma parte. Instale como aplicação primeiro, depois promova para serviço do Windows antes de sair do site.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>2. Instalar os componentes selecionados</h4>
+          <p>Baixe e instale cada componente individualmente, e inicie cada um pelo atalho antes de tentar integrar — o AD360 só enxerga um componente que já está rodando.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>3. Integrar cada componente</h4>
+          <p>Em <span class="chip">Admin → Administration → AD360 Integration</span>, um tab por componente: host/IP, porta, protocolo, e <strong>as credenciais do super administrador do componente</strong> (não é a conta de domínio — é o admin local daquele produto).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>4. Configurar o domínio uma única vez</h4>
+          <p>Adicione o domínio em qualquer um dos componentes integrados — ele se propaga para os demais automaticamente. Não repita esse passo em cada componente.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>5. Configurar tenants de nuvem (se aplicável)</h4>
+          <p>Microsoft 365 e Google Workspace são configurados por componente (ADManager Plus, M365 Manager Plus, RecoveryManager Plus cada um tem sua própria tela de tenant) — não sincronizam automaticamente como o domínio on-premises.</p>
+        </div>
+      </div>
+    </div>
+    <div class="callout warn">
+      <span class="mark">ALTA DISPONIBILIDADE</span>
+      <p>Se algum componente já estiver configurado em HA, use o <strong>IP/hostname virtual</strong> do cluster na integração — não o IP do servidor primário. Apontar para o servidor primário direto quebra o failover depois.</p>
+    </div>
+
+    <h2 id="hardening">Hardening do console antes de entregar o acesso</h2>
+    <p>Antes de repassar as credenciais para o time do cliente, esses ajustes evitam retorno em campo por causa de segurança básica:</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Trocar a senha padrão</h3>
+        <p><span class="chip">Admin → General Settings → Personalize → Change Password</span> — o login <span class="mono">admin/admin</span> nunca deve sobreviver ao dia da implantação.</p>
+      </div>
+      <div class="card">
+        <h3>Configurar técnicos, não usar só o super admin</h3>
+        <p>Crie os técnicos do cliente com o papel correto (Admin ou Operator) em <span class="chip">Administration → Manage Technicians</span> — ver detalhes na página <a href="tecnicos.html" style="color:var(--teal);">Técnicos &amp; delegação</a>.</p>
+      </div>
+      <div class="card">
+        <h3>Login Settings — proteções básicas</h3>
+        <p>Em <span class="chip">Administration → Logon Settings → General</span>: habilitar CAPTCHA e bloqueio após tentativas inválidas. Em ambientes com política mais rígida, habilitar <strong>2FA</strong> para quem tem papel Admin.</p>
+      </div>
+      <div class="card">
+        <h3>SSO, se fizer sentido pro cliente</h3>
+        <p>Se os usuários já autenticam no domínio Windows, o Single Sign-On evita mais uma senha para gerenciar — vale a conversa no kickoff.</p>
+      </div>
+      <div class="card">
+        <h3>Restringir por IP, se acesso é só interno</h3>
+        <p><span class="chip">Logon Settings → Allow/restrict IPs</span> — útil quando o AD360 não deveria ser alcançável fora da rede corporativa/VPN.</p>
+      </div>
+      <div class="card">
+        <h3>SSL aplicado, não pendente</h3>
+        <p>Gere o CSR ou aplique o certificado do cliente antes de sair do site — ver o passo a passo em <a href="instalacao.html#ssl" style="color:var(--teal);">Instalação → Habilitando SSL</a>.</p>
+      </div>
+    </div>
+
+    <h2 id="dominio">Domínio e tenants — visão rápida</h2>
+    <p>Resumo de onde cada tipo de "identidade" é configurado (detalhe completo na página de <a href="componentes.html" style="color:var(--teal);">componentes</a>):</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>O quê</th><th>Onde configurar</th><th>Sincroniza automaticamente?</th></tr></thead>
+        <tbody>
+          <tr><td>Domínio Active Directory</td><td>Qualquer componente integrado</td><td><strong>Sim</strong>, entre todos os componentes</td></tr>
+          <tr><td>Tenant Microsoft 365</td><td>ADManager Plus, M365 Manager Plus, RecoveryManager Plus (cada um tem sua própria tela)</td><td>Não — configure em cada componente que precisa dele</td></tr>
+          <tr><td>Google Workspace</td><td>ADManager Plus, RecoveryManager Plus</td><td>Não</td></tr>
+          <tr><td>Organização Exchange</td><td>Exchange Reporter Plus, RecoveryManager Plus, SharePoint Manager Plus (conforme o caso)</td><td>Não</td></tr>
+          <tr><td>Servidor de e-mail (SMTP) / Proxy</td><td>Qualquer componente integrado</td><td><strong>Sim</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="validacao">Checklist de validação pós-implantação</h2>
+    <p>Antes de considerar o projeto encerrado, confirme cada item:</p>
+    <div class="callout tip">
+      <span class="mark">SMOKE TEST</span>
+      <p>
+      ✓ Login funciona com a nova senha de admin e com pelo menos um técnico do cliente<br>
+      ✓ Todos os componentes contratados aparecem no painel lateral de aplicações<br>
+      ✓ O domínio aparece corretamente em todos os componentes integrados<br>
+      ✓ Um e-mail de teste (alerta ou notificação) chega no destinatário configurado<br>
+      ✓ O certificado SSL está aplicado e o navegador não mostra aviso de "não seguro"<br>
+      ✓ O backup automático está agendado (ver <a href="instalacao.html#backup" style="color:var(--teal);">Instalação → Backup automático</a>)<br>
+      ✓ Sync manual (<span class="mono">Sync Now</span>) roda sem erro
+      </p>
+    </div>
+
+    <h2 id="handoff">Handoff para operação e suporte</h2>
+    <p>O que deixar documentado com o cliente ao final da implantação:</p>
+    <ul>
+      <li>Credenciais de acesso entregues por canal seguro (não por e-mail em texto puro) — senha de admin trocada, técnicos já cadastrados.</li>
+      <li>URL de acesso e certificado — se autoassinado, avisar o time do cliente sobre o aviso de navegador esperado.</li>
+      <li>Janela e retenção do backup automático configurado.</li>
+      <li>Política de atualização automática definida (ligada ou não, e com qual frequência de verificação).</li>
+      <li>Contato de suporte oficial ManageEngine para abertura de chamados técnicos.</li>
+    </ul>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado na documentação oficial do AD360 (Quick Start Guide, Help Center e Permissions Guide).</p>
+    <p class="mono">AD360 · Implantação no cliente</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

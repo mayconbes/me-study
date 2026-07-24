@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Técnicos e delegação | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Técnicos &amp; delegação</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#conceito">O que é um técnico</a></li>
+      <li><a href="#tipos">AD vs. produto</a></li>
+      <li><a href="#adicionar">Como adicionar</a></li>
+      <li><a href="#senha">Regras de senha</a></li>
+      <li><a href="#sync">O que sincroniza</a></li>
+      <li><a href="#troubleshooting">Problemas comuns</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Segurança &amp; acesso</div>
+    <h1>Técnicos e delegação centralizada</h1>
+    <p class="lead" style="max-width:680px;">Depois que a implantação termina, quem realmente vai operar o AD360 no dia a dia não deveria usar a conta de super admin. É aqui que entra o gerenciamento centralizado de técnicos.</p>
+
+    <h2 id="conceito">O que é um técnico, na prática</h2>
+    <p>Um <strong>técnico</strong> é um usuário ao qual você delega funções específicas do AD360 e dos componentes — sem dar acesso total. A gestão centralizada cobre 5 dos 7 componentes: <strong>ADManager Plus, ADAudit Plus, ADSelfService Plus, Exchange Reporter Plus e RecoveryManager Plus</strong>.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Admin</h3>
+        <p>Controle total da aplicação, incluindo poder atribuir outros usuários como técnicos.</p>
+      </div>
+      <div class="card">
+        <h3>Operator</h3>
+        <p>Só acessa ou executa as funções que foram explicitamente delegadas a ele em cada componente.</p>
+      </div>
+    </div>
+    <div class="callout note">
+      <span class="mark">MULTI-DOMÍNIO</span>
+      <p>Um mesmo técnico pode ser delegado para um único domínio ou para múltiplos domínios, conforme a necessidade.</p>
+    </div>
+
+    <h2 id="tipos">Autenticação por AD ou pelo próprio produto</h2>
+    <p>Na hora de cadastrar, você escolhe o tipo de autenticação:</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>AD Authentication</h3>
+        <p>O técnico usa a própria senha de domínio para logar. Você busca o usuário já existente no AD e delega o papel — não define senha nenhuma no AD360.</p>
+      </div>
+      <div class="card">
+        <h3>Product Authentication</h3>
+        <p>Uma conta que só existe dentro do AD360, com senha própria (seguindo as <a href="#senha" style="color:var(--teal);">regras de complexidade</a>) — útil para prestadores externos sem conta de domínio.</p>
+      </div>
+    </div>
+
+    <h2 id="adicionar">Como adicionar um novo técnico</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Acesse a tela</h4><p><span class="chip">Admin → Administration → Manage Technicians → + Add New Technicians</span>.</p></div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Escolha o tipo de autenticação</h4><p>AD Authentication (busca o usuário no domínio) ou Product Authentication (cria usuário + senha local).</p></div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Selecione o usuário ou preencha os dados</h4><p>Para AD: busque por nome no domínio desejado. Para produto: informe nome, senha, confirmação e e-mail.</p></div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Delegue papel por componente</h4><p>Na seção <strong>Delegate to</strong>, marque os componentes aos quais esse técnico terá acesso, e escolha o papel e o(s) domínio(s) para cada um.</p></div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Salve</h4><p>Clique em <strong>Add</strong>. Para editar depois, use o ícone de lápis ao lado do nome do técnico na listagem.</p></div>
+      </div>
+    </div>
+
+    <h2 id="senha">Regras de complexidade de senha</h2>
+    <p>Válido para técnicos com <strong>Product Authentication</strong>. A senha precisa:</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Deve conter</h3>
+        <p>Mínimo de 8 caracteres · começar com letra (maiúscula ou minúscula) · pelo menos 1 minúscula, 1 maiúscula, 1 número e 2 caracteres especiais.</p>
+      </div>
+      <div class="card">
+        <h3>Não pode conter</h3>
+        <p>Mais de 2 caracteres repetidos em sequência · sequências como <span class="mono">qwerty</span>, <span class="mono">asdf</span> ou <span class="mono">1234</span> · 5 caracteres seguidos iguais ao nome de login · um palíndromo.</p>
+      </div>
+    </div>
+
+    <h2 id="sync">O que sincroniza com os componentes</h2>
+    <div class="callout warn">
+      <span class="mark">ATENÇÃO A ESSA REGRA</span>
+      <p>Técnicos autenticados por <strong>AD</strong> criados diretamente em um componente sincronizam com a gestão centralizada do AD360. Técnicos autenticados por <strong>produto</strong> (senha local), criados direto no componente, <strong>não sincronizam</strong> — eles ficam isolados naquele componente. Se o time do cliente reclamar que "criei um técnico mas ele não aparece no AD360", essa é a causa mais provável.</p>
+    </div>
+
+    <h2 id="troubleshooting">Problemas comuns</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Sintoma</th><th>Causa provável</th><th>Solução</th></tr></thead>
+        <tbody>
+          <tr><td>"AD user not found" / "User not discovered"</td><td>Usuário existe no AD, mas ainda não foi sincronizado dentro do componente (ocorre em ADManager Plus e ADAudit Plus)</td><td>No componente, ir na tela de técnicos, clicar em Add New Technician e usar Refresh na seleção de usuário AD</td></tr>
+          <tr><td>"License Exceeded" ao adicionar técnico</td><td>Limite de técnicos da licença do componente foi atingido</td><td>Fazer upgrade da licença do componente correspondente</td></tr>
+          <tr><td>Componente não aparece na tela de técnicos / "Unable to communicate with the component"</td><td>Componente parado, porta/protocolo mudou, ou não está acessível pela rede a partir do AD360</td><td>Revisar e atualizar em Admin → Administration → AD360 Integration</td></tr>
+          <tr><td>ADManager Plus ou Exchange Reporter Plus somem da tela de técnicos</td><td>Licença expirada ou inválida</td><td>Renovar a licença do produto</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no AD360 Help Center oficial (Technician Management).</p>
+    <p class="mono">AD360 · Técnicos &amp; delegação</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
