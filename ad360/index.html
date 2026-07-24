@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AD360 — Visão geral | ME Study</title>
+<meta name="description" content="O que é o ManageEngine AD360, como seus 7 componentes se integram, e por onde começar a estudar.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><span>AD360</span></div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">ManageEngine AD360</div>
+    <h1>Uma plataforma, sete ferramentas,<br>uma única visão de identidade.</h1>
+    <p class="lead">AD360 é o console unificado que reúne gestão, auditoria, self-service, backup e relatórios de Active Directory, Microsoft 365, Exchange e SharePoint — tudo sincronizado automaticamente.</p>
+    <div class="btn-row">
+      <a href="arquitetura.html" class="btn primary">Ver arquitetura →</a>
+      <a href="instalacao.html" class="btn ghost">Como instalar</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-top:none;">
+  <div class="wrap">
+    <div class="diagram">
+      <svg viewBox="0 0 680 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama do AD360 conectado aos seus sete componentes">
+        <defs>
+          <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- connections -->
+        <g stroke="#223050" stroke-width="1.5">
+          <line x1="340" y1="330" x2="340" y2="100"/>
+          <line x1="340" y1="330" x2="519.8" y2="186.6"/>
+          <line x1="340" y1="330" x2="564.2" y2="381.2"/>
+          <line x1="340" y1="330" x2="439.8" y2="537.2"/>
+          <line x1="340" y1="330" x2="240.2" y2="537.2"/>
+          <line x1="340" y1="330" x2="115.8" y2="381.2"/>
+          <line x1="340" y1="330" x2="160.2" y2="186.6"/>
+        </g>
+
+        <!-- animated pulses along connections -->
+        <g fill="#5cc8ff">
+          <circle r="2.6"><animateMotion dur="3.2s" repeatCount="indefinite" path="M340,330 L340,100"/></circle>
+          <circle r="2.6"><animateMotion dur="3.6s" repeatCount="indefinite" path="M340,330 L519.8,186.6"/></circle>
+          <circle r="2.6"><animateMotion dur="3.0s" repeatCount="indefinite" path="M340,330 L564.2,381.2"/></circle>
+          <circle r="2.6"><animateMotion dur="3.9s" repeatCount="indefinite" path="M340,330 L439.8,537.2"/></circle>
+          <circle r="2.6"><animateMotion dur="3.3s" repeatCount="indefinite" path="M340,330 L240.2,537.2"/></circle>
+          <circle r="2.6"><animateMotion dur="3.7s" repeatCount="indefinite" path="M340,330 L115.8,381.2"/></circle>
+          <circle r="2.6"><animateMotion dur="3.1s" repeatCount="indefinite" path="M340,330 L160.2,186.6"/></circle>
+        </g>
+
+        <!-- hub -->
+        <circle cx="340" cy="330" r="90" fill="url(#hubGlow)"/>
+        <circle cx="340" cy="330" r="52" fill="#0d1526" stroke="#2dd4bf" stroke-width="2"/>
+        <text x="340" y="325" text-anchor="middle" fill="#e7ecf5" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18">AD360</text>
+        <text x="340" y="342" text-anchor="middle" fill="#6b7994" font-family="JetBrains Mono, monospace" font-size="9">CONSOLE UNIFICADO</text>
+
+        <!-- nodes -->
+        <g font-family="Inter, sans-serif" font-size="12" fill="#e7ecf5">
+          <g>
+            <circle cx="340" cy="100" r="7" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+            <text x="340" y="78" text-anchor="middle">ADManager Plus</text>
+            <text x="340" y="93" text-anchor="middle" fill="#6b7994" font-family="JetBrains Mono" font-size="9">gestão &amp; automação</text>
+          </g>
+          <g>
+            <circle cx="519.8" cy="186.6" r="7" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+            <text x="540" y="168" text-anchor="start">ADAudit Plus</text>
+            <text x="540" y="183" text-anchor="start" fill="#6b7994" font-family="JetBrains Mono" font-size="9">auditoria em tempo real</text>
+          </g>
+          <g>
+            <circle cx="564.2" cy="381.2" r="7" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+            <text x="584" y="378" text-anchor="start">ADSelfService Plus</text>
+            <text x="584" y="393" text-anchor="start" fill="#6b7994" font-family="JetBrains Mono" font-size="9">MFA &amp; self-service</text>
+          </g>
+          <g>
+            <circle cx="439.8" cy="537.2" r="7" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+            <text x="439.8" y="562" text-anchor="middle">Exchange Reporter Plus</text>
+            <text x="439.8" y="577" text-anchor="middle" fill="#6b7994" font-family="JetBrains Mono" font-size="9">relatórios de Exchange</text>
+          </g>
+          <g>
+            <circle cx="240.2" cy="537.2" r="7" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+            <text x="240.2" y="562" text-anchor="middle">M365 Manager Plus</text>
+            <text x="240.2" y="577" text-anchor="middle" fill="#6b7994" font-family="JetBrains Mono" font-size="9">gestão Microsoft 365</text>
+          </g>
+          <g>
+            <circle cx="115.8" cy="381.2" r="7" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+            <text x="96" y="378" text-anchor="end">RecoveryManager Plus</text>
+            <text x="96" y="393" text-anchor="end" fill="#6b7994" font-family="JetBrains Mono" font-size="9">backup &amp; recovery</text>
+          </g>
+          <g>
+            <circle cx="160.2" cy="186.6" r="7" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+            <text x="140" y="168" text-anchor="end">SharePoint Manager Plus</text>
+            <text x="140" y="183" text-anchor="end" fill="#6b7994" font-family="JetBrains Mono" font-size="9">gestão SharePoint</text>
+          </g>
+        </g>
+      </svg>
+      <p class="caption">Os 7 componentes se conectam ao AD360 e trocam configurações automaticamente — domínio, servidor de e-mail, proxy e credenciais ficam sincronizados entre todos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Em uma frase</div>
+      <h2>O que é o AD360, de fato?</h2>
+    </div>
+    <p style="max-width:720px; font-size:1.02rem;">Pense no AD360 como um <strong>hub</strong>: ele não substitui as sete ferramentas, ele as orquestra. Cada componente continua sendo instalado e rodando de forma independente — o AD360 apenas os integra em um único login, um único painel e uma única configuração de domínio, e-mail e proxy. Isso resolve o maior problema de ambientes com várias ferramentas ManageEngine: configurar tudo sete vezes.</p>
+
+    <div class="grid cols-2" style="margin-top:8px;">
+      <div class="card">
+        <div class="icon">01</div>
+        <h3>Console único</h3>
+        <p>Login uma vez, acesse os dashboards de todos os componentes integrados pelo painel lateral de aplicações.</p>
+      </div>
+      <div class="card">
+        <div class="icon">02</div>
+        <h3>Sincronização automática</h3>
+        <p>Domínio, servidor de e-mail, proxy e credenciais configurados em um componente se propagam para os demais.</p>
+      </div>
+      <div class="card">
+        <div class="icon">03</div>
+        <h3>Instalação modular</h3>
+        <p>Instale tudo de uma vez (Standard), só o núcleo (Minimal) ou escolha exatamente quais componentes quer (Custom).</p>
+      </div>
+      <div class="card">
+        <div class="icon">04</div>
+        <h3>Infraestrutura compartilhada</h3>
+        <p>Um único banco de dados, uma rotina de backup, um certificado SSL e uma política de alta disponibilidade para todo o conjunto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trilha de estudo</div>
+      <h2>Por onde continuar</h2>
+    </div>
+    <div class="grid cols-4">
+      <a href="arquitetura.html" class="card link">
+        <span class="tag">01 · CONCEITOS</span>
+        <div class="icon">◈</div>
+        <h3>Arquitetura</h3>
+        <p>Como o AD360 integra e sincroniza os componentes, passo a passo.</p>
+      </a>
+      <a href="componentes.html" class="card link">
+        <span class="tag">02 · MÓDULOS</span>
+        <div class="icon">◈</div>
+        <h3>Os 7 componentes</h3>
+        <p>O que cada ferramenta faz e como configurar seu domínio.</p>
+      </a>
+      <a href="instalacao.html" class="card link">
+        <span class="tag">03 · OPERAÇÃO</span>
+        <div class="icon">◈</div>
+        <h3>Instalação &amp; operação</h3>
+        <p>Modos de instalação, SSL, backup, alta disponibilidade e mais.</p>
+      </a>
+      <a href="permissoes.html" class="card link">
+        <span class="tag">04 · SEGURANÇA</span>
+        <div class="icon">◈</div>
+        <h3>Permissões</h3>
+        <p>Quais privilégios cada componente exige para funcionar.</p>
+      </a>
+      <a href="requisitos.html" class="card link">
+        <span class="tag">05 · INFRA</span>
+        <div class="icon">◈</div>
+        <h3>Requisitos &amp; portas</h3>
+        <p>Hardware, banco de dados e as portas de rede envolvidas.</p>
+      </a>
+      <a href="glossario.html" class="card link">
+        <span class="tag">06 · REFERÊNCIA</span>
+        <div class="icon">◈</div>
+        <h3>Glossário</h3>
+        <p>Termos técnicos explicados em linguagem simples.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Quick Start Guide, Permissions &amp; Privileges Guide e System &amp; Port Requirements oficiais do AD360.</p>
+    <p class="mono">AD360 · v0.1</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

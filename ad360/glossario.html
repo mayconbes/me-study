@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossário | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Glossário</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Categorias</div>
+    <ul>
+      <li><a href="#core">Conceitos do AD360</a></li>
+      <li><a href="#ad">Active Directory</a></li>
+      <li><a href="#cloud">Microsoft 365 / Cloud</a></li>
+      <li><a href="#infra">Infraestrutura</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Referência rápida</div>
+    <h1>Glossário</h1>
+    <p class="lead" style="max-width:680px;">Os termos que mais aparecem na documentação, explicados sem jargão.</p>
+
+    <h2 id="core">Conceitos do AD360</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Componente</h3><p>Cada uma das 7 ferramentas (ADManager Plus, ADAudit Plus etc.) que se integram ao AD360. São produtos independentes.</p></div>
+      <div class="card"><h3>Integração</h3><p>O processo de registrar um componente no AD360 informando servidor, porta e protocolo, para que ele apareça no console unificado.</p></div>
+      <div class="card"><h3>Sincronização</h3><p>Propagação automática de configurações (domínio, e-mail, proxy) entre os componentes integrados.</p></div>
+      <div class="card"><h3>Instalação Standard/Minimal/Custom</h3><p>Os três modos de instalação: tudo automaticamente, só o núcleo, ou uma seleção sob medida de componentes.</p></div>
+    </div>
+
+    <h2 id="ad">Active Directory</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>OU (Organizational Unit)</h3><p>Uma "pasta" dentro do Active Directory usada para organizar usuários, grupos e computadores — e aplicar permissões e políticas de forma segmentada.</p></div>
+      <div class="card"><h3>GPO (Group Policy Object)</h3><p>Um conjunto de configurações que pode ser aplicado a usuários ou computadores de uma OU — de senha mínima a scripts de logon.</p></div>
+      <div class="card"><h3>Domain Controller (DC)</h3><p>O servidor que guarda o banco de dados do Active Directory e autentica os logins do domínio.</p></div>
+      <div class="card"><h3>Global Catalog</h3><p>Um índice parcial de todos os objetos de todos os domínios de uma floresta AD, usado para buscas rápidas entre domínios.</p></div>
+      <div class="card"><h3>LDAP</h3><p>O protocolo usado para consultar e modificar informações no Active Directory (porta 389, ou 636 com criptografia SSL).</p></div>
+      <div class="card"><h3>Kerberos</h3><p>O protocolo de autenticação usado pelo Windows/AD para validar identidade sem transmitir a senha em texto puro.</p></div>
+    </div>
+
+    <h2 id="cloud">Microsoft 365 / Cloud</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Tenant</h3><p>A instância isolada de uma organização dentro do Microsoft 365 — cada empresa tem o seu.</p></div>
+      <div class="card"><h3>Global Admin</h3><p>O papel de administrador mais alto no Microsoft 365, com acesso a todos os serviços e configurações do tenant.</p></div>
+      <div class="card"><h3>Aplicativo Azure AD (App Registration)</h3><p>Um "usuário de aplicação" cadastrado no Azure AD, usado para autenticação programática (API) em vez de login interativo.</p></div>
+      <div class="card"><h3>Microsoft Graph</h3><p>A API unificada da Microsoft para acessar dados do Microsoft 365 (usuários, grupos, e-mails, relatórios etc.).</p></div>
+      <div class="card"><h3>MFA (Multi-Factor Authentication)</h3><p>Autenticação com mais de um fator (ex: senha + código no celular) — exige senha de aplicativo quando habilitada em contas de serviço.</p></div>
+    </div>
+
+    <h2 id="infra">Infraestrutura</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Proxy reverso</h3><p>Um servidor que recebe as requisições externas e as redireciona para o serviço correto internamente — o AD360 pode atuar assim para os componentes.</p></div>
+      <div class="card"><h3>Alta disponibilidade (HA)</h3><p>Configuração que garante que o sistema continue disponível mesmo se o servidor principal falhar.</p></div>
+      <div class="card"><h3>CSR (Certificate Signing Request)</h3><p>O arquivo que você gera e envia para uma Autoridade Certificadora (CA) para que ela emita um certificado SSL válido.</p></div>
+      <div class="card"><h3>Certificado autoassinado</h3><p>Um certificado SSL gerado pelo próprio produto, sem validação de uma CA — funciona, mas gera aviso de "não confiável" no navegador.</p></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — glossário de apoio à documentação oficial do AD360.</p>
+    <p class="mono">AD360 · Glossário</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

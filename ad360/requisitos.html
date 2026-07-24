@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Requisitos e portas | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Requisitos &amp; portas</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#hardware">Hardware recomendado</a></li>
+      <li><a href="#software">Plataformas suportadas</a></li>
+      <li><a href="#portas-produto">Portas de cada produto</a></li>
+      <li><a href="#portas-comuns">Portas comuns (todos os componentes)</a></li>
+      <li><a href="#portas-especificas">Portas específicas por componente</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Infraestrutura</div>
+    <h1>Requisitos de sistema e portas de rede</h1>
+    <p class="lead" style="max-width:680px;">O checklist que evita retrabalho no dia da instalação: quanto de hardware reservar, quais sistemas são suportados e — o que mais gera chamado — quais portas liberar no firewall.</p>
+
+    <h2 id="hardware">Hardware recomendado</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Recomendado</th></tr></thead>
+        <tbody>
+          <tr><td>Processador</td><td>3GHz ou mais rápido</td></tr>
+          <tr><td>Resolução de tela</td><td>1024×768 ou superior</td></tr>
+          <tr><td>RAM — AD360 (núcleo)</td><td>4GB</td></tr>
+          <tr><td>Disco — AD360 (núcleo)</td><td>10GB mínimo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>RAM adicional por componente integrado:</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Componente</th><th>RAM adicional</th><th>Disco recomendado</th></tr></thead>
+        <tbody>
+          <tr><td>ADManager Plus</td><td>6GB (8GB em VM)</td><td>50GB</td></tr>
+          <tr><td>ADAudit Plus</td><td>16GB</td><td>100GB</td></tr>
+          <tr><td>ADSelfService Plus</td><td>16GB</td><td>200GB (SSD)</td></tr>
+          <tr><td>Exchange Reporter Plus</td><td>16GB</td><td>200GB (SSD)</td></tr>
+          <tr><td>M365 Manager Plus</td><td>16GB</td><td>500GB (SSD)</td></tr>
+          <tr><td>RecoveryManager Plus</td><td>16GB</td><td>Varia conforme volume de backup (ver nota abaixo)</td></tr>
+          <tr><td>SharePoint Manager Plus</td><td>8GB (16GB em VM)</td><td>50GB</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn"><span class="mark">REGRA PRÁTICA</span><p>Se for integrar mais de dois componentes, a recomendação oficial é <strong>não colocar mais de dois componentes na mesma máquina</strong> — o consumo de RAM soma rápido.</p></div>
+    <div class="callout note"><span class="mark">RECOVERYMANAGER PLUS</span><p>O espaço em disco varia conforme o número de objetos, tamanho do Domain Controller e período de retenção. Compressão típica de backups de AD: proporção de até 2:1.</p></div>
+
+    <h2 id="software">Plataformas, bancos e navegadores suportados</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>Sistemas operacionais</h3>
+        <p>Windows Server 2008 até 2025, e Windows 7 até 11 (desktop).</p>
+      </div>
+      <div class="card">
+        <h3>Bancos de dados</h3>
+        <p>PostgreSQL (padrão, já incluso) ou Microsoft SQL Server.</p>
+      </div>
+      <div class="card">
+        <h3>Navegadores</h3>
+        <p>Microsoft Edge (qualquer versão), Firefox 4+, Chrome 10+.</p>
+      </div>
+    </div>
+
+    <h2 id="portas-produto">Portas HTTP/HTTPS de cada produto</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Produto</th><th>HTTP</th><th>HTTPS</th></tr></thead>
+        <tbody>
+          <tr><td><strong>AD360</strong></td><td>8082</td><td>8445</td></tr>
+          <tr><td>ADManager Plus</td><td>8080</td><td>8443</td></tr>
+          <tr><td>ADAudit Plus</td><td>8081</td><td>8444</td></tr>
+          <tr><td>ADSelfService Plus</td><td>8888</td><td>9251</td></tr>
+          <tr><td>Exchange Reporter Plus</td><td>8181</td><td>8887</td></tr>
+          <tr><td>M365 Manager Plus</td><td>8365</td><td>9365</td></tr>
+          <tr><td>RecoveryManager Plus</td><td>8090</td><td>8558</td></tr>
+          <tr><td>SharePoint Manager Plus</td><td>8085</td><td>8086</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="portas-comuns">Portas comuns (todos os componentes → controladores de domínio)</h2>
+    <p>Independente de quais componentes você integrar, estas portas precisam de conexão liberada — de entrada e saída — entre o servidor AD360/componentes e os Domain Controllers:</p>
+    <div class="diagram">
+      <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fluxo de portas entre AD360 e os Domain Controllers">
+        <rect x="20" y="130" width="170" height="80" rx="10" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+        <text x="105" y="165" text-anchor="middle" fill="#e7ecf5" font-family="Space Grotesk" font-weight="700" font-size="15">AD360 /</text>
+        <text x="105" y="184" text-anchor="middle" fill="#e7ecf5" font-family="Space Grotesk" font-weight="700" font-size="15">componentes</text>
+
+        <rect x="530" y="130" width="170" height="80" rx="10" fill="#121b2e" stroke="#5cc8ff" stroke-width="2"/>
+        <text x="615" y="165" text-anchor="middle" fill="#e7ecf5" font-family="Space Grotesk" font-weight="700" font-size="15">Domain</text>
+        <text x="615" y="184" text-anchor="middle" fill="#e7ecf5" font-family="Space Grotesk" font-weight="700" font-size="15">Controllers</text>
+
+        <line x1="190" y1="170" x2="530" y2="170" stroke="#223050" stroke-width="1.5"/>
+        <circle r="3" fill="#5cc8ff"><animateMotion dur="2.4s" repeatCount="indefinite" path="M190,170 L530,170"/></circle>
+
+        <g font-family="JetBrains Mono" font-size="11" fill="#9aa8c2">
+          <text x="360" y="70" text-anchor="middle" fill="#f5a623">25</text><text x="360" y="84" text-anchor="middle">SMTP</text>
+          <text x="270" y="105" text-anchor="middle" fill="#f5a623">88</text><text x="270" y="119" text-anchor="middle">Kerberos</text>
+          <text x="450" y="105" text-anchor="middle" fill="#f5a623">135</text><text x="450" y="119" text-anchor="middle">RPC</text>
+          <text x="230" y="240" text-anchor="middle" fill="#f5a623">389 / 636</text><text x="230" y="254" text-anchor="middle">LDAP / LDAPS</text>
+          <text x="380" y="240" text-anchor="middle" fill="#f5a623">445</text><text x="380" y="254" text-anchor="middle">SMB</text>
+          <text x="500" y="240" text-anchor="middle" fill="#f5a623">3268 / 3269</text><text x="500" y="254" text-anchor="middle">Global Catalog</text>
+          <text x="360" y="290" text-anchor="middle" fill="#f5a623">139</text><text x="360" y="304" text-anchor="middle">NetBIOS</text>
+        </g>
+      </svg>
+      <p class="caption">Portas obrigatórias entre o servidor AD360/componentes e os Domain Controllers, em ambas as direções.</p>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Porta</th><th>Protocolo</th><th>Serviço</th></tr></thead>
+        <tbody>
+          <tr><td>25</td><td>SMTP</td><td>Envio de e-mail</td></tr>
+          <tr><td>88</td><td>TCP/UDP</td><td>Kerberos</td></tr>
+          <tr><td>135</td><td>TCP</td><td>RPC</td></tr>
+          <tr><td>139</td><td>TCP</td><td>Sessão NetBIOS</td></tr>
+          <tr><td>389</td><td>TCP/UDP</td><td>LDAP</td></tr>
+          <tr><td>445</td><td>TCP/UDP</td><td>SMB</td></tr>
+          <tr><td>636</td><td>TCP/UDP</td><td>LDAP sobre SSL</td></tr>
+          <tr><td>3268</td><td>TCP</td><td>LDAP via Global Catalog</td></tr>
+          <tr><td>3269</td><td>TCP</td><td>LDAP SSL via Global Catalog</td></tr>
+          <tr><td>49152–65535</td><td>TCP</td><td>RPC — portas altas alocadas dinamicamente</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="portas-especificas">Portas específicas por componente</h2>
+    <p>Além das portas comuns, cada componente precisa de portas adicionais conforme o serviço que consulta:</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Componente</th><th>Portas extras</th><th>Destino</th></tr></thead>
+        <tbody>
+          <tr><td>ADManager Plus</td><td>80, 443</td><td>Microsoft 365 / Google Workspace</td></tr>
+          <tr><td>ADAudit Plus</td><td>137, 138, 139, 445, 465, 587</td><td>Computadores monitorados e servidores SMTP</td></tr>
+          <tr><td>ADSelfService Plus</td><td>42, 53, 67, 137–139, 464, 593, 2535, 5985</td><td>Domain controller, DNS, DHCP</td></tr>
+          <tr><td>Exchange Reporter Plus</td><td>53, 80, 443, 445, 5985/5986</td><td>Domain controller e servidor Exchange</td></tr>
+          <tr><td>M365 Manager Plus</td><td>80, 443, 465, 587</td><td>Microsoft 365 e servidor SMTP</td></tr>
+          <tr><td>RecoveryManager Plus</td><td>80, 443, 137, 138, 464, 5985/5986, 9290, 33310</td><td>Exchange, M365/Google Workspace, Elasticsearch e banco interno</td></tr>
+          <tr><td>SharePoint Manager Plus</td><td>80, 443, 368/639, 445, 5985/5986, 9200, 33315</td><td>Microsoft 365, domain controller, servidor SharePoint</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout tip"><span class="mark">SQL EXTERNO</span><p>Se usar Microsoft SQL Server externo, libere também as portas <span class="mono">1433 (TCP)</span> e <span class="mono">1434 (UDP)</span>.</p></div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no System &amp; Port Requirements oficial do AD360.</p>
+    <p class="mono">AD360 · Requisitos &amp; portas</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

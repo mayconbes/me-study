@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquitetura e integração | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Arquitetura</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#modelo">Modelo hub-and-spoke</a></li>
+      <li><a href="#fluxo">Fluxo de integração</a></li>
+      <li><a href="#sincronizacao">O que é sincronizado</a></li>
+      <li><a href="#alta-disponibilidade">Alta disponibilidade</a></li>
+      <li><a href="#proxy-reverso">Proxy reverso</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Arquitetura</div>
+    <h1>Como o AD360 integra os componentes</h1>
+    <p class="lead" style="max-width:680px;">O AD360 não é um instalador único disfarçado — é uma camada de orquestração. Entender esse modelo é a base para configurar, atualizar e dar suporte a qualquer ambiente AD360.</p>
+
+    <h2 id="modelo">Modelo hub-and-spoke</h2>
+    <p>Cada componente (ADManager Plus, ADAudit Plus, etc.) é um produto independente, com seu próprio processo, sua própria porta e seu próprio banco de dados. O AD360 funciona como o <strong>hub</strong>: ele se conecta a cada um pela rede (host + porta), e a partir daí passa a exibir o dashboard deles dentro do seu próprio console.</p>
+    <div class="callout note">
+      <span class="mark">MODELO</span>
+      <p>Isso significa que os componentes podem estar todos na mesma máquina do AD360, ou distribuídos em servidores diferentes — o que importa é que o AD360 consiga alcançá-los via rede.</p>
+    </div>
+
+    <h2 id="fluxo">Fluxo de integração passo a passo</h2>
+    <p>É basicamente assim que qualquer implantação de AD360 nasce:</p>
+    <div class="steps">
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>Instalar o AD360</h4>
+          <p>Como aplicação ou como serviço do Windows. Se a instalação for <strong>Standard</strong>, os componentes já vêm junto e essa etapa é automática.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>Instalar os componentes desejados</h4>
+          <p>Baixar o instalador de cada componente (pelo próprio dashboard do AD360 ou pelo site) e instalar individualmente.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>Registrar cada componente no AD360</h4>
+          <p>Em <span class="chip">Admin → Administration → AD360 Integration</span>, informar nome/IP do servidor, porta e protocolo de cada componente, e clicar em <strong>Integrate Now</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>Configurar o domínio em qualquer componente</h4>
+          <p>O domínio só precisa ser adicionado <em>uma vez</em>, em qualquer componente — a informação se propaga para os demais.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body">
+          <h4>Acessar tudo pelo painel lateral</h4>
+          <p>A partir daqui, o AD360 mostra os dashboards de cada componente integrado no menu de aplicações à esquerda.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="sincronizacao">O que é sincronizado automaticamente</h2>
+    <p>A sincronização acontece porque os componentes "conversam" entre si — mudanças de hostname/porta de um precisam ser refletidas nos outros para não quebrar o single sign-on. O AD360 automatiza essa propagação para:</p>
+    <div class="grid cols-3">
+      <div class="card"><h3>Configurações de domínio</h3><p>Domínio adicionado ou credenciais alteradas em um componente valem para todos os integrados.</p></div>
+      <div class="card"><h3>Servidor de e-mail</h3><p>SMTP configurado uma vez, usado por todos para alertas e notificações.</p></div>
+      <div class="card"><h3>Proxy</h3><p>Configuração de proxy corporativo compartilhada entre os componentes.</p></div>
+    </div>
+    <div class="callout tip">
+      <span class="mark">DICA</span>
+      <p>Se algo não sincronizar automaticamente, vá em <span class="chip">Admin → Administration → AD360 Integration → Sync Now</span> para forçar a sincronização manual.</p>
+    </div>
+
+    <h2 id="alta-disponibilidade">Alta disponibilidade</h2>
+    <p>Alta disponibilidade (HA) garante que o AD360 continue operando mesmo se o servidor principal falhar — essencial em ambientes de produção onde o console de identidade não pode ficar fora do ar.</p>
+
+    <h2 id="proxy-reverso">Proxy reverso</h2>
+    <p>O AD360 também pode atuar como <strong>proxy reverso</strong> para os produtos integrados, de duas formas:</p>
+    <ul>
+      <li><strong>Baseado em contexto:</strong> cada componente responde em um caminho diferente (ex: <span class="mono">/admanager</span>) sob o mesmo domínio e porta.</li>
+      <li><strong>Baseado em porta:</strong> cada componente responde em uma porta diferente, mas ainda intermediado pelo AD360.</li>
+    </ul>
+    <p>Isso simplifica o acesso externo: em vez de expor sete URLs e portas diferentes, expõe-se apenas o AD360.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Quick Start Guide oficial do AD360.</p>
+    <p class="mono">AD360 · Arquitetura</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

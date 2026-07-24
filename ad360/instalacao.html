@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instalação e operação | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Instalação</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#modos">Modos de instalação</a></li>
+      <li><a href="#app-vs-servico">Aplicação vs. serviço</a></li>
+      <li><a href="#primeiro-acesso">Primeiro acesso</a></li>
+      <li><a href="#ssl">Habilitando SSL</a></li>
+      <li><a href="#backup">Backup automático</a></li>
+      <li><a href="#update">Atualização automática</a></li>
+      <li><a href="#migracao">Migração de banco de dados</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Instalação &amp; operação</div>
+    <h1>Do instalador ao ambiente em produção</h1>
+    <p class="lead" style="max-width:680px;">Este é o caminho prático: como instalar, os três modos disponíveis, e as configurações de produção que todo consultor precisa dominar (SSL, backup, atualização).</p>
+
+    <h2 id="modos">Três modos de instalação</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <span class="tag">RECOMENDADO</span>
+        <h3>Standard</h3>
+        <p>Baixa e instala automaticamente <strong>todos</strong> os 7 componentes junto com o AD360. Ideal para uma implantação completa de IAM.</p>
+      </div>
+      <div class="card">
+        <span class="tag">QUANDO JÁ HÁ COMPONENTES</span>
+        <h3>Minimal</h3>
+        <p>Instala apenas o AD360. Use quando os componentes já estão rodando em outros servidores e você só quer integrá-los depois.</p>
+      </div>
+      <div class="card">
+        <span class="tag">SOB MEDIDA</span>
+        <h3>Custom</h3>
+        <p>Você escolhe exatamente quais componentes instalar junto com o AD360 — nem todos, nem nenhum.</p>
+      </div>
+    </div>
+
+    <h2 id="app-vs-servico">Aplicação vs. serviço do Windows</h2>
+    <p>Por padrão, o AD360 é instalado como <strong>aplicação</strong> (roda com os privilégios do usuário que instalou, e precisa ser iniciado manualmente). Para produção, o recomendado é instalar também como <strong>serviço do Windows</strong>, que:</p>
+    <ul>
+      <li>Roda com os privilégios da conta de sistema (ou de serviço configurada).</li>
+      <li>Pode iniciar automaticamente com o servidor, sem depender de login de usuário.</li>
+    </ul>
+    <div class="callout tip">
+      <span class="mark">COMO FAZER</span>
+      <p>Depois de instalado como aplicação: <span class="chip">Start Menu → AD360 → Install AD360 as Service</span>, ou pelo ícone de notificação do próprio console.</p>
+    </div>
+
+    <h2 id="primeiro-acesso">Primeiro acesso</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Abra o navegador</h4><p>Acesse <span class="mono">http://&lt;hostname&gt;:8082</span>, onde <span class="mono">&lt;hostname&gt;</span> é o nome DNS da máquina onde o AD360 foi instalado.</p></div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Login inicial</h4><p>Usuário e senha padrão: <span class="mono">admin / admin</span>. Troque a senha imediatamente em <span class="chip">Admin → General Settings → Personalize → Change Password</span>.</p></div>
+      </div>
+    </div>
+
+    <h2 id="ssl">Habilitando SSL</h2>
+    <p>Em <span class="chip">Admin → General Settings → SSL Certification Tool</span> existem dois caminhos:</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Já tenho um certificado</h3>
+        <p>Escolha <strong>Apply Certificate</strong>, selecione o componente de destino e envie o arquivo — em ZIP, certificados individuais (PFX/PEM) ou colando o conteúdo do certificado.</p>
+      </div>
+      <div class="card">
+        <h3>Não tenho um certificado</h3>
+        <p>Escolha <strong>Generate Certificate</strong>, preencha os dados da organização e gere um CSR para enviar à sua CA — ou aplique um certificado autoassinado instantaneamente (gera aviso de "não confiável" no navegador).</p>
+      </div>
+    </div>
+    <div class="callout warn"><span class="mark">IMPORTANTE</span><p>Depois de aplicar o certificado, é preciso <strong>reiniciar o AD360 e os componentes</strong> para a mudança ter efeito.</p></div>
+
+    <h2 id="backup">Backup automático</h2>
+    <p>O AD360 pode fazer backup do próprio banco e dos bancos dos componentes integrados, no PostgreSQL embutido ou em PostgreSQL/MS SQL externos.</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Navegue até a configuração</h4><p><span class="chip">Admin → General Settings → Database Settings → Database Backup</span>, escolha o componente e clique no ícone de edição.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Defina a frequência</h4><p>Diária, semanal ou mensal, em um horário específico.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Escolha full vs. incremental</h4><p>Defina quantos backups incrementais entre cada backup completo (0 = apenas backups completos).</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Caminho e retenção</h4><p>Pasta local ou compartilhada, e por quanto tempo manter os arquivos de backup.</p></div></div>
+    </div>
+
+    <h2 id="update">Atualização automática</h2>
+    <p>Em <span class="chip">Admin → Administration → Auto Update</span> é possível habilitar atualização automática por componente, definir a frequência de verificação (diária/semanal/mensal) e configurar notificações de quando há atualização disponível ou quando ela é instalada.</p>
+
+    <h2 id="migracao">Migração de banco de dados</h2>
+    <p>O AD360 nasce com PostgreSQL embutido, mas suporta migrar para:</p>
+    <ul>
+      <li>PostgreSQL externo (outra instância)</li>
+      <li>Microsoft SQL Server</li>
+    </ul>
+    <div class="callout warn"><span class="mark">SEMPRE</span><p>Faça backup do banco antes de qualquer migração. Para migrar para MS SQL, é preciso copiar os arquivos <span class="mono">bcp.exe</span> e <span class="mono">bcp.rll</span> do SQL Server para a pasta <span class="mono">bin</span> do AD360, e instalar o SQL Native Client correspondente à versão do SQL Server.</p></div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Quick Start Guide oficial do AD360.</p>
+    <p class="mono">AD360 · Instalação</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
