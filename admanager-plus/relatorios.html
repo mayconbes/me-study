@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatórios | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Relatórios</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#categorias">As categorias prontas</a></li>
+      <li><a href="#acoes">Agir direto do relatório</a></li>
+      <li><a href="#customizados">Relatórios customizados</a></li>
+      <li><a href="#agendamento">Agendamento</a></li>
+      <li><a href="#compartilhamento">Compartilhando com técnicos</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Reports</div>
+    <h1>Relatórios</h1>
+    <p class="lead" style="max-width:680px;">Mais de 200 relatórios prontos — e quando nenhum deles serve exatamente, um construtor visual sem PowerShell pra criar o seu.</p>
+
+    <h2 id="categorias">As categorias prontas</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>Usuários</h3><p>Inativos, bloqueados, com senha expirando, último logon real, e dezenas de outros recortes.</p></div>
+      <div class="card"><h3>Grupos</h3><p>Membros, grupos vazios, grupos aninhados, mudanças recentes de membership.</p></div>
+      <div class="card"><h3>Computadores</h3><p>Inativos, com problema de comunicação com o domínio, por sistema operacional.</p></div>
+      <div class="card"><h3>GPO</h3><p>Ver <a href="gestao-gpo.html#relatorios" style="color:var(--teal);">Gestão de GPOs → Relatórios</a>.</p></div>
+      <div class="card"><h3>Segurança &amp; NTFS</h3><p>Permissões efetivas em pastas e compartilhamentos — quem tem acesso a quê, de fato.</p></div>
+      <div class="card"><h3>Exchange / M365 / Google Workspace</h3><p>Caixas postais, licenças, grupos de distribuição, uso de OWA.</p></div>
+    </div>
+
+    <h2 id="acoes">Agir direto do relatório</h2>
+    <p>Um relatório no ADManager Plus não é só leitura: ao lado de cada linha (ou selecionando várias), é possível executar as ações de gestão permitidas ao seu papel — desabilitar um usuário inativo, remover um membro de um grupo vazio, excluir um GPO órfão — sem sair da tela do relatório.</p>
+
+    <h2 id="customizados">Construindo um relatório customizado</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Acesse Custom Reports</h4><p><span class="chip">Reports → Custom Reports → New Custom Report</span>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Nomeie e categorize</h4><p>Nome, descrição, e a categoria onde ele vai aparecer (pode criar uma categoria nova).</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Escolha domínio(s) e OUs</h4><p>Um relatório pode cruzar múltiplos domínios de uma vez.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Defina condições/filtro</h4><p>Por tipo de objeto e, se quiser, uma <strong>consulta LDAP</strong> customizada para filtros mais precisos que os campos prontos permitem.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Escolha as colunas</h4><p>Incluindo atributos customizados do AD, se houver.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Habilite ações de gestão (opcional)</h4><p>Defina quais operações ficam disponíveis direto na lista de resultados desse relatório.</p></div></div>
+    </div>
+    <p>Exporta em CSV, CSVDE, PDF, XLS ou HTML.</p>
+
+    <h2 id="agendamento">Agendamento automático</h2>
+    <p>Tanto relatórios prontos quanto customizados podem ser agendados (diário, semanal, mensal ou customizado) e entregues por e-mail — pré-requisito é ter o servidor SMTP configurado em <span class="chip">Admin → General Settings → Server Settings</span>.</p>
+
+    <h2 id="compartilhamento">Compartilhando agendamentos com técnicos</h2>
+    <p>Um agendamento de relatório pode ser compartilhado com outros técnicos de help desk, com três níveis de acesso:</p>
+    <div class="grid cols-3">
+      <div class="card"><h3>View</h3><p>Gerar e copiar o relatório agendado.</p></div>
+      <div class="card"><h3>Edit</h3><p>Além de gerar e copiar, também editar a configuração do agendamento.</p></div>
+      <div class="card"><h3>Full Access</h3><p>Gerar, copiar, editar, compartilhar e excluir.</p></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus (Reports).</p>
+    <p class="mono">ADManager Plus · Relatórios</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

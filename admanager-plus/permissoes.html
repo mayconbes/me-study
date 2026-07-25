@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permissões | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Permissões</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#principio">Princípio geral</a></li>
+      <li><a href="#objetos">Usuários, grupos, computadores, contatos</a></li>
+      <li><a href="#gpo">GPOs</a></li>
+      <li><a href="#relatorios">Relatórios de AD</a></li>
+      <li><a href="#exchange">Exchange</a></li>
+      <li><a href="#m365">Microsoft 365</a></li>
+      <li><a href="#google">Google Workspace</a></li>
+      <li><a href="#integracoes">Integrações de terceiros</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Segurança &amp; acesso</div>
+    <h1>Permissões necessárias</h1>
+    <p class="lead" style="max-width:680px;">O que a conta de serviço do ADManager Plus precisa ter — e como ir além de "usa Domain Admin e resolve" quando o cliente exige menor privilégio.</p>
+
+    <h2 id="principio">Princípio geral</h2>
+    <div class="callout note">
+      <span class="mark">DOIS CAMINHOS</span>
+      <p>Para qualquer operação de gestão, a conta configurada precisa ser <strong>membro de Administrators ou Account Operators</strong>, <strong>ou</strong> ter as permissões granulares equivalentes concedidas diretamente na OU. Relatórios, por outro lado, geralmente só exigem um usuário comum do domínio.</p>
+    </div>
+
+    <h2 id="objetos">Usuários, grupos, computadores e contatos</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Operação</th><th>Permissão mínima</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Criar</strong></td><td>Membro de Administrators/Account Operators, ou Read+Write no objeto/OU alvo.</td></tr>
+          <tr><td><strong>Modificar</strong></td><td>Membro de Administrators/Account Operators, ou Read+Write+Read All Properties (é possível restringir a atributos específicos em vez do objeto inteiro).</td></tr>
+          <tr><td><strong>Excluir</strong></td><td>Membro de Administrators/Account Operators, ou Delete All Child Objects na OU.</td></tr>
+          <tr><td><strong>Restaurar objeto excluído</strong></td><td>Membro de Domain Admins (para modificar as permissões do container de objetos excluídos). Em Windows Server 2000/2003, exige a ferramenta ADAM instalada separadamente.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="gpo">Gestão e relatórios de GPO</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Operação</th><th>Permissão mínima</th></tr></thead>
+        <tbody>
+          <tr><td>Criar GPOs</td><td>Membro de Group Policy Creator Owners</td></tr>
+          <tr><td>Habilitar/desabilitar configurações (usuário ou computador)</td><td>Permissão "Edit setting" delegada na GPO</td></tr>
+          <tr><td>Habilitar/desabilitar/remover links de GPO</td><td>Permissão "Link GPOs" delegada</td></tr>
+          <tr><td>Impor (enforce) links de GPO</td><td>Permissão "Link GPOs" delegada</td></tr>
+          <tr><td>Relatórios de GPO</td><td>Permissão de leitura em objetos de site/domínio/OU (atributos gPLink e gPOptions) — Domain Users já tem isso por padrão</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout tip">
+      <span class="mark">JÁ VEM DE FÁBRICA</span>
+      <p>Domain Admins e Enterprise Admins já têm todos os privilégios acima automaticamente — a tabela importa mais quando o cliente quer delegar essas ações a alguém <em>fora</em> desses grupos.</p>
+    </div>
+
+    <h2 id="relatorios">Relatórios de AD e NTFS</h2>
+    <p>Relatórios gerais de AD exigem apenas permissão de <strong>View</strong> nas OUs/domínios envolvidos. Relatórios de NTFS exigem permissão de <strong>Read</strong> nas pastas analisadas — e a origem (compartilhamento) precisa estar alcançável, via rede, a partir do servidor onde o ADManager Plus está instalado.</p>
+
+    <h2 id="exchange">Exchange</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Operação</th><th>Exchange 2007</th><th>Exchange 2010/2013+</th></tr></thead>
+        <tbody>
+          <tr><td>Criar mailbox (usuário novo ou existente)</td><td>Papel Exchange Recipient Administrator + Account Operator</td><td>Membro de Organization Management</td></tr>
+          <tr><td>Configurar permissões de mailbox</td><td>Exchange View Only Administrator + Administer Information Store + Write na mailbox store</td><td>Membro de Organization Management</td></tr>
+          <tr><td>Relatórios de Exchange</td><td>Exchange View Only Administrator</td><td>Membro de Organization Management</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="m365">Microsoft 365 (via Azure AD)</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Operação</th><th>Papel recomendado</th></tr></thead>
+        <tbody>
+          <tr><td>Gestão geral (usuários, contatos, grupos)</td><td>User Administrator — ou Global Admin, se quiser cobrir tudo de uma vez</td></tr>
+          <tr><td>Reset de senha / bloqueio de administradores</td><td>Privileged Authentication Administrator</td></tr>
+          <tr><td>Gerenciar atribuição de papéis</td><td>Privileged Role Administrator</td></tr>
+          <tr><td>Atualizar propriedades de mailbox</td><td>Exchange Administrator</td></tr>
+          <tr><td>Gerenciar Microsoft Teams</td><td>Teams Administrator</td></tr>
+          <tr><td>Relatórios de todos os serviços Microsoft 365</td><td>Global Reader</td></tr>
+          <tr><td>Logs de auditoria e relatórios de mailbox</td><td>Security Reader</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Se a integração for feita via <strong>aplicativo Azure AD</strong> (app registration) em vez de conta de usuário, os escopos mínimos de Microsoft Graph incluem <span class="mono">User.ReadWrite.All</span> e <span class="mono">Group.ReadWrite.All</span> para gestão, e <span class="mono">User.Read.All</span>, <span class="mono">Reports.Read.All</span>, <span class="mono">AuditLog.Read.All</span> entre outros para relatórios.</p>
+
+    <h2 id="google">Google Workspace</h2>
+    <p>Os escopos de API necessários incluem, no mínimo, <span class="mono">admin.directory.user</span>, <span class="mono">admin.directory.group</span> e <span class="mono">admin.directory.orgunit</span> para gestão, e <span class="mono">admin.directory.user</span> para relatórios.</p>
+
+    <h2 id="integracoes">Permissões para integrações comuns</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Sistema</th><th>Permissão necessária</th></tr></thead>
+        <tbody>
+          <tr><td>ServiceNow</td><td>Papéis ITIL + o papel de administrador específico do app ADManager Plus, para configurar; papel de solicitante para quem só abre chamados</td></tr>
+          <tr><td>Zendesk</td><td>Perfil administrador para configurar o servidor; perfil Staff para executar ações de AD a partir dos tickets</td></tr>
+          <tr><td>Fontes de dados de RH (Workday, UltiPro, BambooHR)</td><td>Conta de serviço com acesso aos campos mapeados no Data Source/LDAP — usada para provisionamento automático a partir do sistema de RH</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Permissions &amp; Privileges Guide oficial (seção ADManager Plus) e no Help Center do produto.</p>
+    <p class="mono">ADManager Plus · Permissões</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

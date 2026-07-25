@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delegação &amp; help desk | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Delegação &amp; help desk</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#porque">Por que delegar assim</a></li>
+      <li><a href="#tipos">Os quatro tipos de delegação</a></li>
+      <li><a href="#papeis">Papéis (roles)</a></li>
+      <li><a href="#tecnicos">Criando técnicos</a></li>
+      <li><a href="#impersonate">Impersonate as Admin</a></li>
+      <li><a href="#seguranca">Segurança do técnico</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Delegation</div>
+    <h1>Delegação e help desk</h1>
+    <p class="lead" style="max-width:680px;">O recurso que resolve o dilema clássico: dar ao help desk poder para resetar senha e desbloquear conta, sem entregar as chaves do domínio inteiro.</p>
+
+    <h2 id="porque">Por que delegar pelo ADManager Plus, e não nativo</h2>
+    <p>Delegar permissões nativamente no AD (via ACLs em OUs) é possível, mas é rígido, difícil de auditar, e praticamente inviável de estender entre domínios diferentes. O ADManager Plus resolve isso com uma camada própria: as permissões são aplicadas <strong>dentro do produto</strong>, sem alterar os privilégios reais do técnico no Active Directory.</p>
+    <div class="callout note">
+      <span class="mark">IMPORTANTE DE ENTENDER</span>
+      <p>Um técnico delegado continua sendo um usuário comum do AD. A "elevação de privilégio" acontece só dentro do ADManager Plus, que executa a ação usando a própria conta de serviço do produto — não a conta do técnico.</p>
+    </div>
+
+    <h2 id="tipos">Os quatro tipos de delegação</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>OU-based</h3><p>Restringe o escopo do técnico a OUs específicas — a base de qualquer delegação segura.</p></div>
+      <div class="card"><h3>Role-based</h3><p>Define quais ações o técnico pode executar (reset de senha, criação de usuário, etc.) através de papéis nomeados.</p></div>
+      <div class="card"><h3>Group-based</h3><p>Delega um papel a um <strong>grupo do AD</strong> inteiro — todo membro do grupo herda a permissão automaticamente, sem cadastro individual.</p></div>
+      <div class="card" id="site-based"><h3>Site-based</h3><p>Define qual controlador de domínio (e em qual ordem de preferência) o técnico usa ao executar ações — essencial em ambientes distribuídos geograficamente.</p></div>
+    </div>
+    <div class="callout tip">
+      <span class="mark">CROSS-DOMAIN, MULTI-ROLE</span>
+      <p>Um mesmo técnico pode ter papéis <strong>diferentes em domínios diferentes</strong> — reset de senha em um domínio, criação de usuários em outro — tudo com uma única conta de help desk.</p>
+    </div>
+
+    <h2 id="papeis">Criando papéis (help desk roles)</h2>
+    <p>O produto já vem com papéis predefinidos, mas o valor real está em criar os seus:</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Acesse Help Desk Roles</h4><p><span class="chip">Delegation → Help Desk Delegation → Help Desk Roles</span>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Crie do zero, ou copie</h4><p><strong>Create New Role</strong> para começar do zero, ou copie um papel existente como ponto de partida e ajuste.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Marque as ações permitidas</h4><p>Por categoria — gestão de usuários, grupos, computadores, GPOs, relatórios, etc.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Restrinja relatórios se necessário</h4><p>É possível esconder categorias inteiras de relatório (ou relatórios específicos dentro delas) de um papel — por exemplo, impedir que um técnico júnior veja relatórios de segurança sensíveis.</p></div></div>
+    </div>
+
+    <h2 id="tecnicos">Criando técnicos de help desk</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Selecione o usuário AD</h4><p>Escolha entre os usuários já existentes no domínio — não é uma conta nova, é um usuário do AD "promovido" a técnico dentro do produto.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Atribua papéis</h4><p>Um ou mais papéis, por domínio.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Restrinja por OU (opcional)</h4><p>Se não restringir, o papel vale para o domínio inteiro.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Atribua templates</h4><p>Quais templates de criação/modificação ficam disponíveis para esse técnico usar.</p></div></div>
+    </div>
+    <p>Um técnico já configurado pode ser <strong>copiado</strong> para criar rapidamente outros com a mesma configuração — útil ao contratar uma nova leva de analistas de help desk.</p>
+
+    <h2 id="impersonate">A opção "Impersonate as Admin"</h2>
+    <div class="callout warn">
+      <span class="mark">USE COM CRITÉRIO</span>
+      <p>Essa opção eleva as permissões do técnico ao nível de administrador — <strong>mas só dentro do ADManager Plus</strong>, sem alterar nada nas permissões reais dele no Active Directory. Ainda assim, é uma exceção ao princípio de menor privilégio que guia toda a lógica de delegação — reserve para casos que realmente exigem.</p>
+    </div>
+
+    <h2 id="seguranca">Segurança operacional do técnico</h2>
+    <ul>
+      <li>Técnicos podem ser <strong>habilitados/desabilitados</strong> individualmente pelo super admin, sem excluir o cadastro.</li>
+      <li>Depois de um número de tentativas de login inválidas (configurável em Logon Settings), o técnico é bloqueado automaticamente — e pode ser desbloqueado em poucos cliques pelo admin.</li>
+    </ul>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus (Help Desk Delegation).</p>
+    <p class="mono">ADManager Plus · Delegação &amp; help desk</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

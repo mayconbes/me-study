@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de implantação no cliente | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Implantação no cliente</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#levantamento">Antes de instalar</a></li>
+      <li><a href="#instalacao">Instalação e primeiro acesso</a></li>
+      <li><a href="#dominio">Configurar domínio</a></li>
+      <li><a href="#sequencia">Sequência recomendada</a></li>
+      <li><a href="#validacao">Checklist de validação</a></li>
+      <li><a href="#handoff">Handoff para operação</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Guia prático para consultores</div>
+    <h1>Implantando o ADManager Plus num cliente</h1>
+    <p class="lead" style="max-width:680px;">Diferente do AD360, aqui não existe "integração de componentes" — é uma instalação única. O trabalho pesado do projeto está em desenhar corretamente delegação, templates e workflow antes de entregar o acesso ao help desk.</p>
+
+    <h2 id="levantamento">Antes de instalar: o que levantar</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Edição a licenciar</h3>
+        <p>Free (até 100 objetos, domínio único), Standard ou Professional — ver <a href="licenciamento.html" style="color:var(--teal);">Licenciamento</a>. Se o cliente precisa de workflow e automação, é Professional.</p>
+      </div>
+      <div class="card">
+        <h3>Add-ons necessários</h3>
+        <p>O cliente precisa de backup/recovery de AD? De avaliação de risco e certificação de acesso (GRC)? Esses são add-ons separados — orçar com antecedência.</p>
+      </div>
+      <div class="card">
+        <h3>Domínios e florestas</h3>
+        <p>Quantos domínios o cliente tem, e existe mais de uma floresta? Define o esforço de descoberta e configuração inicial.</p>
+      </div>
+      <div class="card">
+        <h3>Conta de serviço</h3>
+        <p>Privilégio necessário conforme as operações que o cliente vai usar — ver <a href="permissoes.html" style="color:var(--teal);">Permissões</a>. Nem sempre precisa ser Domain Admin.</p>
+      </div>
+      <div class="card">
+        <h3>Mapa de delegação</h3>
+        <p>Quem no cliente vai ser help desk, o que cada um pode fazer, e em quais OUs — esse desenho deve existir <em>antes</em> de configurar o produto, não ser inventado na hora.</p>
+      </div>
+      <div class="card">
+        <h3>Cloud: M365 / Google Workspace</h3>
+        <p>O cliente vai gerenciar identidades híbridas? Vai precisar do módulo Azure AD instalado na mesma máquina (para Microsoft 365) e/ou credenciais de admin do Google Workspace.</p>
+      </div>
+    </div>
+
+    <h2 id="instalacao">Instalação e primeiro acesso</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Baixe e instale</h4><p>Execute o instalador (.exe) e siga o install shield. Se estiver em Windows Vista ou versões antigas, desabilite o Controle de Conta de Usuário (UAC) antes, senão só o administrador consegue instalar.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Escolha aplicação ou serviço</h4><p>Como aplicação, roda com o privilégio do usuário logado. Como serviço do Windows, roda com a conta de sistema — recomendado para produção, já disponível como opção no próprio instalador.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Inicie e acesse</h4><p>Abra <span class="mono">http://&lt;hostname&gt;:8080</span> no navegador (porta padrão HTTP). Login inicial: <span class="mono">admin/admin</span>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Troque a senha padrão</h4><p>Assim como em qualquer produto ManageEngine, esse é o primeiro passo de segurança antes de qualquer outra coisa.</p></div></div>
+    </div>
+
+    <h2 id="dominio">Configurando o domínio</h2>
+    <p>Na primeira execução, o ADManager Plus já tenta descobrir automaticamente os domínios visíveis a partir do servidor. Para adicionar manualmente (domínio filho, outra floresta, ou domínio não descoberto):</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Abra Domain Settings</h4><p>No canto superior direito do console.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Adicione o domínio</h4><p>Informe o nome do domínio e use <strong>Discover</strong> para localizar os controladores de domínio automaticamente, ou adicione-os manualmente. O primeiro DC da lista é tratado como primário.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Informe as credenciais</h4><p>Uma conta com privilégio administrativo (ou permissões granulares suficientes) sobre o domínio.</p></div></div>
+    </div>
+
+    <h2 id="sequencia">Sequência recomendada de configuração</h2>
+    <p>Depois do domínio configurado, a ordem que evita retrabalho:</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>1. Templates de criação/modificação de usuário</h4><p>Padronize antes de delegar — ver <a href="gestao-usuarios.html" style="color:var(--teal);">Gestão de usuários</a>. Um help desk sem template bom vai criar inconsistência desde o primeiro usuário.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>2. Papéis de help desk</h4><p>Crie os papéis (roles) antes dos técnicos — ver <a href="delegacao-helpdesk.html" style="color:var(--teal);">Delegação &amp; help desk</a>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>3. Técnicos e escopo</h4><p>Cadastre os técnicos, atribua papéis e restrinja por OU/grupo/site conforme o mapa de delegação levantado no kickoff.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>4. Workflow, se necessário</h4><p>Se o cliente exige aprovação antes de executar (ex: exclusão de usuário), configure requester/approver/executor antes de liberar o acesso ao help desk.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>5. Automações e relatórios agendados</h4><p>Rotinas como limpeza de contas inativas ou relatórios semanais só depois que a base (templates, delegação) está estável.</p></div></div>
+    </div>
+
+    <h2 id="validacao">Checklist de validação pós-implantação</h2>
+    <div class="callout tip">
+      <span class="mark">SMOKE TEST</span>
+      <p>
+      ✓ Login funciona com a senha de admin trocada e com pelo menos um técnico de teste<br>
+      ✓ O(s) domínio(s) aparece(m) corretamente, com todos os DCs esperados<br>
+      ✓ Um usuário de teste criado com o template correto aplica todos os atributos esperados<br>
+      ✓ O técnico de teste só enxerga/consegue agir nas OUs delegadas a ele — não no domínio inteiro<br>
+      ✓ Se houver workflow, uma requisição de teste percorre todos os níveis configurados<br>
+      ✓ Um relatório agendado chega por e-mail no destinatário certo
+      </p>
+    </div>
+
+    <h2 id="handoff">Handoff para operação</h2>
+    <ul>
+      <li>Documentar o mapa de delegação implementado (quem, o quê, onde) — não deixar isso só na cabeça de quem implantou.</li>
+      <li>Credenciais de admin entregues por canal seguro, com a senha padrão já trocada.</li>
+      <li>Lista de templates criados e o que cada um padroniza.</li>
+      <li>Se houver automação ativa, documentar o que roda, quando, e o impacto de desativar.</li>
+      <li>Contato de suporte oficial ManageEngine para chamados técnicos.</li>
+    </ul>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus.</p>
+    <p class="mono">ADManager Plus · Implantação no cliente</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

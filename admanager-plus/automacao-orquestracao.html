@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automação &amp; orquestração | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Automação &amp; orquestração</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#automacao">Automação: agendada e por evento</a></li>
+      <li><a href="#politicas">Políticas de automação</a></li>
+      <li><a href="#controlada">Automação controlada (com workflow)</a></li>
+      <li><a href="#orquestracao">Orquestração</a></li>
+      <li><a href="#blocos">Os tipos de bloco</a></li>
+      <li><a href="#exemplo">Exemplo: AD cleanup em etapas</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Automation</div>
+    <h1>Automação e orquestração</h1>
+    <p class="lead" style="max-width:680px;">A promessa central do produto: substituir scripts PowerShell por uma interface visual de arrastar-e-soltar, sem perder o controle sobre o que roda e quando.</p>
+
+    <h2 id="automacao">Automação: agendada e orientada a evento</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Agendada (scheduled)</h3>
+        <p>Roda em horário/intervalo fixo — por hora, dia, semana, mês, ou uma frequência customizada.</p>
+      </div>
+      <div class="card">
+        <h3>Orientada a evento (event-driven)</h3>
+        <p>Dispara automaticamente quando algo específico acontece no AD — por exemplo, sempre que um usuário é excluído.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Acesse Automation</h4><p><span class="chip">Automation → Automation → Create New Automation</span>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Escolha a fonte de dados</h4><p>Um relatório salvo, um template, ou critérios avançados definem <em>sobre quem</em> a automação age.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Defina o "Run at"</h4><p>Frequência de execução (para automações agendadas).</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Ative notificações</h4><p>E-mail/SMS para avisar interessados — com opção de consolidar tudo em um único e-mail em vez de um por tarefa.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Salve ou rode agora</h4><p><strong>Save</strong> mantém no agendamento; <strong>Save &amp; Run</strong> executa imediatamente também.</p></div></div>
+    </div>
+
+    <h2 id="politicas">Políticas de automação (Automation Policy)</h2>
+    <p>Uma <strong>política</strong> é uma sequência de tarefas encadeadas que você define uma vez e reaproveita em múltiplas automações — em vez de montar a mesma sequência do zero toda vez. É possível encadear <strong>tarefas sucessivas</strong> (successive tasks): a tarefa B só roda depois que a tarefa A terminar, com um atraso configurável entre elas.</p>
+
+    <h2 id="controlada">Automação controlada, integrada ao workflow</h2>
+    <div class="callout tip">
+      <span class="mark">O DIFERENCIAL</span>
+      <p>Automação não significa abrir mão do controle: uma automação pode ser configurada para passar por um <a href="workflow.html" style="color:var(--teal);">workflow de aprovação</a> antes de executar — chamada de <strong>automação controlada</strong>. Um técnico pode inclusive antecipar ou cancelar uma tarefa sucessiva antes do prazo, durante a revisão/aprovação.</p>
+    </div>
+
+    <h2 id="orquestracao">Orquestração: indo além do AD</h2>
+    <p>Enquanto a automação foca em tarefas dentro do universo AD/M365/Google Workspace, a <strong>orquestração</strong> monta sequências que também tocam <strong>sistemas externos</strong> — via API REST — usando uma interface visual sem código.</p>
+
+    <h2 id="blocos">Os tipos de bloco de um template de orquestração</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>Ações de AD/Exchange/M365</h3><p>As mesmas operações de gestão do produto (criar, modificar, excluir, desabilitar mailbox, etc.), disponíveis como blocos prontos para arrastar.</p></div>
+      <div class="card"><h3>Webhook</h3><p>Chama uma API REST externa — método HTTP, headers, parâmetros e corpo da mensagem, com suporte a macros para inserir dados dinâmicos do objeto processado.</p></div>
+      <div class="card"><h3>Script customizado</h3><p>Para os casos que nenhum bloco pronto cobre — um script próprio entra como mais um bloco na sequência.</p></div>
+      <div class="card"><h3>Notificação</h3><p>Dispara e-mails automáticos — boas-vindas, despedida, aviso ao gestor — em qualquer ponto da sequência.</p></div>
+      <div class="card"><h3>Lógica (decisão)</h3><p>Blocos "se isto, então aquilo", que decidem o próximo passo com base em propriedades do objeto ou no resultado do bloco anterior.</p></div>
+      <div class="card"><h3>Atraso de tempo</h3><p>Configura o intervalo entre duas ações consecutivas — por exemplo, esperar 30 dias antes do próximo passo.</p></div>
+    </div>
+
+    <h2 id="exemplo">Exemplo prático: AD cleanup em etapas</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Usuário é desabilitado</h4><p>Ação inicial (manual, ou automação anterior).</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Depois de 30 dias</h4><p>Bloco de atraso de tempo aguarda o período definido.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Remove todas as associações de grupo</h4><p>Ação automática de limpeza.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Depois de mais 30 dias</h4><p>Novo bloco de atraso.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Exclui o usuário</h4><p>Etapa final — idealmente configurada como <a href="workflow.html" style="color:var(--teal);">automação controlada</a>, com revisão antes da exclusão de fato.</p></div></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus (Automation e Orchestration).</p>
+    <p class="mono">ADManager Plus · Automação &amp; orquestração</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

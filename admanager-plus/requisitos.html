@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Requisitos &amp; portas | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Requisitos &amp; portas</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#hardware">Hardware</a></li>
+      <li><a href="#software">Software suportado</a></li>
+      <li><a href="#banco">Banco de dados</a></li>
+      <li><a href="#portas">Portas de rede</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Infraestrutura</div>
+    <h1>Requisitos de sistema e portas</h1>
+    <p class="lead" style="max-width:680px;">O dimensionamento aqui depende muito mais do <strong>uso</strong> (quantos relatórios/automações rodam em paralelo) do que só do tamanho do domínio — vale conversar com o cliente sobre a carga esperada, não só contar usuários.</p>
+
+    <h2 id="hardware">Hardware</h2>
+    <div class="callout note">
+      <span class="mark">NÃO EXISTE UM NÚMERO ÚNICO</span>
+      <p>A ManageEngine disponibiliza uma calculadora oficial de dimensionamento, porque RAM e disco variam conforme: o sistema operacional (cliente vs. servidor), o volume de relatórios e automações rodando em paralelo, e se o add-on de <a href="backup-recovery.html" style="color:var(--teal);">Backup and Recovery</a> foi adquirido.</p>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Faixa típica de RAM</h3>
+        <p>Entre 8GB e 16GB costuma ser o ponto de partida razoável para gestão + relatórios em ambientes de porte médio, com banda de rede de 50–100Mbps.</p>
+      </div>
+      <div class="card">
+        <h3>Disco para relatórios</h3>
+        <p>O cálculo considera todas as atividades de geração de relatório — sob demanda, agendadas e via automação — não só o volume de objetos do AD.</p>
+      </div>
+    </div>
+    <div class="callout warn">
+      <span class="mark">BACKUP MUDA A CONTA</span>
+      <p>Se o add-on de Backup and Recovery estiver em uso, o espaço em disco necessário passa a depender também do número de usuários protegidos em AD/Azure AD, do tamanho de caixas/drives no Google Workspace, e do período de retenção — como referência prática, 1TB de dados protegidos pede pelo menos 1TB livre para acomodar backup completo + incrementais.</p>
+    </div>
+
+    <h2 id="software">Software suportado</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>Sistema operacional</h3><p>Windows Server 2012 e versões posteriores.</p></div>
+      <div class="card"><h3>Exchange</h3><p>Exchange Server 2016 e versões posteriores.</p></div>
+      <div class="card"><h3>Skype/Lync</h3><p>LCS 2005, OCS 2007, Lync Server 2010/2013, Skype for Business Server 2015 e posteriores.</p></div>
+    </div>
+    <p>Suporta também Microsoft 365, Google Workspace e armazenamento em rede (NAS) para os cenários de gestão híbrida.</p>
+    <div class="callout tip">
+      <span class="mark">NAVEGADOR &amp; TELA</span>
+      <p>Qualquer navegador moderno, na versão mais recente (por segurança e melhor experiência). Resolução mínima recomendada: 1366×768.</p>
+    </div>
+
+    <h2 id="banco">Banco de dados</h2>
+    <p><strong>PostgreSQL</strong> é o banco padrão, já embutido no instalador. <strong>MS SQL</strong> também é suportado como alternativa.</p>
+    <div class="callout warn">
+      <span class="mark">SE O AMBIENTE USA MYSQL</span>
+      <p>Instalações antigas que ainda rodam sobre MySQL devem ser <strong>migradas para PostgreSQL</strong> — é a recomendação oficial atual, já que o MySQL está sendo descontinuado como opção suportada.</p>
+    </div>
+
+    <h2 id="portas">Portas de rede</h2>
+    <p>A regra geral: liberar conexões de <strong>saída</strong> no servidor do ADManager Plus, e de <strong>entrada</strong> nos servidores de destino (Domain Controllers e demais serviços gerenciados).</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Serviço</th><th>Direção</th><th>Observação</th></tr></thead>
+        <tbody>
+          <tr><td>LDAP / LDAPS</td><td>ADManager Plus → Domain Controller</td><td>Consulta e alteração de objetos do AD</td></tr>
+          <tr><td>RPC</td><td>ADManager Plus → Domain Controller</td><td>Operações complementares de gestão</td></tr>
+          <tr><td>SMB</td><td>ADManager Plus → Domain Controller / servidores de arquivo</td><td>Relatórios de NTFS e compartilhamentos</td></tr>
+          <tr><td>Kerberos</td><td>ADManager Plus → Domain Controller</td><td>Autenticação</td></tr>
+          <tr><td>HTTP (padrão)</td><td>Usuários → ADManager Plus</td><td>Porta 8080 por padrão, alterável na instalação</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout note">
+      <span class="mark">CONFERIR O ATUAL</span>
+      <p>As portas específicas variam por versão e por módulo em uso (Exchange, Microsoft 365, Google Workspace cada um pode exigir portas próprias, como visto no AD360 para os mesmos serviços). Sempre confira a lista mais recente na documentação oficial antes de fechar o desenho de firewall com o time de rede do cliente.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus (System Requirements).</p>
+    <p class="mono">ADManager Plus · Requisitos &amp; portas</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

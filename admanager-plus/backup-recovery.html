@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backup &amp; recovery | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Backup &amp; recovery</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#addon">O que o add-on cobre</a></li>
+      <li><a href="#quando">Quando ele é necessário</a></li>
+      <li><a href="#dimensionamento">Dimensionando o armazenamento</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Add-on · Backup and Recovery</div>
+    <h1>Backup e recuperação de identidades</h1>
+    <p class="lead" style="max-width:680px;">O ADManager Plus não é uma ferramenta de backup por padrão — esse é um add-on separado, com propósito bem definido: recuperar rápido de um erro humano.</p>
+
+    <h2 id="addon">O que o add-on cobre</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>Active Directory</h3><p>Backup e restauração de usuários, grupos e demais objetos on-premises.</p></div>
+      <div class="card"><h3>Azure AD (Entra ID)</h3><p>Mesma proteção para o diretório em nuvem da Microsoft.</p></div>
+      <div class="card"><h3>Google Workspace</h3><p>Backup de usuários e dados associados no Google Workspace.</p></div>
+    </div>
+
+    <h2 id="quando">Quando esse add-on é necessário</h2>
+    <p>Duas situações concretas que aparecem sempre em projetos:</p>
+    <div class="callout warn">
+      <span class="mark">SEM AD RECYCLE BIN HABILITADO</span>
+      <p>Se o ambiente do cliente <strong>não</strong> tem o Recycle Bin nativo do AD habilitado, um usuário excluído por engano não tem volta nenhuma sem um backup próprio — é exatamente esse buraco que o add-on tampa. Ver também <a href="gestao-usuarios.html#restaurar" style="color:var(--teal);">Gestão de usuários → Restaurar usuários excluídos</a>.</p>
+    </div>
+    <div class="callout note">
+      <span class="mark">AMBIENTES HÍBRIDOS/MULTI-NUVEM</span>
+      <p>Times que já gerenciam AD, Azure AD e Google Workspace pelo mesmo console frequentemente preferem manter o backup dessas três identidades no mesmo lugar, em vez de operar uma ferramenta de backup separada só para isso.</p>
+    </div>
+
+    <h2 id="dimensionamento">Dimensionando o armazenamento</h2>
+    <p>O espaço em disco necessário varia conforme o número de usuários e objetos protegidos no AD/Azure AD, o tamanho das caixas de e-mail e drives de usuário no Google Workspace, e o período de retenção definido para os backups.</p>
+    <div class="callout tip">
+      <span class="mark">COMPRESSÃO</span>
+      <p>Os backups são comprimidos — na melhor hipótese, a cerca de um terço do tamanho original. Ainda assim, para dimensionar com folga: se o total de caixas/drives protegidos soma 1TB, reserve pelo menos 1TB livre para acomodar o backup completo mais os incrementais subsequentes.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no material oficial do ADManager Plus sobre o add-on de Backup and Recovery.</p>
+    <p class="mono">ADManager Plus · Backup &amp; recovery</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

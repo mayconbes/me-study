@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestão de usuários | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Gestão de usuários</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#operacoes">As operações básicas</a></li>
+      <li><a href="#templates">Templates de criação e modificação</a></li>
+      <li><a href="#bulk">Gestão em massa (CSV)</a></li>
+      <li><a href="#reativa">Modificação reativa</a></li>
+      <li><a href="#restaurar">Restaurar usuários excluídos</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Management</div>
+    <h1>Gestão de usuários</h1>
+    <p class="lead" style="max-width:680px;">O módulo mais usado no dia a dia — e onde os templates fazem toda a diferença entre um help desk consistente e um AD bagunçado.</p>
+
+    <h2 id="operacoes">As operações básicas</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Criar</h3><p>Um usuário por vez, em massa via CSV, ou usando um template — em AD, e opcionalmente Exchange/Microsoft 365/Google Workspace/Skype for Business simultaneamente.</p></div>
+      <div class="card"><h3>Modificar</h3><p>Atributos individuais, ou em bulk sobre uma lista de usuários selecionados/importados — desde dados organizacionais até licenças de Microsoft 365.</p></div>
+      <div class="card"><h3>Habilitar/desabilitar/desbloquear</h3><p>Ações rápidas direto na lista de usuários ou a partir de um relatório — sem precisar abrir cada objeto individualmente.</p></div>
+      <div class="card"><h3>Excluir e restaurar</h3><p>Exclusão em massa, com a opção de restaurar depois (ver <a href="#restaurar" style="color:var(--teal);">seção abaixo</a>).</p></div>
+    </div>
+
+    <h2 id="templates">Templates de criação e modificação</h2>
+    <p>O recurso que separa uma implantação profissional de uma "gambiarra": em vez de digitar os mesmos valores toda vez que cria um usuário, você define um <strong>template</strong> que já preenche automaticamente os atributos padrão (departamento, formato de e-mail, grupos, licença de Microsoft 365, etc.), conforme a política da organização.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Template de criação</h3>
+        <p>Aplica-se a novos usuários. Mudanças no template não afetam usuários já criados — só os próximos.</p>
+      </div>
+      <div class="card">
+        <h3>Template de modificação</h3>
+        <p>Além de padronizar valores, permite definir <strong>regras</strong>: quando um campo específico muda, outros campos são atualizados automaticamente.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Acesse os templates</h4><p><span class="chip">Management → User Management → User Templates</span> — escolha Creation ou Modification.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Configure os atributos</h4><p>Preencha os valores padrão por aba (Geral, Endereço/Organização, Conta, Exchange, Microsoft 365/Teams, etc.).</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Defina como default (opcional)</h4><p>Um template pode ser marcado como padrão — passa a ser pré-selecionado sempre que alguém cria um usuário.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Aplique via CSV, se quiser</h4><p>É possível apontar qual template usar dentro de um CSV de importação, usando o atributo <span class="mono">templateName</span>.</p></div></div>
+    </div>
+    <div class="callout tip">
+      <span class="mark">MODIFICAÇÃO EM MASSA</span>
+      <p>Vários templates de criação podem ser editados <strong>ao mesmo tempo</strong>, em uma única ação — útil quando uma política organizacional muda (ex: novo formato de e-mail) e afeta vários departamentos de uma vez.</p>
+    </div>
+
+    <h2 id="bulk">Gestão em massa via CSV</h2>
+    <p>Para criar ou modificar dezenas/centenas de usuários de uma vez:</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Prepare o CSV</h4><p>Com os atributos necessários — cada coluna vira um campo do AD.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Importe</h4><p>No assistente de criação/modificação em bulk, selecione o arquivo CSV (ou a lista "Show All Users", ou digite o nome).</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Combine com template</h4><p>Aplique um template por cima da importação para garantir que os campos não presentes no CSV sigam o padrão da organização.</p></div></div>
+    </div>
+    <p>Também é possível restringir a busca a <strong>OUs específicas</strong> ao selecionar quem será modificado, em vez de varrer o domínio inteiro.</p>
+
+    <h2 id="reativa">Modificação reativa de atributos</h2>
+    <p>Um recurso menos óbvio: em vez de alterar objeto por objeto, você define <strong>um valor</strong> para um atributo organizacional (ex: trocar o gerente de um departamento) e aplica a um grupo de usuários de uma só vez — a mudança "reage" sobre a lista selecionada.</p>
+
+    <h2 id="restaurar">Restaurando usuários excluídos</h2>
+    <p>Se o AD Recycle Bin do ambiente estiver habilitado, usuários excluídos podem ser restaurados pelo ADManager Plus. Sem o Recycle Bin nativo, a restauração depende de backups — daí a importância do add-on de <a href="backup-recovery.html" style="color:var(--teal);">Backup &amp; Recovery</a> em ambientes que não têm essa proteção nativa habilitada.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus (User Management).</p>
+    <p class="mono">ADManager Plus · Gestão de usuários</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

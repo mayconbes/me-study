@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossário | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Glossário</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Categorias</div>
+    <ul>
+      <li><a href="#iga">IGA &amp; governança</a></li>
+      <li><a href="#delegacao">Delegação &amp; workflow</a></li>
+      <li><a href="#automacao">Automação</a></li>
+      <li><a href="#gestao">Gestão &amp; relatórios</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Referência rápida</div>
+    <h1>Glossário</h1>
+    <p class="lead" style="max-width:680px;">Os termos que mais aparecem na documentação do ADManager Plus, sem jargão.</p>
+
+    <h2 id="iga">IGA &amp; governança</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>IGA (Identity Governance and Administration)</h3><p>A categoria de solução que gerencia o ciclo de vida completo de identidades — não só criar/excluir usuários, mas governar quem tem acesso a quê, e provar isso em auditoria.</p></div>
+      <div class="card"><h3>Certificação de acesso</h3><p>Processo periódico e documentado de revisão dos acessos concedidos a cada identidade, com aprovação ou revogação por um certificador designado.</p></div>
+      <div class="card"><h3>Entitlement</h3><p>Qualquer direito de acesso que uma identidade possui — membro de grupo, permissão em pasta, licença de serviço.</p></div>
+      <div class="card"><h3>Caminho de ataque (attack path)</h3><p>A sequência de permissões e relacionamentos que um invasor poderia explorar para escalar privilégio até um alvo crítico.</p></div>
+      <div class="card"><h3>Entitlement creep</h3><p>O acúmulo silencioso de permissões que um usuário nunca teve revogadas ao longo do tempo — o problema clássico que a certificação de acesso combate.</p></div>
+    </div>
+
+    <h2 id="delegacao">Delegação &amp; workflow</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Help desk role</h3><p>Um conjunto nomeado de permissões dentro do ADManager Plus, atribuível a um técnico — não é um grupo do AD, é interno ao produto.</p></div>
+      <div class="card"><h3>Impersonate as Admin</h3><p>Opção que eleva o privilégio de um técnico só dentro do ADManager Plus, sem alterar suas permissões reais no Active Directory.</p></div>
+      <div class="card"><h3>Requester / Reviewer / Approver / Executor</h3><p>Os quatro papéis possíveis num workflow de aprovação — quem pede, quem revisa, quem aprova, quem executa.</p></div>
+      <div class="card"><h3>SLA de workflow</h3><p>O prazo definido para cada etapa de aprovação, usado para medir e cobrar tempo de resolução.</p></div>
+    </div>
+
+    <h2 id="automacao">Automação</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Automação controlada</h3><p>Uma automação que passa por um workflow de aprovação antes de executar, em vez de rodar sem supervisão.</p></div>
+      <div class="card"><h3>Orquestração</h3><p>Sequências de ações que vão além do AD/M365, tocando sistemas externos via API — construídas visualmente, sem código.</p></div>
+      <div class="card"><h3>Webhook</h3><p>Uma chamada de API REST configurada como bloco de uma automação/orquestração, para acionar um sistema externo.</p></div>
+      <div class="card"><h3>Automação orientada a evento</h3><p>Uma automação que dispara automaticamente quando algo específico acontece no AD (ex: exclusão de um usuário), em vez de rodar num horário fixo.</p></div>
+    </div>
+
+    <h2 id="gestao">Gestão &amp; relatórios</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Template de criação/modificação</h3><p>Um conjunto de valores e regras pré-definidos, aplicado automaticamente ao criar ou alterar objetos do AD em massa.</p></div>
+      <div class="card"><h3>Modificação reativa</h3><p>Definir um valor uma vez e aplicá-lo sobre uma lista de objetos selecionados, sem editar um por um.</p></div>
+      <div class="card"><h3>Active Directory Explorer</h3><p>O navegador visual da árvore do AD embutido no console do ADManager Plus.</p></div>
+      <div class="card"><h3>DirSync</h3><p>Sincronização de identidade entre o AD local e o Microsoft 365/Azure AD — pode ser habilitada ou não ao criar uma conta de nuvem.</p></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — glossário de apoio à documentação oficial do ADManager Plus.</p>
+    <p class="mono">ADManager Plus · Glossário</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exchange, M365 &amp; Google Workspace | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Exchange, M365 &amp; Google Workspace</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#conceito">Identidade híbrida, um console só</a></li>
+      <li><a href="#exchange">Exchange Server</a></li>
+      <li><a href="#m365">Microsoft 365</a></li>
+      <li><a href="#google">Google Workspace</a></li>
+      <li><a href="#pre-requisito">Pré-requisito técnico</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Gestão híbrida</div>
+    <h1>Exchange, Microsoft 365 &amp; Google Workspace</h1>
+    <p class="lead" style="max-width:680px;">A maioria dos ambientes reais não é "só AD on-premises" — é híbrido. O ADManager Plus trata isso como um cenário nativo, não um apêndice.</p>
+
+    <h2 id="conceito">Identidade híbrida, um console só</h2>
+    <p>O caso de uso central: criar um usuário <strong>uma vez</strong>, e o ADManager Plus provisiona simultaneamente a conta no AD, a caixa postal no Exchange (on-premises ou Online), e a licença no Microsoft 365 — usando o mesmo conjunto de credenciais e o mesmo template, sem alternar entre consoles diferentes.</p>
+
+    <h2 id="exchange">Exchange Server</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Criação de caixas postais</h3><p>Junto com a criação do usuário no AD, ou depois, para usuários já existentes — em massa, via CSV.</p></div>
+      <div class="card"><h3>Gestão em bulk</h3><p>Desabilitar ou excluir mailboxes em massa, com importação de CSV para localizar os usuários-alvo.</p></div>
+      <div class="card"><h3>Políticas de mailbox</h3><p>Limites de tamanho de envio/recebimento, retenção de itens excluídos, e demais políticas do Exchange 2010/2013 e versões seguintes.</p></div>
+      <div class="card"><h3>Litigation hold</h3><p>Habilitar ou desabilitar retenção legal de uma caixa postal — relevante em processos de compliance/jurídico.</p></div>
+    </div>
+
+    <h2 id="m365">Microsoft 365</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Provisionamento com ou sem DirSync</h3><p>Ao criar contas de Microsoft 365, é possível escolher se a conta deve ser criada com DirSync habilitado ou não.</p></div>
+      <div class="card"><h3>Licenças</h3><p>Atribuir licenças e escolher especificamente quais serviços dentro delas ficam habilitados para cada usuário — inclusive em templates, com regras automáticas de atribuição por condição.</p></div>
+      <div class="card"><h3>Grupos</h3><p>Distribuição, segurança com e-mail, e grupos dinâmicos do Microsoft 365 — com atributos completos de ownership, moderação e permissões de "enviar como"/"enviar em nome de".</p></div>
+      <div class="card"><h3>Caixas compartilhadas &amp; conversão</h3><p>Criar shared mailboxes, ou converter uma caixa comum em compartilhada.</p></div>
+    </div>
+    <div class="callout note">
+      <span class="mark">PRÉ-REQUISITO</span>
+      <p>Para gerenciar Microsoft 365, o <strong>módulo do Azure AD (PowerShell)</strong> precisa estar instalado na mesma máquina do ADManager Plus.</p>
+    </div>
+
+    <h2 id="google">Google Workspace</h2>
+    <p>Provisionamento e relatórios de usuários do Google Workspace — criação de contas a partir do mesmo fluxo unificado, útil em organizações que usam Google como plataforma de produtividade em vez de (ou junto com) Microsoft 365.</p>
+
+    <h2 id="pre-requisito">Pré-requisito técnico comum</h2>
+    <p>Tanto para Exchange 2007 (que depende do Exchange Management Console instalado na máquina do ADManager Plus, senão só a mailbox legada é criada) quanto para Microsoft 365 (módulo Azure AD), vale confirmar os pré-requisitos de software <strong>antes</strong> de prometer esses recursos em uma proposta de implantação — ver também <a href="permissoes.html" style="color:var(--teal);">Permissões</a> para os papéis exigidos em cada plataforma.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus.</p>
+    <p class="mono">ADManager Plus · Exchange, M365 &amp; Google Workspace</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

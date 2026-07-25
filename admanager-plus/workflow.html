@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workflow de aprovação | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Workflow</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#conceito">O que o workflow resolve</a></li>
+      <li><a href="#agentes">Os quatro agentes</a></li>
+      <li><a href="#configurar">Configurando um workflow</a></li>
+      <li><a href="#sla">SLAs</a></li>
+      <li><a href="#dashboard">Dashboard de requisições</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Workflow</div>
+    <h1>Workflow de aprovação</h1>
+    <p class="lead" style="max-width:680px;">A camada de controle sobre tarefas delegadas: nada crítico acontece no AD sem que alguém tenha revisado e aprovado antes.</p>
+
+    <h2 id="conceito">O que o workflow resolve</h2>
+    <p>Delegar uma ação para o help desk (ver <a href="delegacao-helpdesk.html" style="color:var(--teal);">Delegação</a>) dá agilidade, mas tira a supervisão do administrador sobre cada execução. O workflow reintroduz esse controle: em vez de o técnico executar direto, ele <strong>solicita</strong>, e a ação só é executada depois de passar pelos níveis de aprovação configurados.</p>
+    <div class="callout note">
+      <span class="mark">EXEMPLO CLÁSSICO</span>
+      <p>Uma limpeza de contas inativas (AD cleanup) não deveria rodar sem supervisão — então o workflow associado a essa automação deveria ter, no mínimo, um revisor e um executor antes de qualquer exclusão acontecer de fato.</p>
+    </div>
+
+    <h2 id="agentes">Os quatro agentes do workflow</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Requester</h3><p>Quem inicia a solicitação de uma ação. É o único papel <strong>obrigatório</strong> em qualquer workflow — sem requester não há o que aprovar.</p></div>
+      <div class="card"><h3>Reviewer</h3><p>Revisa a solicitação, registra parecer, e decide se ela avança para o próximo nível. Opcional — nem todo workflow precisa de revisão.</p></div>
+      <div class="card"><h3>Approver</h3><p>Aprova ou rejeita a solicitação. Só técnicos de help desk podem ser configurados como aprovadores.</p></div>
+      <div class="card"><h3>Executor</h3><p>Executa de fato a ação já aprovada — pode ser qualquer técnico de help desk, não precisa ser o mesmo que aprovou.</p></div>
+    </div>
+    <p>Um workflow pode ter até <strong>quatro níveis</strong>, com múltiplos técnicos designados por nível — se mais de um revisor/aprovador for exigido, todos precisam se manifestar antes da solicitação avançar.</p>
+
+    <h2 id="configurar">Configurando um workflow</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Cadastre os agentes</h4><p><span class="chip">Workflow → Workflow Delegation → Workflow Technicians</span> — defina quem é requester, reviewer, approver e executor (a partir de técnicos de help desk já existentes, ou usuários/grupos/OUs de um domínio).</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Crie o workflow</h4><p><span class="chip">Workflow → Business Workflow</span> — dê um nome e uma descrição, e marque quais agentes participam.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Defina quantidade de aprovadores/revisores</h4><p>Se selecionar mais de um, todos precisam se manifestar (ou o admin assume a revisão caso faltem técnicos suficientes configurados).</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Associe o workflow às ações desejadas</h4><p>Tarefas de gestão, automações ou orquestrações podem ser configuradas para passar pelo workflow antes de executar de fato.</p></div></div>
+    </div>
+
+    <h2 id="sla">SLAs de workflow</h2>
+    <p>Para evitar que uma solicitação fique parada indefinidamente em algum nível, é possível definir um <strong>prazo (SLA)</strong> por etapa — o que ajuda a medir e cobrar tempo de resolução do help desk, além de dar visibilidade de onde os gargalos estão acontecendo.</p>
+
+    <h2 id="dashboard">Dashboard de requisições</h2>
+    <p>Todas as solicitações de workflow ficam disponíveis em um <strong>repositório central</strong>, visível pelos agentes envolvidos em cada uma — dá ao administrador uma visão única de tudo que está pendente, aprovado, rejeitado ou executado, com atualização de status em tempo real para quem está aguardando.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus (Workflow).</p>
+    <p class="mono">ADManager Plus · Workflow</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

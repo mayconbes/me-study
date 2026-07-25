@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrações &amp; app mobile | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Integrações &amp; app mobile</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#itsm">ITSM &amp; help desk</a></li>
+      <li><a href="#siem">SIEM &amp; observabilidade</a></li>
+      <li><a href="#servicenow">Exemplo: ServiceNow</a></li>
+      <li><a href="#mobile">App mobile (Android/iOS)</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Ecossistema</div>
+    <h1>Integrações e app mobile</h1>
+    <p class="lead" style="max-width:680px;">O ADManager Plus raramente vive isolado — na maioria dos ambientes de cliente, ele se conecta à ferramenta de service desk que a equipe já usa no dia a dia.</p>
+
+    <h2 id="itsm">ITSM &amp; help desk de terceiros</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>ServiceNow</h3><p>Gestão de usuários AD direto do console do ServiceNow.</p></div>
+      <div class="card"><h3>Zendesk</h3><p>App na marketplace do Zendesk — criação de conta, reset de senha, habilitar/desabilitar, tudo pelo próprio ticket.</p></div>
+      <div class="card"><h3>ServiceDesk Plus (própria ManageEngine)</h3><p>Integração nativa com o help desk irmão do mesmo fabricante.</p></div>
+      <div class="card"><h3>Jira</h3><p>Vínculo entre tickets e ações de AD para squads que já vivem no Jira.</p></div>
+      <div class="card"><h3>Freshservice</h3><p>Mesmo padrão de integração ITSM, para quem usa Freshservice.</p></div>
+      <div class="card"><h3>ADSelfService Plus / PAM360</h3><p>Integração com outras soluções ManageEngine do mesmo ecossistema de identidade.</p></div>
+    </div>
+
+    <h2 id="siem">SIEM &amp; observabilidade</h2>
+    <p>Para times que já centralizam monitoramento de segurança fora do ADManager Plus, é possível encaminhar eventos para:</p>
+    <div class="grid cols-4">
+      <div class="card"><h3>Syslog</h3><p>Padrão universal de log forwarding.</p></div>
+      <div class="card"><h3>Splunk</h3><p>Um dos SIEMs mais usados em ambientes corporativos.</p></div>
+      <div class="card"><h3>Log360</h3><p>SIEM da própria ManageEngine.</p></div>
+      <div class="card"><h3>Rapid7 / Power BI</h3><p>Segurança e visualização de dados, respectivamente.</p></div>
+    </div>
+
+    <h2 id="servicenow">Exemplo de fluxo: ServiceNow</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Instale o app</h4><p>Baixe o aplicativo ADManager Plus na loja de apps do ServiceNow e instale.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Configure a conexão</h4><p>Informe servidor, porta e credenciais de admin do ADManager Plus dentro do ServiceNow.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Publique no Service Catalog</h4><p>Usuários finais passam a poder abrir solicitações de tarefas de AD (criação de conta, reset de senha) como qualquer outro item de catálogo.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Técnicos executam pelo próprio chamado</h4><p>Sem precisar copiar e colar dados entre os dois sistemas — a ação roda no ADManager Plus, o resultado volta pro ticket.</p></div></div>
+    </div>
+    <div class="callout note">
+      <span class="mark">MID SERVER</span>
+      <p>Se o ADManager Plus estiver hospedado em rede privada (não exposto à internet), a integração com ServiceNow exige informar também a URL do <strong>MID Server</strong> do ServiceNow para viabilizar a comunicação.</p>
+    </div>
+
+    <h2 id="mobile">App mobile — Android e iOS</h2>
+    <p>Para administradores e técnicos que precisam agir fora do horário comercial sem abrir um notebook:</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>O que dá pra fazer</h3>
+        <p>Reset de senha, desbloqueio, habilitar/desabilitar e excluir usuários; gerenciar membership de grupo; visualizar e agir sobre requisições de workflow pendentes; consultar relatórios prontos (bloqueados, desabilitados, senha expirada, inativos).</p>
+      </div>
+      <div class="card">
+        <h3>Como configurar</h3>
+        <p>Instale o app, informe servidor/IP e porta do ADManager Plus (HTTP ou HTTPS), e faça login com as mesmas credenciais do console web.</p>
+      </div>
+    </div>
+    <div class="callout warn">
+      <span class="mark">ACESSO REMOTO</span>
+      <p>Fora da rede local, é preciso registrar um IP público e hostname com o provedor de internet do cliente para o app alcançar o servidor — e, se possível, habilitar HTTPS antes de expor o acesso à internet.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus (Integrações e Mobile).</p>
+    <p class="mono">ADManager Plus · Integrações &amp; app mobile</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

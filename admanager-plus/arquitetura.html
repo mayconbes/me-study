@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquitetura | ADManager Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADManager Plus</a>
+      <span class="badge">IGA · GESTÃO DE AD</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADManager Plus</a><span class="sep">/</span><span>Arquitetura</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#modelo">Como ele fala com o AD</a></li>
+      <li><a href="#descoberta">Descoberta de domínio</a></li>
+      <li><a href="#explorer">Active Directory Explorer</a></li>
+      <li><a href="#multi-dominio">Múltiplos domínios e florestas</a></li>
+      <li><a href="#modulos">Mapa dos módulos</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Arquitetura</div>
+    <h1>Como o ADManager Plus se relaciona com o AD</h1>
+    <p class="lead" style="max-width:680px;">Sem agente instalado nos servidores gerenciados, sem alterar o schema do AD por padrão — o ADManager Plus atua como um cliente privilegiado que fala os protocolos nativos do Windows.</p>
+
+    <h2 id="modelo">Sem agentes, via LDAP/RPC</h2>
+    <p>O ADManager Plus roda em <strong>uma única máquina</strong> (física ou virtual) dentro do domínio, e se comunica com os Domain Controllers usando os mesmos protocolos que qualquer ferramenta administrativa nativa da Microsoft usaria — LDAP para consultas e alterações de objetos, RPC/SMB para operações complementares. Não é necessário instalar nada nos DCs nem nas estações de trabalho dos usuários finais.</p>
+    <div class="callout note">
+      <span class="mark">PRIVILÉGIO NECESSÁRIO</span>
+      <p>Para os <strong>relatórios</strong>, um usuário comum do domínio já é suficiente. Para <strong>operações de gestão</strong> (criar, modificar, excluir), a conta configurada precisa ter privilégio administrativo — ou permissões granulares equivalentes na OU (ver <a href="permissoes.html" style="color:var(--teal);">Permissões</a>).</p>
+    </div>
+
+    <h2 id="descoberta">Descoberta automática de domínio</h2>
+    <p>Na primeira inicialização, o ADManager Plus tenta descobrir automaticamente os domínios e controladores de domínio acessíveis a partir do servidor onde foi instalado. Domínios adicionais — incluindo domínios filhos ou de outra floresta — podem ser adicionados manualmente depois, informando os controladores de domínio (o primeiro da lista é tratado como o DC primário) e as credenciais de um usuário com privilégio suficiente.</p>
+
+    <h2 id="explorer">Active Directory Explorer</h2>
+    <p>Um navegador visual da árvore do AD embutido no próprio console — permite percorrer domínios, OUs e objetos, e visualizar propriedades e permissões de segurança diretamente, sem abrir o ADUC nativo. É a peça que dá a um técnico de help desk uma visão "somente aquilo que ele tem permissão de ver", em vez da árvore completa do domínio.</p>
+
+    <h2 id="multi-dominio">Múltiplos domínios e florestas</h2>
+    <p>Uma única instância do ADManager Plus consegue gerenciar <strong>vários domínios</strong>, inclusive de <strong>florestas diferentes</strong> — o que é comum em ambientes de MSP ou grandes corporações com múltiplas unidades de negócio. Isso é o que sustenta a <a href="delegacao-helpdesk.html#site-based" style="color:var(--teal);">delegação site-based</a>: um mesmo técnico pode atender chamados em domínios distintos sem precisar de acesso nativo a cada um.</p>
+
+    <h2 id="modulos">Mapa dos módulos principais</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>Management</h3><p>Usuários, grupos, computadores, contatos, OUs e GPOs — o núcleo de CRUD sobre objetos do AD.</p></div>
+      <div class="card"><h3>Delegation</h3><p>Técnicos de help desk, papéis customizados e o escopo (domínio/OU/grupo/site) de cada um.</p></div>
+      <div class="card"><h3>Workflow</h3><p>O processo de aprovação em cima das ações delegadas — requester, reviewer, approver, executor.</p></div>
+      <div class="card"><h3>Automation</h3><p>Tarefas agendadas ou orientadas a evento, incluindo orquestração com sistemas externos.</p></div>
+      <div class="card"><h3>Reports</h3><p>Mais de 200 relatórios prontos, plus o construtor de relatórios customizados.</p></div>
+      <div class="card"><h3>Admin</h3><p>Configurações do próprio produto: técnicos administrativos, SSL, banco de dados, integrações — equivalente ao "General Settings" do AD360.</p></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADManager Plus.</p>
+    <p class="mono">ADManager Plus · Arquitetura</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
