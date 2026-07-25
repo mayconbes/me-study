@@ -44,26 +44,32 @@
     <h2 id="levantamento">Antes de instalar: o que levantar</h2>
     <div class="grid cols-2">
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="16,4 29,11 16,18 3,11"/><polyline points="3,17 16,24 29,17"/><polyline points="3,23 16,30 29,23"/></svg></div>
         <h3>Edição a licenciar</h3>
         <p>Free (até 100 objetos, domínio único), Standard ou Professional — ver <a href="licenciamento.html" style="color:var(--teal);">Licenciamento</a>. Se o cliente precisa de workflow e automação, é Professional.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="4" width="14" height="24" rx="2"/><line x1="14" y1="24" x2="18" y2="24"/></svg></div>
         <h3>Add-ons necessários</h3>
         <p>O cliente precisa de backup/recovery de AD? De avaliação de risco e certificação de acesso (GRC)? Esses são add-ons separados — orçar com antecedência.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="6" width="18" height="22"/><line x1="12" y1="11" x2="12" y2="11.3"/><line x1="16" y1="11" x2="16" y2="11.3"/><line x1="20" y1="11" x2="20" y2="11.3"/><line x1="12" y1="16" x2="12" y2="16.3"/><line x1="16" y1="16" x2="16" y2="16.3"/><line x1="20" y1="16" x2="20" y2="16.3"/><rect x="13" y="21" width="6" height="7"/></svg></div>
         <h3>Domínios e florestas</h3>
         <p>Quantos domínios o cliente tem, e existe mais de uma floresta? Define o esforço de descoberta e configuração inicial.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
         <h3>Conta de serviço</h3>
         <p>Privilégio necessário conforme as operações que o cliente vai usar — ver <a href="permissoes.html" style="color:var(--teal);">Permissões</a>. Nem sempre precisa ser Domain Admin.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="11" r="4.5"/><circle cx="23" cy="13" r="4"/><path d="M4,26 C4,20 8,17.5 12,17.5 C16,17.5 18,19 19.5,21"/><path d="M14,26 C14,21.5 18,19 23,19 C27,19 29,21.5 29,26"/></svg></div>
         <h3>Mapa de delegação</h3>
         <p>Quem no cliente vai ser help desk, o que cada um pode fazer, e em quais OUs — esse desenho deve existir <em>antes</em> de configurar o produto, não ser inventado na hora.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="17" r="5"/><circle cx="18" cy="13" r="6.5"/><circle cx="23" cy="18" r="4.5"/><path d="M8,21 h18"/></svg></div>
         <h3>Cloud: M365 / Google Workspace</h3>
         <p>O cliente vai gerenciar identidades híbridas? Vai precisar do módulo Azure AD instalado na mesma máquina (para Microsoft 365) e/ou credenciais de admin do Google Workspace.</p>
       </div>
@@ -87,6 +93,42 @@
 
     <h2 id="sequencia">Sequência recomendada de configuração</h2>
     <p>Depois do domínio configurado, a ordem que evita retrabalho:</p>
+    <div class="diagram">
+      <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sequência: templates, papéis de help desk, técnicos e escopo, workflow, automações e relatórios">
+        <defs>
+          <marker id="seqArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#2dd4bf"/>
+          </marker>
+        </defs>
+        <line x1="118" y1="90" x2="246" y2="90" stroke="#2dd4bf" stroke-width="1.6" marker-end="url(#seqArrow)"/>
+        <line x1="298" y1="90" x2="426" y2="90" stroke="#2dd4bf" stroke-width="1.6" marker-end="url(#seqArrow)"/>
+        <line x1="478" y1="90" x2="606" y2="90" stroke="#2dd4bf" stroke-width="1.6" marker-end="url(#seqArrow)"/>
+        <line x1="658" y1="90" x2="786" y2="90" stroke="#2dd4bf" stroke-width="1.6" marker-end="url(#seqArrow)"/>
+
+        <circle cx="90" cy="90" r="28" fill="#0d1526" stroke="#2dd4bf" stroke-width="2"/>
+        <text x="90" y="96" text-anchor="middle" fill="#2dd4bf" font-family="JetBrains Mono" font-weight="700" font-size="13">1</text>
+        <text x="90" y="136" text-anchor="middle" fill="#e7ecf5" font-family="Inter" font-weight="600" font-size="11">Templates</text>
+
+        <circle cx="270" cy="90" r="28" fill="#0d1526" stroke="#2dd4bf" stroke-width="2"/>
+        <text x="270" y="96" text-anchor="middle" fill="#2dd4bf" font-family="JetBrains Mono" font-weight="700" font-size="13">2</text>
+        <text x="270" y="136" text-anchor="middle" fill="#e7ecf5" font-family="Inter" font-weight="600" font-size="11">Papéis de help desk</text>
+
+        <circle cx="450" cy="90" r="28" fill="#0d1526" stroke="#2dd4bf" stroke-width="2"/>
+        <text x="450" y="96" text-anchor="middle" fill="#2dd4bf" font-family="JetBrains Mono" font-weight="700" font-size="13">3</text>
+        <text x="450" y="136" text-anchor="middle" fill="#e7ecf5" font-family="Inter" font-weight="600" font-size="11">Técnicos e escopo</text>
+
+        <circle cx="630" cy="90" r="28" fill="#0d1526" stroke="#5cc8ff" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="630" y="96" text-anchor="middle" fill="#5cc8ff" font-family="JetBrains Mono" font-weight="700" font-size="13">4</text>
+        <text x="630" y="136" text-anchor="middle" fill="#e7ecf5" font-family="Inter" font-weight="600" font-size="11">Workflow</text>
+        <text x="630" y="150" text-anchor="middle" fill="#6b7994" font-family="JetBrains Mono" font-size="9">se necessário</text>
+
+        <circle cx="810" cy="90" r="28" fill="#0d1526" stroke="#f5a623" stroke-width="2"/>
+        <text x="810" y="96" text-anchor="middle" fill="#f5a623" font-family="JetBrains Mono" font-weight="700" font-size="13">5</text>
+        <text x="810" y="136" text-anchor="middle" fill="#e7ecf5" font-family="Inter" font-weight="600" font-size="11">Automações</text>
+        <text x="810" y="150" text-anchor="middle" fill="#6b7994" font-family="JetBrains Mono" font-size="9">e relatórios</text>
+      </svg>
+      <p class="caption">Cada etapa depende da anterior — pular direto para automação sem papéis e templates definidos é a receita clássica de retrabalho.</p>
+    </div>
     <div class="steps">
       <div class="step"><div class="n"></div><div class="body"><h4>1. Templates de criação/modificação de usuário</h4><p>Padronize antes de delegar — ver <a href="gestao-usuarios.html" style="color:var(--teal);">Gestão de usuários</a>. Um help desk sem template bom vai criar inconsistência desde o primeiro usuário.</p></div></div>
       <div class="step"><div class="n"></div><div class="body"><h4>2. Papéis de help desk</h4><p>Crie os papéis (roles) antes dos técnicos — ver <a href="delegacao-helpdesk.html" style="color:var(--teal);">Delegação &amp; help desk</a>.</p></div></div>

@@ -50,26 +50,32 @@
     <p>Boa parte dos retrabalhos em implantação de AD360 vem de informação que não foi levantada no kickoff. Confirme isso antes de tocar em qualquer instalador:</p>
     <div class="grid cols-2">
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
         <h3>Escopo de componentes</h3>
         <p>Quais dos 7 componentes o cliente efetivamente licenciou/vai usar? Isso define o dimensionamento de hardware e quantos servidores serão necessários (lembrando: no máximo 2 componentes por máquina).</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
         <h3>Conta de serviço</h3>
         <p>Uma conta de domínio já provisionada, com os privilégios mínimos por componente (ver <a href="permissoes.html" style="color:var(--teal);">Permissões</a>) — idealmente Domain Admin para a implantação inicial, revisado depois.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="11"/><ellipse cx="16" cy="16" rx="4.5" ry="11"/><line x1="5" y1="16" x2="27" y2="16"/></svg></div>
         <h3>Topologia de rede</h3>
         <p>Onde ficarão o AD360 e cada componente (mesma VLAN dos DCs? DMZ? acesso via VPN?) — define quais portas da página de <a href="requisitos.html" style="color:var(--teal);">Requisitos &amp; portas</a> precisam ser liberadas antes do dia da instalação.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
         <h3>Certificado SSL</h3>
         <p>O cliente já tem um certificado válido para o hostname que será usado, ou vamos gerar um autoassinado/CSR na implantação?</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="24" height="17" rx="2"/><polyline points="4,9 16,19 28,9"/></svg></div>
         <h3>Servidor de e-mail</h3>
         <p>Host, porta, tipo de autenticação e um destinatário de teste para validar alertas e notificações assim que o console subir.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="16" cy="8" rx="11" ry="4"/><path d="M5,8 v16 c0,2.2 4.9,4 11,4 c6.1,0 11,-1.8 11,-4 V8"/><path d="M5,16 c0,2.2 4.9,4 11,4 c6.1,0 11,-1.8 11,-4"/></svg></div>
         <h3>Banco de dados</h3>
         <p>PostgreSQL embutido é suficiente, ou o cliente exige MS SQL Server (política interna, equipe de DBA própria etc.)? Isso muda o prazo — migração de banco é uma etapa própria.</p>
       </div>
@@ -122,26 +128,32 @@
     <p>Antes de repassar as credenciais para o time do cliente, esses ajustes evitam retorno em campo por causa de segurança básica:</p>
     <div class="grid cols-2">
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="5"/><line x1="14" y1="14" x2="27" y2="27"/><line x1="21" y1="21" x2="25" y2="17"/><line x1="24" y1="24" x2="28" y2="20"/></svg></div>
         <h3>Trocar a senha padrão</h3>
         <p><span class="chip">Admin → General Settings → Personalize → Change Password</span> — o login <span class="mono">admin/admin</span> nunca deve sobreviver ao dia da implantação.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="11" r="4.5"/><circle cx="23" cy="13" r="4"/><path d="M4,26 C4,20 8,17.5 12,17.5 C16,17.5 18,19 19.5,21"/><path d="M14,26 C14,21.5 18,19 23,19 C27,19 29,21.5 29,26"/></svg></div>
         <h3>Configurar técnicos, não usar só o super admin</h3>
         <p>Crie os técnicos do cliente com o papel correto (Admin ou Operator) em <span class="chip">Administration → Manage Technicians</span> — ver detalhes na página <a href="tecnicos.html" style="color:var(--teal);">Técnicos &amp; delegação</a>.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
         <h3>Login Settings — proteções básicas</h3>
         <p>Em <span class="chip">Administration → Logon Settings → General</span>: habilitar CAPTCHA e bloqueio após tentativas inválidas. Em ambientes com política mais rígida, habilitar <strong>2FA</strong> para quem tem papel Admin. Detalhe completo em <a href="seguranca-acesso.html" style="color:var(--teal);">Segurança de acesso</a>.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="15" width="18" height="13" rx="2"/><path d="M11,15 V10 a5,5 0 0 1 10,0 v5"/></svg></div>
         <h3>SSO, se fizer sentido pro cliente</h3>
         <p>Se os usuários já autenticam no domínio Windows, o Single Sign-On (NTLM ou SAML) evita mais uma senha para gerenciar — vale a conversa no kickoff.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="15" width="18" height="13" rx="2"/><path d="M11,15 V10 a5,5 0 0 1 10,0 v5"/></svg></div>
         <h3>Restringir por IP, se acesso é só interno</h3>
         <p><span class="chip">Logon Settings → Allow/restrict IPs</span> — útil quando o AD360 não deveria ser alcançável fora da rede corporativa/VPN.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
         <h3>SSL aplicado, não pendente</h3>
         <p>Gere o CSR ou aplique o certificado do cliente antes de sair do site — ver o passo a passo em <a href="instalacao.html#ssl" style="color:var(--teal);">Instalação → Habilitando SSL</a>.</p>
       </div>

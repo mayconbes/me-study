@@ -42,19 +42,27 @@
 
     <h2 id="geral">Configurações gerais</h2>
     <div class="grid cols-3">
-      <div class="card"><h3>CAPTCHA</h3><p>Habilita um desafio CAPTCHA na tela de login, dificultando ataques automatizados de força bruta.</p></div>
-      <div class="card"><h3>Bloqueio por tentativas inválidas</h3><p>Bloqueia o usuário depois de um número configurável de tentativas de senha incorretas.</p></div>
-      <div class="card"><h3>Ocultar "Esqueci minha senha"</h3><p>Remove o link de recuperação de senha da tela de login — útil quando esse fluxo é gerenciado fora do AD360.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="15" width="18" height="13" rx="2"/><path d="M11,15 V10 a5,5 0 0 1 10,0 v5"/></svg></div>
+        <h3>CAPTCHA</h3><p>Habilita um desafio CAPTCHA na tela de login, dificultando ataques automatizados de força bruta.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="15" width="18" height="13" rx="2"/><path d="M11,15 V10 a5,5 0 0 1 10,0 v5"/></svg></div>
+        <h3>Bloqueio por tentativas inválidas</h3><p>Bloqueia o usuário depois de um número configurável de tentativas de senha incorretas.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="5"/><line x1="14" y1="14" x2="27" y2="27"/><line x1="21" y1="21" x2="25" y2="17"/><line x1="24" y1="24" x2="28" y2="20"/></svg></div>
+        <h3>Ocultar "Esqueci minha senha"</h3><p>Remove o link de recuperação de senha da tela de login — útil quando esse fluxo é gerenciado fora do AD360.</p></div>
     </div>
 
     <h2 id="sso">Single Sign-On (SSO)</h2>
     <p>Permite que usuários já autenticados no domínio Windows entrem no AD360 automaticamente, sem digitar senha de novo. O AD360 suporta dois métodos:</p>
     <div class="grid cols-2">
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
         <h3>NTLM</h3>
         <p>SSO transparente dentro da rede corporativa, aproveitando a sessão Windows já autenticada no domínio — sem depender de um provedor de identidade externo.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
         <h3>SAML</h3>
         <p>Integração com um provedor de identidade (IdP) externo — ADFS, Okta, Azure AD e outros compatíveis com SAML 2.0. Cada IdP tem seu próprio passo a passo de configuração (troca de metadata/certificado entre as duas pontas).</p>
       </div>
@@ -70,12 +78,24 @@
     <h2 id="2fa">Autenticação em dois fatores (2FA)</h2>
     <p>Depois de habilitada em <span class="chip">Logon Settings → Two-factor Authentication</span>, o usuário precisa de um segundo fator além da senha de domínio. Métodos suportados:</p>
     <div class="grid cols-3">
-      <div class="card"><h3>Verificação por e-mail</h3><p>Código de verificação enviado ao e-mail cadastrado do usuário.</p></div>
-      <div class="card"><h3>Verificação por SMS</h3><p>Código enviado por mensagem de texto (depende do SMS configurado em Server Settings).</p></div>
-      <div class="card"><h3>Google Authenticator / Microsoft Authenticator</h3><p>Apps de autenticação baseados em TOTP.</p></div>
-      <div class="card"><h3>RSA SecurID</h3><p>Integração via SDK (arquivo <span class="mono">sdconf.rec</span>) ou REST API com o RSA Authentication Manager.</p></div>
-      <div class="card"><h3>Duo Security / RADIUS</h3><p>Integração com provedores corporativos de MFA já usados pelo cliente.</p></div>
-      <div class="card"><h3>Custom TOTP / códigos de backup</h3><p>Suporte a autenticadores TOTP genéricos e códigos reserva para quando o segundo fator não está disponível.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="24" height="17" rx="2"/><polyline points="4,9 16,19 28,9"/></svg></div>
+        <h3>Verificação por e-mail</h3><p>Código de verificação enviado ao e-mail cadastrado do usuário.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Verificação por SMS</h3><p>Código enviado por mensagem de texto (depende do SMS configurado em Server Settings).</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Google Authenticator / Microsoft Authenticator</h3><p>Apps de autenticação baseados em TOTP.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>RSA SecurID</h3><p>Integração via SDK (arquivo <span class="mono">sdconf.rec</span>) ou REST API com o RSA Authentication Manager.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Duo Security / RADIUS</h3><p>Integração com provedores corporativos de MFA já usados pelo cliente.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M24,10 A10,10 0 1 0 26,18"/><polyline points="24,4 24,10 18,10"/></svg></div>
+        <h3>Custom TOTP / códigos de backup</h3><p>Suporte a autenticadores TOTP genéricos e códigos reserva para quando o segundo fator não está disponível.</p></div>
     </div>
     <div class="callout tip">
       <span class="mark">MÚLTIPLOS MÉTODOS</span>

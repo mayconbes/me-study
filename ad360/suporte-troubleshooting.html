@@ -56,10 +56,12 @@
     <h2 id="ssl-sms">SSL, HTTPS e SMS</h2>
     <div class="grid cols-2">
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
         <h3>Erro ao habilitar HTTPS</h3>
         <p>Ao ativar HTTPS, o AD360 atribui automaticamente uma porta HTTP com base na porta HTTPS escolhida. Se essa porta gerada já estiver em uso por outra aplicação, a ativação falha. <strong>Solução:</strong> volte para HTTP, troque a porta para uma livre, e tente HTTPS de novo.</p>
       </div>
       <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="24" height="17" rx="2"/><polyline points="4,9 16,19 28,9"/></svg></div>
         <h3>SSLHandshakeException em SMS/e-mail</h3>
         <p>Ocorre quando o servidor SMTP ou o gateway de SMS usa um certificado <strong>autoassinado</strong> — o Java (que roda o AD360) não confia nele por padrão. <strong>Solução:</strong> exportar o certificado do servidor (com OpenSSL, por exemplo) e importá-lo manualmente no keystore Java usado pelo AD360.</p>
       </div>
@@ -79,9 +81,15 @@
 
     <h2 id="canais">Canais de suporte oficiais</h2>
     <div class="grid cols-3">
-      <div class="card"><h3>E-mail técnico</h3><p><span class="mono">ad360-support@manageengine.com</span></p></div>
-      <div class="card"><h3>Telefone (toll-free, EUA)</h3><p><span class="mono">+1 844 245 1108</span></p></div>
-      <div class="card"><h3>Comunidade</h3><p>Fórum de usuários AD360 para trocar experiência com outros consultores/administradores.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="24" height="17" rx="2"/><polyline points="4,9 16,19 28,9"/></svg></div>
+        <h3>E-mail técnico</h3><p><span class="mono">ad360-support@manageengine.com</span></p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Telefone (toll-free, EUA)</h3><p><span class="mono">+1 844 245 1108</span></p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Comunidade</h3><p>Fórum de usuários AD360 para trocar experiência com outros consultores/administradores.</p></div>
     </div>
 
     <h2 id="enviar-logs">Como enviar logs para o suporte</h2>
