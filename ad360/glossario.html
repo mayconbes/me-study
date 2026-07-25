@@ -31,6 +31,8 @@
       <li><a href="#ad">Active Directory</a></li>
       <li><a href="#cloud">Microsoft 365 / Cloud</a></li>
       <li><a href="#infra">Infraestrutura</a></li>
+      <li><a href="#acesso">Acesso &amp; autenticação</a></li>
+      <li><a href="#comercial">Comercial &amp; compliance</a></li>
     </ul>
   </aside>
 
@@ -72,6 +74,23 @@
       <div class="card"><h3>Alta disponibilidade (HA)</h3><p>Configuração que garante que o sistema continue disponível mesmo se o servidor principal falhar.</p></div>
       <div class="card"><h3>CSR (Certificate Signing Request)</h3><p>O arquivo que você gera e envia para uma Autoridade Certificadora (CA) para que ela emita um certificado SSL válido.</p></div>
       <div class="card"><h3>Certificado autoassinado</h3><p>Um certificado SSL gerado pelo próprio produto, sem validação de uma CA — funciona, mas gera aviso de "não confiável" no navegador.</p></div>
+      <div class="card"><h3>DMZ (zona desmilitarizada)</h3><p>Uma sub-rede isolada entre a internet e a rede interna, onde ficam servidores expostos (como um proxy reverso) sem dar acesso direto ao restante da infraestrutura.</p></div>
+      <div class="card"><h3>Failover</h3><p>A troca automática para um servidor reserva (standby) quando o servidor principal para de responder.</p></div>
+    </div>
+
+    <h2 id="acesso">Acesso &amp; autenticação</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>IdP (Identity Provider)</h3><p>O serviço externo responsável por autenticar o usuário no lugar do próprio AD360 — ex: Okta, ADFS, Azure AD.</p></div>
+      <div class="card"><h3>SAML</h3><p>Um protocolo padrão para troca de autenticação entre um IdP e uma aplicação (Service Provider) — usado no SSO baseado em provedor externo.</p></div>
+      <div class="card"><h3>NTLM</h3><p>Protocolo de autenticação da Microsoft que permite login automático usando a sessão já aberta no domínio Windows.</p></div>
+      <div class="card"><h3>TOTP (Time-based One-Time Password)</h3><p>Um código numérico temporário, válido por poucos segundos, gerado por apps como Google Authenticator — base da maioria dos 2FA por app.</p></div>
+      <div class="card"><h3>Super administrador</h3><p>A conta com controle total sobre um componente específico (diferente da conta de domínio) — é ela que o AD360 pede ao integrar um componente remoto.</p></div>
+    </div>
+
+    <h2 id="comercial">Comercial &amp; compliance</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Edição (Standard/Professional)</h3><p>O nível de licença que define quais recursos de um componente ficam disponíveis — Professional inclui os recursos mais avançados.</p></div>
+      <div class="card"><h3>Mandato regulatório</h3><p>Uma norma ou lei que exige controles específicos de segurança/privacidade — ex: GDPR, HIPAA, PCI DSS, SOX — e para a qual o AD360 já tem relatórios prontos.</p></div>
     </div>
 
   </main>

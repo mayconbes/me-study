@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurações avançadas | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Configurações avançadas</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#product">Product Settings</a></li>
+      <li><a href="#server">Server Settings</a></li>
+      <li><a href="#database">Database Settings</a></li>
+      <li><a href="#notification">Notification Center</a></li>
+      <li><a href="#api">API Settings</a></li>
+      <li><a href="#siem">Integração com SIEM</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Operação do console</div>
+    <h1>Configurações avançadas do AD360</h1>
+    <p class="lead" style="max-width:680px;">O que fica em <span class="chip">Admin → General Settings</span> — a parte do console que o time de operação/suporte revisita com frequência depois que a implantação termina.</p>
+
+    <h2 id="product">Product Settings</h2>
+    <p>Ajustes de comportamento e segurança do próprio AD360:</p>
+    <div class="grid cols-2">
+      <div class="card"><h3>Score de segurança</h3><p>O AD360 calcula um percentual de "configurações mandatórias de segurança" aplicadas. Enquanto não chegar a 100%, um alerta fica visível no Notification Center — e, em contas licenciadas, também aparece após cada login.</p></div>
+      <div class="card"><h3>Senha dos backups de banco</h3><p>Por padrão, o AD360 protege os backups do banco com uma senha forte gerada automaticamente. Pode ser trocada manualmente (mínimo 8 caracteres) — mas <strong>se você perder essa senha, os backups antigos não podem mais ser restaurados</strong>.</p></div>
+      <div class="card"><h3>Alerta de espaço em disco</h3><p>Escolha o limite (1GB, 2GB ou 5GB) a partir do qual o AD360 avisa que o disco está ficando cheio.</p></div>
+      <div class="card"><h3>Tempo de expiração de sessão</h3><p>Define depois de quanto tempo de inatividade a sessão do usuário expira — importante em auditorias de segurança.</p></div>
+      <div class="card"><h3>Nível de log</h3><p>Controla o quanto o AD360 registra em log — útil de elevar temporariamente ao investigar um problema com o suporte ManageEngine.</p></div>
+      <div class="card"><h3>LDAPS para comunicação com o AD</h3><p>Se o cliente exige LDAP criptografado, é preciso importar o certificado SSL exportado do servidor LDAP para o repositório de certificados confiáveis do Windows antes de habilitar.</p></div>
+      <div class="card"><h3>Console único / SSO entre componentes</h3><p>Quatro chaves independentes: <strong>Single Console</strong> (acessar todos os produtos integrados pelo painel de aplicações), <strong>Single Sign-On</strong> (não pedir login de novo ao trocar de componente), <strong>Single Sign-Out</strong> (sair de tudo ao sair do AD360) e <strong>Single Shutdown</strong> (desligar todos os componentes ao desligar o AD360).</p></div>
+    </div>
+
+    <h2 id="server">Server Settings</h2>
+    <p>Onde ficam os "canais de saída" do AD360 — como ele fala com o mundo fora do domínio:</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>Mail Settings</h3>
+        <p>Servidor SMTP, endereço de remetente e (se necessário) autenticação — usado para todos os alertas e notificações do produto.</p>
+      </div>
+      <div class="card">
+        <h3>SMS Settings</h3>
+        <p>Duas opções: um <strong>modem GSM</strong> físico conectado por porta serial, ou um <strong>gateway HTTP/SMTP customizado</strong> de um provedor de SMS.</p>
+      </div>
+      <div class="card">
+        <h3>Proxy Settings</h3>
+        <p>Se o ambiente do cliente exige proxy corporativo para saída à internet (ex: para verificar atualizações), configure aqui.</p>
+      </div>
+    </div>
+    <div class="callout tip">
+      <span class="mark">LEMBRETE</span>
+      <p>Essas configurações de servidor de e-mail e proxy fazem parte do que <strong>sincroniza automaticamente</strong> entre os componentes integrados — ver <a href="arquitetura.html#sincronizacao" style="color:var(--teal);">Arquitetura → O que é sincronizado</a>.</p>
+    </div>
+
+    <h2 id="database">Database Settings</h2>
+    <p>Aqui vivem três operações distintas — não confunda uma com a outra:</p>
+    <div class="grid cols-3">
+      <div class="card"><h3>Backup periódico</h3><p>Agendamento de backup automático do banco embutido ou externo (detalhado em <a href="instalacao.html#backup" style="color:var(--teal);">Instalação → Backup automático</a>).</p></div>
+      <div class="card"><h3>Restauração</h3><p>Restaurar o AD360 (ou um componente) a partir de um backup previamente gerado.</p></div>
+      <div class="card"><h3>Migração de banco</h3><p>Trocar do PostgreSQL embutido para MS SQL Server ou outra instância de PostgreSQL (detalhado em <a href="instalacao.html#migracao" style="color:var(--teal);">Instalação → Migração de banco</a>).</p></div>
+    </div>
+
+    <h2 id="notification">Notification Center</h2>
+    <p>O sino de notificações no canto superior direito do console. Cada alerta tem um link de ação direto para a tela onde o problema precisa ser corrigido — por exemplo, um alerta de configuração de segurança pendente leva direto para a tela correspondente. Alertas que não fazem sentido para o ambiente podem ser descartados manualmente.</p>
+
+    <h2 id="api">API Settings</h2>
+    <p>Gerencia o acesso via <strong>API REST</strong> do AD360 — útil quando o cliente quer integrar o AD360 com um ITSM (ServiceNow, Zendesk) ou automatizar tarefas via scripts, em vez de usar só a interface web.</p>
+
+    <h2 id="siem">Integração com SIEM</h2>
+    <p>Permite encaminhar eventos e logs do AD360 para uma solução de SIEM (como o Log360, da própria ManageEngine, ou outra ferramenta) — para quem já centraliza monitoramento de segurança fora do AD360.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no AD360 Help Center oficial (General Settings).</p>
+    <p class="mono">AD360 · Configurações avançadas</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

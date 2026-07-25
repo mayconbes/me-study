@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxy reverso | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Proxy reverso</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#porque">Por que usar</a></li>
+      <li><a href="#contexto">Baseado em contexto</a></li>
+      <li><a href="#porta">Baseado em porta</a></li>
+      <li><a href="#dmz">Cenário DMZ</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Acesso externo</div>
+    <h1>AD360 como proxy reverso</h1>
+    <p class="lead" style="max-width:680px;">Em vez de expor sete URLs e portas diferentes para usuários externos, o AD360 pode ficar na frente de tudo — os componentes ficam escondidos atrás dele.</p>
+
+    <h2 id="porque">Por que usar um proxy reverso aqui</h2>
+    <p>Um proxy reverso fica entre o usuário externo e os servidores internos: o cliente nunca fala diretamente com o servidor da aplicação, apenas com o proxy — que repassa a requisição internamente e devolve a resposta. Isso significa:</p>
+    <div class="grid cols-3">
+      <div class="card"><h3>Uma única porta de entrada</h3><p>O firewall só precisa liberar acesso externo ao AD360, não a cada componente individualmente.</p></div>
+      <div class="card"><h3>Servidores internos escondidos</h3><p>O usuário externo nunca sabe o hostname/IP real de onde o ADManager Plus, ADAudit Plus etc. estão rodando.</p></div>
+      <div class="card"><h3>Menos superfície de ataque</h3><p>Máquinas com os componentes instalados podem ficar totalmente na rede interna, sem exposição direta.</p></div>
+    </div>
+    <p>O AD360 suporta dois modelos — <strong>contexto</strong> e <strong>porta</strong> — que podem ser habilitados juntos ou separadamente, conforme o desenho de rede do cliente.</p>
+
+    <h2 id="contexto">Proxy reverso baseado em contexto</h2>
+    <p>Cada componente responde em um <strong>caminho (path)</strong> diferente, sob o mesmo hostname e porta do AD360.</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Acesse a tela</h4><p><span class="chip">Admin → Administration → Reverse Proxy → aba Context Based</span> e marque <strong>Enable Context Based Reverse Proxy</strong>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Escolha protocolo e porta</h4><p>Confirme que a porta escolhida não está em uso por outra aplicação no servidor.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Defina o caminho de cada componente</h4><p>Para o AD360 e cada componente integrado, informe um <strong>context path único</strong> (ex: <span class="mono">/admanager</span>, <span class="mono">/adaudit</span>).</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Anote as Access URLs geradas</h4><p>São essas URLs que os usuários externos vão usar para acessar cada produto.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Salve</h4><p><strong>Save Settings</strong> aplica a configuração.</p></div></div>
+    </div>
+
+    <h2 id="porta">Proxy reverso baseado em porta</h2>
+    <p>Cada componente responde em uma <strong>porta</strong> diferente, mas o hostname continua sendo o mesmo do AD360 para todos.</p>
+    <div class="callout note">
+      <span class="mark">DIFERENÇA-CHAVE</span>
+      <p>Aqui, a <strong>porta é obrigatória</strong> ser única por servidor; o protocolo é opcional. No modelo por contexto, é o <strong>caminho da URL</strong> que precisa ser único — a porta é compartilhada.</p>
+    </div>
+
+    <h2 id="dmz">Cenário típico: AD360 na DMZ</h2>
+    <div class="diagram">
+      <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de proxy reverso com AD360 na DMZ e componentes na rede interna">
+        <text x="60" y="30" fill="#6b7994" font-family="JetBrains Mono" font-size="11">INTERNET</text>
+        <circle cx="60" cy="90" r="24" fill="#121b2e" stroke="#5cc8ff" stroke-width="2"/>
+        <text x="60" y="95" text-anchor="middle" fill="#5cc8ff" font-family="JetBrains Mono" font-size="10">user</text>
+
+        <rect x="230" y="20" width="440" height="220" rx="10" fill="none" stroke="#223050" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <text x="450" y="14" text-anchor="middle" fill="#6b7994" font-family="JetBrains Mono" font-size="10">REDE INTERNA</text>
+
+        <rect x="150" y="65" width="150" height="60" rx="8" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+        <text x="225" y="90" text-anchor="middle" fill="#e7ecf5" font-family="Space Grotesk" font-weight="700" font-size="12">AD360</text>
+        <text x="225" y="106" text-anchor="middle" fill="#2dd4bf" font-family="JetBrains Mono" font-size="9">proxy reverso · DMZ</text>
+
+        <rect x="500" y="30" width="140" height="45" rx="6" fill="#0d1526" stroke="#223050"/>
+        <text x="570" y="57" text-anchor="middle" fill="#9aa8c2" font-family="Inter" font-size="11">ADManager Plus</text>
+        <rect x="500" y="90" width="140" height="45" rx="6" fill="#0d1526" stroke="#223050"/>
+        <text x="570" y="117" text-anchor="middle" fill="#9aa8c2" font-family="Inter" font-size="11">ADAudit Plus</text>
+        <rect x="500" y="150" width="140" height="45" rx="6" fill="#0d1526" stroke="#223050"/>
+        <text x="570" y="177" text-anchor="middle" fill="#9aa8c2" font-family="Inter" font-size="11">ADSelfService Plus</text>
+
+        <line x1="84" y1="90" x2="150" y2="95" stroke="#223050" stroke-width="1.5"/>
+        <line x1="300" y1="80" x2="500" y2="52" stroke="#223050" stroke-width="1.5"/>
+        <line x1="300" y1="95" x2="500" y2="112" stroke="#223050" stroke-width="1.5"/>
+        <line x1="300" y1="110" x2="500" y2="172" stroke="#223050" stroke-width="1.5"/>
+      </svg>
+      <p class="caption">O usuário externo só enxerga o AD360; os componentes ficam na rede interna, alcançáveis apenas pelo proxy.</p>
+    </div>
+    <p>O firewall permite que <strong>apenas o AD360</strong> alcance os componentes internos — máquinas externas nunca se conectam diretamente aos servidores das ferramentas.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no AD360 Help Center oficial (Reverse Proxy).</p>
+    <p class="mono">AD360 · Proxy reverso</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

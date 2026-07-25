@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suporte e troubleshooting | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Suporte &amp; troubleshooting</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#erros-comuns">Erros comuns de integração</a></li>
+      <li><a href="#ssl-sms">SSL, HTTPS e SMS</a></li>
+      <li><a href="#backup-restore">Backup e restauração manual</a></li>
+      <li><a href="#canais">Canais de suporte</a></li>
+      <li><a href="#enviar-logs">Como enviar logs pro suporte</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Operação do dia a dia</div>
+    <h1>Suporte e troubleshooting</h1>
+    <p class="lead" style="max-width:680px;">Os problemas mais recorrentes de quem já opera um AD360 em produção — e onde buscar ajuda quando o problema não é nenhum destes.</p>
+
+    <h2 id="erros-comuns">Erros comuns de integração entre AD360 e componentes</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Sintoma</th><th>Causa provável</th><th>Solução</th></tr></thead>
+        <tbody>
+          <tr><td>Falha de comunicação / sincronização entre AD360 e um componente</td><td>Componente parado, porta bloqueada por firewall, ou protocolo (HTTP/HTTPS) incorreto selecionado na integração</td><td>Confirmar que o componente está rodando, que a porta está liberada no firewall, e que o protocolo escolhido bate com o que o componente está usando</td></tr>
+          <tr><td>Não consigo integrar um segundo servidor do mesmo componente</td><td>Já existe uma instância daquele componente integrada — o AD360 só permite uma por vez</td><td>Em <span class="mono">Admin → Administration → AD360 Integration</span>, remover a instância atual (botão Remove) antes de integrar a nova</td></tr>
+          <tr><td>Peço as credenciais de super admin ao integrar um componente remoto</td><td>Comportamento esperado — não é erro</td><td>Informar as credenciais do super administrador <em>daquele componente</em>, não da conta de domínio</td></tr>
+          <tr><td>Dashboard de um componente não aparece / fica em branco</td><td>Domínio selecionado no momento não é o mesmo configurado naquele componente, ou o login atual não tem permissão nesse domínio</td><td>Conferir o seletor de domínio no topo da tela e trocar para o domínio correto antes de acessar o componente</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="ssl-sms">SSL, HTTPS e SMS</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Erro ao habilitar HTTPS</h3>
+        <p>Ao ativar HTTPS, o AD360 atribui automaticamente uma porta HTTP com base na porta HTTPS escolhida. Se essa porta gerada já estiver em uso por outra aplicação, a ativação falha. <strong>Solução:</strong> volte para HTTP, troque a porta para uma livre, e tente HTTPS de novo.</p>
+      </div>
+      <div class="card">
+        <h3>SSLHandshakeException em SMS/e-mail</h3>
+        <p>Ocorre quando o servidor SMTP ou o gateway de SMS usa um certificado <strong>autoassinado</strong> — o Java (que roda o AD360) não confia nele por padrão. <strong>Solução:</strong> exportar o certificado do servidor (com OpenSSL, por exemplo) e importá-lo manualmente no keystore Java usado pelo AD360.</p>
+      </div>
+    </div>
+
+    <h2 id="backup-restore">Backup e restauração manual do banco</h2>
+    <p>Além do backup automático (ver <a href="instalacao.html#backup" style="color:var(--teal);">Instalação → Backup automático</a>), existe um caminho manual via linha de comando — útil em migrações de servidor:</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Pare o AD360</h4><p>Interrompa o serviço/aplicação antes de manipular o banco.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Rode o script de backup</h4><p>No Prompt de Comando: <span class="mono">&lt;AD360_Home&gt;\bin\backupDB.bat</span> — gera um .zip em <span class="mono">&lt;AD360_Home&gt;\Backup\</span>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Para restaurar em outro servidor</h4><p>Instale a <strong>mesma versão</strong> do AD360 no novo servidor, copie o .zip do backup e o arquivo <span class="mono">specs.xml</span> (da pasta Patch), e rode <span class="mono">restoreDB.bat &lt;nome_do_zip&gt;</span> na pasta <span class="mono">bin</span> do novo servidor.</p></div></div>
+    </div>
+    <div class="callout warn">
+      <span class="mark">NÃO DESMONTE O AMBIENTE ANTIGO AINDA</span>
+      <p>Mantenha a instalação antiga rodando até confirmar que a nova está funcionando corretamente — é a rede de segurança da migração.</p>
+    </div>
+
+    <h2 id="canais">Canais de suporte oficiais</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>E-mail técnico</h3><p><span class="mono">ad360-support@manageengine.com</span></p></div>
+      <div class="card"><h3>Telefone (toll-free, EUA)</h3><p><span class="mono">+1 844 245 1108</span></p></div>
+      <div class="card"><h3>Comunidade</h3><p>Fórum de usuários AD360 para trocar experiência com outros consultores/administradores.</p></div>
+    </div>
+
+    <h2 id="enviar-logs">Como enviar logs para o suporte</h2>
+    <p>Quando o suporte pede os logs do produto para investigar um chamado:</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Localize o arquivo</h4><p>Na pasta de instalação, abra <span class="mono">logs\archive</span> — o arquivo relevante segue o padrão de nome <span class="mono">ssmmHHddMMyyyy.zip</span>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Envie</h4><p>Anexe o .zip por e-mail para <span class="mono">ad360-support@manageengine.com</span>. Se o arquivo for grande demais para e-mail, o suporte disponibiliza um portal de upload próprio — peça o link atualizado ao abrir o chamado.</p></div></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no AD360 Help Center oficial (Troubleshooting, Support e FAQ).</p>
+    <p class="mono">AD360 · Suporte &amp; troubleshooting</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

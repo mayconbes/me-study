@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alta disponibilidade | AD360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">AD360</a>
+      <span class="badge">7 COMPONENTES</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">AD360</a><span class="sep">/</span><span>Alta disponibilidade</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#conceito">Como funciona</a></li>
+      <li><a href="#prereqs">Pré-requisitos</a></li>
+      <li><a href="#config">Configuração</a></li>
+      <li><a href="#desativar">Como desativar</a></li>
+      <li><a href="#force-encryption">MS SQL com Force Encryption</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Continuidade &amp; resiliência</div>
+    <h1>Alta disponibilidade (High Availability)</h1>
+    <p class="lead" style="max-width:680px;">Garante que o AD360 (ou um componente) continue disponível mesmo se o servidor principal cair — essencial quando o console de identidade não pode ficar fora do ar.</p>
+
+    <h2 id="conceito">Como funciona</h2>
+    <p>A HA do AD360 usa um modelo de <strong>failover automático</strong> com dois servidores:</p>
+    <div class="diagram">
+      <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de failover entre servidor primário e standby">
+        <rect x="30" y="40" width="180" height="90" rx="10" fill="#121b2e" stroke="#2dd4bf" stroke-width="2"/>
+        <text x="120" y="78" text-anchor="middle" fill="#e7ecf5" font-family="Space Grotesk" font-weight="700" font-size="14">Servidor</text>
+        <text x="120" y="96" text-anchor="middle" fill="#e7ecf5" font-family="Space Grotesk" font-weight="700" font-size="14">primário</text>
+        <text x="120" y="116" text-anchor="middle" fill="#2dd4bf" font-family="JetBrains Mono" font-size="10">ATIVO</text>
+
+        <rect x="490" y="40" width="180" height="90" rx="10" fill="#121b2e" stroke="#223050" stroke-width="2"/>
+        <text x="580" y="78" text-anchor="middle" fill="#9aa8c2" font-family="Space Grotesk" font-weight="700" font-size="14">Servidor</text>
+        <text x="580" y="96" text-anchor="middle" fill="#9aa8c2" font-family="Space Grotesk" font-weight="700" font-size="14">standby</text>
+        <text x="580" y="116" text-anchor="middle" fill="#6b7994" font-family="JetBrains Mono" font-size="10">PASSIVO</text>
+
+        <rect x="255" y="45" width="190" height="80" rx="10" fill="#0d1526" stroke="#5cc8ff" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="350" y="80" text-anchor="middle" fill="#5cc8ff" font-family="JetBrains Mono" font-size="11">MESMO BANCO</text>
+        <text x="350" y="96" text-anchor="middle" fill="#5cc8ff" font-family="JetBrains Mono" font-size="11">DE DADOS</text>
+
+        <circle cx="350" cy="190" r="34" fill="#0d1526" stroke="#f5a623" stroke-width="2"/>
+        <text x="350" y="185" text-anchor="middle" fill="#f5a623" font-family="Space Grotesk" font-weight="700" font-size="12">IP</text>
+        <text x="350" y="200" text-anchor="middle" fill="#f5a623" font-family="Space Grotesk" font-weight="700" font-size="12">virtual</text>
+
+        <line x1="120" y1="130" x2="330" y2="180" stroke="#223050" stroke-width="1.5"/>
+        <line x1="580" y1="130" x2="370" y2="180" stroke="#223050" stroke-width="1.5"/>
+        <text x="350" y="250" text-anchor="middle" fill="#9aa8c2" font-family="Inter" font-size="12">Usuários acessam sempre pelo IP/hostname virtual —</text>
+        <text x="350" y="268" text-anchor="middle" fill="#9aa8c2" font-family="Inter" font-size="12">o tráfego é roteado para quem estiver ativo no momento.</text>
+      </svg>
+      <p class="caption">Quando o servidor primário fica indisponível, o standby assume — sem o usuário precisar trocar de URL.</p>
+    </div>
+    <p>Os dois servidores compartilham o <strong>mesmo banco de dados</strong>. Em qualquer momento, apenas um está ativo atendendo requisições; o outro fica passivo até uma indisponibilidade prolongada do primário.</p>
+    <div class="callout note">
+      <span class="mark">ESCOPO</span>
+      <p>Além do AD360 em si, a configuração de HA está disponível para <strong>ADManager Plus</strong> e <strong>ADSelfService Plus</strong> (a disponibilidade pode variar por versão — confirme na versão em uso).</p>
+    </div>
+
+    <h2 id="prereqs">Pré-requisitos</h2>
+    <ul>
+      <li>Conexões TCP/IP entre o AD360 e o banco de dados <strong>não podem estar bloqueadas</strong> por firewall em nenhum dos dois servidores.</li>
+      <li>Se o banco for MS SQL Server, versão superior à 2005.</li>
+      <li>Ambas as instâncias do produto devem: estar instaladas e rodando <strong>como serviço</strong>; ter a mesma arquitetura (32 ou 64 bits), versão e número de build; estar conectadas ao mesmo domínio e à mesma rede — inclusive o IP virtual precisa estar na mesma faixa de IP dos dois servidores.</li>
+    </ul>
+
+    <h2 id="config">Configuração passo a passo</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Acesse a tela de HA</h4><p><span class="chip">Admin → Administration → High Availability</span> — selecione o componente (ou o próprio AD360) que vai receber a configuração.</p></div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Servidor primário</h4><p>A URL do servidor que você está acessando agora já vem preenchida automaticamente.</p></div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Servidor secundário (standby)</h4><p>Informe o nome/IP do servidor que vai assumir nas indisponibilidades, e as credenciais de super admin daquela instância.</p></div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>IP virtual</h4><p>Um IP estático <strong>não utilizado</strong> na rede (teste com <span class="mono">ping</span> — se der "tempo esgotado", está livre) que vai rotear para quem estiver ativo. Opcionalmente, defina também um <strong>hostname virtual</strong> (alias do IP, configurado no seu servidor DNS).</p></div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div class="body"><h4>Salvar</h4><p>A partir daqui, todo acesso (inclusive a integração no AD360) deve usar o IP/hostname <strong>virtual</strong> — nunca o IP do servidor primário diretamente.</p></div>
+      </div>
+    </div>
+
+    <h2 id="desativar">Como desativar</h2>
+    <div class="callout warn">
+      <span class="mark">REGRA IMPORTANTE</span>
+      <p>A alta disponibilidade só pode ser <strong>desativada a partir do servidor standby</strong>. Para isso: pare o serviço no servidor primário e inicie-o no standby antes de desabilitar a configuração.</p>
+    </div>
+
+    <h2 id="force-encryption">Se o MS SQL tiver "Force Encryption" habilitado</h2>
+    <p>Quando o SQL Server usado pelo AD360 exige criptografia forçada na conexão, é preciso replicar o certificado entre os servidores:</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Copie o certificado</h4><p>Copie o arquivo <span class="mono">.cer</span> gerado no servidor primário para o servidor secundário.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Importe no Java KeyStore</h4><p>No servidor secundário, abra o Prompt de Comando em <span class="mono">&lt;diretório de instalação&gt;\jre\bin</span> e rode:</p>
+      <p class="mono" style="font-size:.82rem; background:var(--panel-2); padding:10px 14px; border-radius:6px; border:1px solid var(--line-soft);">keytool -import -v -trustcacerts -alias myserver -file caminho\certificado.cer -keystore "..\lib\security\cacerts" -keypass changeit -storepass changeit -noprompt</p>
+      </div></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no AD360 Help Center oficial (High Availability).</p>
+    <p class="mono">AD360 · Alta disponibilidade</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
