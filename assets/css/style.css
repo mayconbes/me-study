@@ -89,7 +89,8 @@ code, .mono{ font-family:var(--mono); }
 .brand .sub{ color:var(--text-mute); font-weight:500; font-size:.82rem; margin-left:6px; }
 .nav{ display:flex; gap:26px; align-items:center; }
 .nav a{ color:var(--text-dim); font-size:.92rem; font-weight:500; transition:color .15s; }
-.nav a:hover, .nav a.active{ color:var(--teal); }
+.nav a:hover, .nav a.active, .nav span.active{ color:var(--teal); }
+.nav span.active{ cursor:default; }
 .nav a.active{ position:relative; }
 .badge{
   font-family:var(--mono); font-size:.68rem; letter-spacing:.04em;

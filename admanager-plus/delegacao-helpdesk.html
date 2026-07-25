@@ -77,6 +77,35 @@
       <div class="step"><div class="n"></div><div class="body"><h4>Restrinja relatórios se necessário</h4><p>É possível esconder categorias inteiras de relatório (ou relatórios específicos dentro delas) de um papel — por exemplo, impedir que um técnico júnior veja relatórios de segurança sensíveis.</p></div></div>
     </div>
 
+    <div class="diagram">
+      <div style="border:1px solid var(--line-soft); border-radius:8px; overflow:hidden; background:var(--panel);">
+        <div style="display:flex; align-items:center; gap:6px; padding:9px 14px; border-bottom:1px solid var(--line-soft); background:var(--panel-2);">
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--line);"></div>
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--line);"></div>
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--line);"></div>
+          <div style="flex:1; margin-left:8px; font-family:var(--mono); font-size:11px; color:var(--text-mute);">hostname:8080/helpDeskRoles</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:16px;">
+            <div style="font-family:var(--display); font-weight:600; font-size:15px; color:var(--text);">Novo papel: Suporte N1</div>
+            <div style="font-family:var(--mono); font-size:10px; color:var(--text-mute);">copiado de "Help Desk padrão"</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 24px; max-width:520px;">
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid var(--line-soft);"><div style="width:14px;height:14px;border:1px solid var(--teal); background:rgba(45,212,191,.15); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-dim);">Reset de senha</span></div>
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid var(--line-soft);"><div style="width:14px;height:14px;border:1px solid var(--teal); background:rgba(45,212,191,.15); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-dim);">Desbloquear conta</span></div>
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid var(--line-soft);"><div style="width:14px;height:14px;border:1px solid var(--line); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-mute);">Criar usuário</span></div>
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid var(--line-soft);"><div style="width:14px;height:14px;border:1px solid var(--line); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-mute);">Excluir usuário</span></div>
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid var(--line-soft);"><div style="width:14px;height:14px;border:1px solid var(--teal); background:rgba(45,212,191,.15); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-dim);">Gerenciar membros de grupo</span></div>
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid var(--line-soft);"><div style="width:14px;height:14px;border:1px solid var(--line); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-mute);">Gestão de GPO</span></div>
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 0;"><div style="width:14px;height:14px;border:1px solid var(--teal); background:rgba(45,212,191,.15); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-dim);">Relatórios gerais</span></div>
+            <div style="display:flex; align-items:center; gap:8px; padding:6px 0;"><div style="width:14px;height:14px;border:1px solid var(--line); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-mute);">Relatórios de segurança</span></div>
+          </div>
+          <div style="margin-top:18px; display:inline-block; background:var(--teal); color:#04211d; font-weight:600; font-size:12px; padding:9px 20px; border-radius:6px;">Save role</div>
+        </div>
+      </div>
+      <p class="caption">Esquema simplificado — cada categoria de ação vira uma linha marcável; o que não for marcado fica invisível/inacessível para quem tiver esse papel.</p>
+    </div>
+
     <h2 id="tecnicos">Criando técnicos de help desk</h2>
     <div class="steps">
       <div class="step"><div class="n"></div><div class="body"><h4>Selecione o usuário AD</h4><p>Escolha entre os usuários já existentes no domínio — não é uma conta nova, é um usuário do AD "promovido" a técnico dentro do produto.</p></div></div>
