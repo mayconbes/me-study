@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UBA &amp; detecção de ameaças | ADAudit Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADAudit Plus</a>
+      <span class="badge">UBA · AUDITORIA</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADAudit Plus</a><span class="sep">/</span><span>UBA &amp; detecção de ameaças</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#uba">Como o UBA aprende</a></li>
+      <li><a href="#asa">Attack Surface Analyzer</a></li>
+      <li><a href="#ransomware">Resposta a ransomware</a></li>
+      <li><a href="#usb">Monitoramento de USB</a></li>
+      <li><a href="#cenario">Cenário real</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Segurança comportamental</div>
+    <h1>UBA e detecção de ameaças</h1>
+    <p class="lead" style="max-width:680px;">A diferença entre uma ferramenta de auditoria e uma de segurança de verdade: não é só registrar o que aconteceu, é reconhecer quando algo foge do padrão.</p>
+
+    <h2 id="uba">Como o UBA (User Behavior Analytics) aprende</h2>
+    <p>Um modelo de machine learning constrói uma <strong>linha de base comportamental</strong> por usuário, a partir de padrões como horário típico de logon, máquinas frequentemente acessadas, atividade de autenticação, e o volume/horário de ações administrativas. Depois de aprendido o padrão, qualquer desvio significativo é sinalizado — sem precisar configurar um threshold manual pra cada tipo de anomalia.</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Unusual Logon Activity Time</h3><p>Logon fora do horário típico daquele usuário.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>First Time Host Accessed</h3><p>Logon numa máquina que o usuário nunca acessou antes.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Volume/horário administrativo atípico</h3><p>Uma conta administrativa executando um volume de ações fora do padrão dela.</p></div>
+    </div>
+
+    <h2 id="asa">Attack Surface Analyzer: 25+ ataques nomeados</h2>
+    <p>Diferente do UBA (que aprende o que é "normal"), o Attack Surface Analyzer usa <strong>detecção baseada em regra</strong> para reconhecer assinaturas de técnicas de ataque conhecidas — sem precisar de configuração manual:</p>
+    <div class="grid cols-4">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Kerberoasting</h3><p>Extração de hash de senha de conta de serviço via ticket Kerberos.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>DCSync</h3><p>Simulação de replicação de DC para extrair hashes de senha.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4,12 a3,3 0 0 0 0,8 V26 H28 V20 a3,3 0 0 1 0,-8 V6 H4 Z"/><line x1="16" y1="6" x2="16" y2="26" stroke-dasharray="2 3"/></svg></div>
+        <h3>Golden Ticket</h3><p>Forjar um ticket Kerberos com acesso irrestrito ao domínio.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>DCShadow</h3><p>Registrar um DC falso para injetar mudanças maliciosas.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Pass-the-hash</h3><p>Autenticação reutilizando o hash de senha, sem precisar da senha em texto puro.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4,12 a3,3 0 0 0 0,8 V26 H28 V20 a3,3 0 0 1 0,-8 V6 H4 Z"/><line x1="16" y1="6" x2="16" y2="26" stroke-dasharray="2 3"/></svg></div>
+        <h3>Pass-the-ticket</h3><p>Reutilização de um ticket Kerberos roubado.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="5"/><line x1="14" y1="14" x2="27" y2="27"/><line x1="21" y1="21" x2="25" y2="17"/><line x1="24" y1="24" x2="28" y2="20"/></svg></div>
+        <h3>Brute-force / password spray</h3><p>Tentativas maciças de senha — contra uma conta, ou uma senha comum contra muitas contas.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16,4 L27,8 V16 C27,23 22,27 16,29 C10,27 5,23 5,16 V8 Z"/></svg></div>
+        <h3>Misconfigurações de GPO</h3><p>Configurações de política que abrem brecha de segurança, mesmo sem um ataque ativo.</p></div>
+    </div>
+
+    <h2 id="ransomware">Resposta automática a ransomware</h2>
+    <p>Quando um processo suspeito de iniciar um ataque de ransomware é identificado, o ADAudit Plus pode <strong>isolar a máquina infectada da rede automaticamente</strong>, contendo a propagação antes de precisar de intervenção humana.</p>
+
+    <h2 id="usb">Monitoramento de dispositivos USB</h2>
+    <p>Detecta dispositivos USB conectados a Domain Controllers, servidores ou estações, e alerta quando arquivos são copiados para eles — um dos vetores mais comuns de exfiltração de dados por insider.</p>
+
+    <h2 id="cenario">Cenário real: montando a trilha de um insider</h2>
+    <div class="callout note">
+      <span class="mark">EXEMPLO</span>
+      <p>Um administrador mal-intencionado reseta a senha de um usuário crítico e usa essa credencial para acessar e exfiltrar dados confidenciais. No dia seguinte, o usuário legítimo é bloqueado porque a credencial dele mudou sem ele saber, e pede uma nova senha. Com o ADAudit Plus, dá pra reconstruir essa trilha investigando: o reset de senha feito pelo administrador, atividade incomum de RDP a partir da conta do usuário crítico, e os detalhes do evento de lockout — os três eventos, isolados, pareceriam rotina; correlacionados, contam a história completa.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADAudit Plus (Insider Threat Detection, Attack Surface Analyzer).</p>
+    <p class="mono">ADAudit Plus · UBA &amp; detecção de ameaças</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

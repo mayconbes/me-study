@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoria de arquivos | ADAudit Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADAudit Plus</a>
+      <span class="badge">UBA · AUDITORIA</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADAudit Plus</a><span class="sep">/</span><span>Auditoria de arquivos</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#cobertura">O que é auditado</a></li>
+      <li><a href="#nas">Dispositivos NAS suportados</a></li>
+      <li><a href="#integridade">Monitoramento de integridade</a></li>
+      <li><a href="#tempo-real">Tempo real exige agente</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">File server &amp; NAS</div>
+    <h1>Auditoria de arquivos</h1>
+    <p class="lead" style="max-width:680px;">Os file servers guardam a propriedade intelectual mais sensível da empresa — e são, na prática, o tipo de dado que mais aparece em investigação de vazamento.</p>
+
+    <h2 id="cobertura">O que é auditado</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="15" width="18" height="13" rx="2"/><path d="M11,15 V10 a5,5 0 0 1 10,0 v5"/></svg></div>
+        <h3>Acesso a arquivo/pasta</h3><p>Quem abriu, leu ou copiou um arquivo, e quando.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Mudança de permissão</h3><p>Alterações em NTFS e compartilhamentos — quem ganhou ou perdeu acesso a quê.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Criação/exclusão</h3><p>Novos arquivos e pastas, e exclusões — inclusive quando um arquivo é movido para fora do escopo monitorado.</p></div>
+    </div>
+
+    <h2 id="nas">Dispositivos NAS suportados</h2>
+    <p>Além de file servers Windows, a cobertura se estende a uma lista ampla de storage de terceiros: <strong>NetApp</strong> (Filer e Cluster Data ONTAP), <strong>EMC</strong> (Celerra, VNX, VNXe, Unity, Isilon), <strong>Synology</strong>, <strong>Hitachi NAS</strong>, <strong>Huawei OceanStor</strong>, <strong>QNAP</strong>, <strong>Amazon FSx</strong> (Windows e NetApp ONTAP), <strong>Azure Files</strong>, <strong>Nutanix Files</strong>, <strong>Dell</strong> (PowerScale, PowerStore, Unity XT), <strong>CTERA</strong> e <strong>Qumulo</strong>.</p>
+    <div class="callout tip">
+      <span class="mark">POR QUE ISSO IMPORTA NUMA PROPOSTA</span>
+      <p>Muita gente assume que "auditoria de AD" só cobre Windows — se o cliente tem storage de terceiros (comum em ambientes de mídia, engenharia, saúde), vale confirmar explicitamente que o modelo específico está na lista suportada antes de fechar escopo.</p>
+    </div>
+
+    <h2 id="integridade">Monitoramento de integridade de arquivo (FIM)</h2>
+    <p>Rastreia mudanças no conteúdo e nos atributos de arquivos críticos — relevante tanto para segurança (detectar alteração não autorizada) quanto para compliance (provar que dados regulados não foram adulterados).</p>
+
+    <h2 id="tempo-real">Tempo real exige agente</h2>
+    <p>Assim como em Windows Server, a auditoria de file server <strong>funciona sem agente</strong> — mas só fica em <strong>tempo real</strong> com o agente cliente instalado na máquina. Ver <a href="arquitetura.html#agente" style="color:var(--teal);">Arquitetura → Quando instalar o agente</a>.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADAudit Plus (System Requirements, File Auditing).</p>
+    <p class="mono">ADAudit Plus · Auditoria de arquivos</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

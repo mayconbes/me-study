@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de implantação no cliente | ADAudit Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADAudit Plus</a>
+      <span class="badge">UBA · AUDITORIA</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADAudit Plus</a><span class="sep">/</span><span>Implantação no cliente</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#levantamento">Antes de instalar</a></li>
+      <li><a href="#instalacao">Instalação e primeiro acesso</a></li>
+      <li><a href="#sequencia">Sequência recomendada</a></li>
+      <li><a href="#validacao">Checklist de validação</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Guia prático para consultores</div>
+    <h1>Implantando o ADAudit Plus num cliente</h1>
+    <p class="lead" style="max-width:680px;">Diferente de uma ferramenta de gestão, aqui o valor entregue depende de a auditoria estar <strong>configurada corretamente desde o primeiro dia</strong> — um evento que não foi coletado não existe pra sempre.</p>
+
+    <h2 id="levantamento">Antes de instalar: o que levantar</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Tamanho e distribuição do ambiente</h3>
+        <p>Quantos DCs, servidores, estações e NAS? Ambiente distribuído por WAN com 1000+ estações já indica que vai precisar de agente.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Conta de serviço</h3>
+        <p>O cliente aceita Domain Admin pra acelerar a implantação, ou exige o setup de menor privilégio? Isso muda o cronograma — ver <a href="permissoes.html" style="color:var(--teal);">Permissões</a>.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="16" y1="4" x2="16" y2="26"/><line x1="7" y1="9" x2="25" y2="9"/><path d="M7,9 L3,18 a5,4 0 0 0 8,0 Z"/><path d="M25,9 L21,18 a5,4 0 0 0 8,0 Z"/><line x1="10" y1="28" x2="22" y2="28"/></svg></div>
+        <h3>Retenção e requisitos de compliance</h3>
+        <p>Qual mandato o cliente precisa atender (SOX, HIPAA, PCI DSS...)? Isso define o período de retenção de dados a configurar.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="16,4 29,11 16,18 3,11"/><polyline points="3,17 16,24 29,17"/><polyline points="3,23 16,30 29,23"/></svg></div>
+        <h3>Edição a licenciar</h3>
+        <p>Standard ou Professional — ver <a href="licenciamento.html" style="color:var(--teal);">Licenciamento</a>. Lembrando: o modelo é por servidor, não por usuário.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M11,4 v8 M21,4 v8 M8,12 h16 v6 a8,8 0 0 1 -16,0 Z M16,26 v4"/></svg></div>
+        <h3>Integrações de resposta</h3>
+        <p>O cliente já usa algum ITSM (ServiceNow, Jira, ServiceDesk Plus) para onde os alertas devem abrir chamado automaticamente?</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>File servers e NAS a proteger</h3>
+        <p>Quais compartilhamentos são realmente sensíveis? Auditar tudo sem critério gera ruído — auditar pouco demais deixa buraco.</p>
+      </div>
+    </div>
+
+    <h2 id="instalacao">Instalação e primeiro acesso</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Instale como serviço</h4><p>Recomendado para produção — inicia com o sistema, roda com a conta de serviço configurada.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Configure o domínio</h4><p>Informe a conta de serviço — Domain Admin para começar rápido, ou a conta de menor privilégio já preparada conforme <a href="permissoes.html" style="color:var(--teal);">Permissões</a>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Confirme os pré-requisitos do agente (se aplicável)</h4><p>.NET Framework 4.5+ e 2GB de disco livre nas máquinas onde o agente será instalado.</p></div></div>
+    </div>
+
+    <h2 id="sequencia">Sequência recomendada de configuração</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>1. Políticas de auditoria</h4><p>Deixe o ADAudit Plus configurar automaticamente a política de auditoria e o object-level auditing via GPO — é isso que a conta de serviço com os privilégios certos habilita.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>2. Agentes, se necessário</h4><p>Instale nos file servers/Windows servers que precisam de coleta em tempo real, e nas estações de redes distribuídas.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>3. Perfis de alerta essenciais</h4><p>Comece pelos alertas de maior sinal: lockout, conta desabilitada logando, membro adicionado a grupo privilegiado, log de auditoria limpo.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>4. Relatórios de compliance agendados</h4><p>Se o cliente tem mandato regulatório, agende a entrega periódica desde o início — não deixe pra configurar sob pressão de auditoria.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>5. UBA e Attack Surface Analyzer</h4><p>Habilite por último — o motor de UBA precisa de um período de baseline antes de ficar útil, então quanto antes ligar, antes ele fica preciso.</p></div></div>
+    </div>
+
+    <h2 id="validacao">Checklist de validação pós-implantação</h2>
+    <div class="callout tip">
+      <span class="mark">SMOKE TEST</span>
+      <p>
+      ✓ Eventos de pelo menos um DC aparecem em tempo real no console<br>
+      ✓ Se houver agente, o status dele aparece "conectado" no Admin<br>
+      ✓ Um alerta de teste (ex: lockout proposital) chega por e-mail<br>
+      ✓ Um relatório de compliance agendado é gerado e entregue corretamente<br>
+      ✓ A retenção de dados está configurada conforme o requisito do cliente<br>
+      ✓ A conta de serviço não tem mais privilégio do que o necessário (se foi esse o acordo)
+      </p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADAudit Plus.</p>
+    <p class="mono">ADAudit Plus · Implantação no cliente</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

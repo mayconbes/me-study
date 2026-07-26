@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquitetura | ADAudit Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADAudit Plus</a>
+      <span class="badge">UBA · AUDITORIA</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADAudit Plus</a><span class="sep">/</span><span>Arquitetura</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#agentless">Coleta sem agente</a></li>
+      <li><a href="#agente">Quando instalar o agente</a></li>
+      <li><a href="#nat">Deployment via NAT</a></li>
+      <li><a href="#fontes">Fontes de dados suportadas</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Arquitetura</div>
+    <h1>Como o ADAudit Plus coleta os dados</h1>
+    <p class="lead" style="max-width:680px;">A decisão mais importante de uma implantação: onde instalar agente, e onde não precisa.</p>
+
+    <h2 id="agentless">Coleta sem agente (agentless)</h2>
+    <p>Para <strong>Domain Controllers</strong>, a coleta de log acontece em tempo real <strong>sem precisar instalar nada</strong> neles — o ADAudit Plus lê os event logs remotamente. Isso é o padrão, e não deixar de instalar um agente em nenhum lugar <strong>não impede</strong> o produto de funcionar — só limita a granularidade em tempo real de alguns tipos de dado.</p>
+
+    <h2 id="agente">Quando instalar o agente cliente</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Redes distribuídas via WAN</h3>
+        <p>Em ambientes espalhados geograficamente com links WAN, o agente reduz consumo de banda e estabiliza a coleta — recomendado a partir de ~1000 estações de trabalho.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="22" height="9" rx="1.5"/><rect x="5" y="18" width="22" height="9" rx="1.5"/><line x1="9" y1="9.5" x2="13" y2="9.5"/><line x1="9" y1="22.5" x2="13" y2="22.5"/></svg></div>
+        <h3>Tempo real em file server e Windows Server</h3>
+        <p>Sem o agente, a coleta desses dois tipos de servidor ainda funciona, mas <strong>não em tempo real</strong>. O agente é o que habilita a granularidade imediata para eles.</p>
+      </div>
+    </div>
+    <div class="callout note">
+      <span class="mark">COMO INSTALAR</span>
+      <p>Manualmente, ou em massa via <strong>ManageEngine Endpoint Central</strong> (pacote MSI + arquivo MST para customização). O agente se conecta ao servidor por padrão na porta <span class="mono">8555</span>, via HTTPS — e não exige reiniciar a máquina após a instalação.</p>
+    </div>
+
+    <h2 id="nat">Deployment via NAT (acesso pela internet)</h2>
+    <p>Para expor o ADAudit Plus de forma segura pela internet — cenário comum quando há agentes fora da rede corporativa —, um dispositivo NAT (Network Address Translation) atua como intermediário entre o agente cliente e o servidor central, sem expor o servidor diretamente.</p>
+
+    <h2 id="fontes">Fontes de dados suportadas</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Identidade híbrida</h3><p>Active Directory (2008+), Entra ID (Azure AD), AWS Managed Microsoft AD, AD FS, AD Certificate Services.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="22" height="9" rx="1.5"/><rect x="5" y="18" width="22" height="9" rx="1.5"/><line x1="9" y1="9.5" x2="13" y2="9.5"/><line x1="9" y1="22.5" x2="13" y2="22.5"/></svg></div>
+        <h3>Servidores &amp; estações</h3><p>Windows Server 2008+, estações Windows XP+, e estações macOS Catalina 10.15+.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Armazenamento</h3><p>File servers Windows, e uma lista extensa de NAS: NetApp, EMC, Synology, Hitachi, Huawei, QNAP, Amazon FSx, Azure Files, Dell, Nutanix, entre outros.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="17" r="5"/><circle cx="18" cy="13" r="6.5"/><circle cx="23" cy="18" r="4.5"/><path d="M8,21 h18"/></svg></div>
+        <h3>Segurança em nuvem</h3><p>Attack Surface Analyzer para Azure, AWS e Google Cloud Platform — detecção de exposição, não só de mudanças.</p></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADAudit Plus (Agent Guide, System Requirements).</p>
+    <p class="mono">ADAudit Plus · Arquitetura</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

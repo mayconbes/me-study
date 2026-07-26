@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Requisitos &amp; portas | ADAudit Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADAudit Plus</a>
+      <span class="badge">UBA · AUDITORIA</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADAudit Plus</a><span class="sep">/</span><span>Requisitos &amp; portas</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#hardware">Hardware</a></li>
+      <li><a href="#software">Sistema operacional &amp; navegadores</a></li>
+      <li><a href="#banco">Banco de dados</a></li>
+      <li><a href="#portas">Portas</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Infraestrutura</div>
+    <h1>Requisitos de sistema e portas</h1>
+    <p class="lead" style="max-width:680px;">Dimensionar isso errado é a causa mais comum de um ADAudit Plus "lento" — o volume de eventos ingeridos é o que realmente pesa, não o tamanho do domínio.</p>
+
+    <h2 id="hardware">Hardware</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Mínimo</th><th>Recomendado</th><th>Com Backup &amp; Recovery (100k usuários)</th></tr></thead>
+        <tbody>
+          <tr><td>Processador</td><td>2.4 GHz</td><td>3 GHz</td><td>3 GHz</td></tr>
+          <tr><td>Núcleos</td><td>4</td><td>8</td><td>8</td></tr>
+          <tr><td>RAM</td><td>8 GB</td><td>16 GB</td><td>16 GB</td></tr>
+          <tr><td>Disco</td><td>50 GB</td><td>100 GB</td><td>200 GB</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout note">
+      <span class="mark">MELHOR PERFORMANCE</span>
+      <p>Para ambientes grandes, a recomendação é 16 núcleos e 32GB de RAM. O espaço de disco do banco depende do volume de eventos ingeridos e da configuração de arquivamento — a forma correta de estimar é rodar o produto por um mês e consultar o gráfico de utilização em <span class="chip">Admin → Disk space analysis</span>.</p>
+    </div>
+
+    <h2 id="software">Sistema operacional &amp; navegadores</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Sistema operacional</h3><p>Windows Server 2012 até 2025, e Windows 10/11 no lado desktop (versões mais antigas seguem suportadas, mas já descontinuadas pela própria Microsoft).</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Navegadores</h3><p>Mozilla Firefox 3.6+, Google Chrome, Microsoft Edge. Resolução recomendada: 1024×768 ou superior.</p></div>
+    </div>
+
+    <h2 id="banco">Banco de dados</h2>
+    <p><strong>PostgreSQL</strong> é o padrão, já embutido no instalador. <strong>MS SQL Server</strong> (2012 a 2025) também é suportado — inclusive com caminho de migração de PostgreSQL para MS SQL documentado oficialmente.</p>
+
+    <h2 id="portas">Portas</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Serviço</th><th>Porta padrão</th><th>Observação</th></tr></thead>
+        <tbody>
+          <tr><td>Console web (HTTP/HTTPS)</td><td>Configurável na instalação</td><td>Consultada em <span class="mono">Admin → General Settings → Connection</span></td></tr>
+          <tr><td>Agente → servidor</td><td>8555 (HTTPS)</td><td>Comunicação do agente cliente com o servidor central</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout tip">
+      <span class="mark">GUIA DE PORTAS COMPLETO</span>
+      <p>O produto tem um guia de portas dedicado (Product and System Ports) cobrindo os requisitos completos por cenário — DC, file server, NAS, agente — sempre vale conferir a versão mais recente antes de fechar o desenho de firewall com o time de rede do cliente.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADAudit Plus (System Requirements, Ports Guide).</p>
+    <p class="mono">ADAudit Plus · Requisitos &amp; portas</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

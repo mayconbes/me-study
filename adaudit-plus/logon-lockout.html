@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logon &amp; account lockout | ADAudit Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADAudit Plus</a>
+      <span class="badge">UBA · AUDITORIA</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADAudit Plus</a><span class="sep">/</span><span>Logon &amp; account lockout</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#logon">Rastreamento de logon/logoff</a></li>
+      <li><a href="#lockout">Account Lockout Analyzer</a></li>
+      <li><a href="#uba-lockout">Detecção de padrão anômalo</a></li>
+      <li><a href="#rds">Sessões remotas (RDS)</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Logon &amp; autenticação</div>
+    <h1>Logon, logoff e account lockout</h1>
+    <p class="lead" style="max-width:680px;">O chamado mais clássico de help desk — "minha conta bloqueou de novo" — vira um problema resolvido em minutos, não em escalada pro time de infra.</p>
+
+    <h2 id="logon">Rastreamento de logon e logoff</h2>
+    <p>Visibilidade completa de quem logou, de onde e quando, em <strong>Domain Controllers, servidores membro e estações</strong> — separado por tipo de máquina e também agregado. Cada evento vem com a máquina de origem, o IP e qual DC registrou o logon.</p>
+
+    <h2 id="lockout">Account Lockout Analyzer</h2>
+    <p>Em vez de correlacionar log de DC em DC manualmente, o Account Lockout Analyzer identifica automaticamente:</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>A origem exata</h3><p>Qual máquina, IP e componente do Windows submeteu a credencial errada — tarefa agendada com senha antiga, drive mapeado, dispositivo móvel, conta de serviço.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="16,4 29,11 16,18 3,11"/><polyline points="3,17 16,24 29,17"/><polyline points="3,23 16,30 29,23"/></svg></div>
+        <h3>O alerta imediato</h3><p>O perfil de alerta padrão dispara assim que o lockout acontece, com nome da conta e máquina de origem — e pode abrir chamado automaticamente no ITSM do cliente.</p></div>
+    </div>
+    <p>Toda mudança na política de lockout (limite de tentativas, duração, intervalo de reset) também é registrada, com valor antigo e novo e a identidade de quem alterou.</p>
+
+    <h2 id="uba-lockout">Quando um lockout vira sinal de ataque</h2>
+    <div class="callout warn">
+      <span class="mark">LOCKOUT ISOLADO VS. ONDA DE LOCKOUT</span>
+      <p>Um lockout isolado é rotina. Um <strong>pico</strong> de lockouts em várias contas ao mesmo tempo, ou um cluster às 3 da manhã, não é. O motor de UBA aprende o volume normal de lockout do domínio e sinaliza desvios — dois relatórios cobrem isso: <strong>Unusual Volume of Lockout</strong> (volume acima da baseline, típico de força bruta ou password spray) e <strong>Unusual Lockout Activity Time</strong> (fora do horário normal do domínio).</p>
+    </div>
+
+    <h2 id="rds">Sessões remotas (RDS)</h2>
+    <p>Conexões e desconexões de Remote Desktop Services — incluindo sessões via RD Gateway — são capturadas com horário de início, IP de origem e identidade do usuário, relevante pra rastrear acesso remoto administrativo.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADAudit Plus (Logon Auditing, Account Lockout Analyzer).</p>
+    <p class="mono">ADAudit Plus · Logon &amp; account lockout</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

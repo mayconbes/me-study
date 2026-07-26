@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoria de AD | ADAudit Plus | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">ADAudit Plus</a>
+      <span class="badge">UBA · AUDITORIA</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">ADAudit Plus</a><span class="sep">/</span><span>Auditoria de AD</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#cobertura">O que é coberto</a></li>
+      <li><a href="#privilegiados">Contas privilegiadas</a></li>
+      <li><a href="#gpo">Mudanças de GPO</a></li>
+      <li><a href="#dns">Mudanças de DNS</a></li>
+      <li><a href="#hibrido">Correlação híbrida com Entra ID</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Change auditing</div>
+    <h1>Auditoria de Active Directory</h1>
+    <p class="lead" style="max-width:680px;">O núcleo do produto: mais de 300 relatórios prontos, organizados por tipo de objeto, cada um mostrando quem, o quê, quando e de onde.</p>
+
+    <h2 id="cobertura">O que é coberto</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="4" width="14" height="24" rx="2"/><line x1="14" y1="24" x2="18" y2="24"/></svg></div>
+        <h3>Usuários</h3><p>Criação, exclusão, habilitação/desabilitação, renomeação e movimentação — com a identidade de quem fez e de qual máquina.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="11" r="4.5"/><circle cx="23" cy="13" r="4"/><path d="M4,26 C4,20 8,17.5 12,17.5 C16,17.5 18,19 19.5,21"/><path d="M14,26 C14,21.5 18,19 23,19 C27,19 29,21.5 29,26"/></svg></div>
+        <h3>Grupos</h3><p>Mudanças de membership, criação/exclusão de grupos, alteração de tipo/escopo.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="7" width="24" height="15" rx="2"/><line x1="12" y1="27" x2="20" y2="27"/><line x1="16" y1="22" x2="16" y2="27"/></svg></div>
+        <h3>Computadores &amp; OUs</h3><p>Mesmo padrão de criação/modificação/exclusão/movimentação.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16,4 L27,8 V16 C27,23 22,27 16,29 C10,27 5,23 5,16 V8 Z"/></svg></div>
+        <h3>GPOs</h3><p>Ver <a href="#gpo" style="color:var(--teal);">seção abaixo</a>.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>DNS</h3><p>Ver <a href="#dns" style="color:var(--teal);">seção abaixo</a>.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Schema &amp; configuração</h3><p>Mudanças de schema (irreversíveis, afetam toda classe de objeto do domínio) e configurações gerais do AD.</p></div>
+    </div>
+    <div class="callout tip">
+      <span class="mark">O DIFERENCIAL: ANTES E DEPOIS</span>
+      <p>Cada relatório de mudança mostra o <strong>valor antigo e o novo</strong> do atributo alterado — não só "o atributo X foi modificado". É essa informação que substitui a correlação manual de log e os scripts PowerShell de auditoria.</p>
+    </div>
+
+    <h2 id="privilegiados">Rastreando contas privilegiadas</h2>
+    <p>Domain Admins, Enterprise Admins e Schema Admins têm acesso irrestrito ao ambiente — o que torna suas ações uma das áreas mais críticas de auditar. O ADAudit Plus mantém uma trilha centralizada de <strong>tudo</strong> que uma conta privilegiada faz: gestão de usuários, mudanças de grupo, alterações de GPO, atribuições de permissão, mudanças de schema — inclusive recuperações de senha via LAPS, com o contexto completo de o quê foi acessado e de qual máquina.</p>
+
+    <h2 id="gpo">Mudanças de GPO</h2>
+    <p>Duas categorias distintas, que exigem configuração diferente na conta de serviço:</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3,16 C7,8 25,8 29,16 C25,24 7,24 3,16 Z"/><circle cx="16" cy="16" r="4"/></svg></div>
+        <h3>Setting change auditing</h3>
+        <p>Mudanças de <em>configuração dentro</em> de uma GPO já existente. Só exige configurar o <strong>PDC</strong> (Primary Domain Controller).</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3,16 C7,8 25,8 29,16 C25,24 7,24 3,16 Z"/><circle cx="16" cy="16" r="4"/></svg></div>
+        <h3>GPO management auditing</h3>
+        <p>Criação, exclusão e vínculo de GPOs. Exige configurar <strong>todos os Domain Controllers licenciados</strong>, não só o PDC.</p>
+      </div>
+    </div>
+
+    <h2 id="dns">Mudanças de permissão de DNS</h2>
+    <p>Rastreia alterações de permissão em registros DNS — um vetor de ataque frequentemente esquecido, já que dá a quem o explora a capacidade de redirecionar tráfego silenciosamente.</p>
+
+    <h2 id="hibrido">Correlação híbrida com Entra ID</h2>
+    <p>Ambientes que já não são "só" AD on-premises: o ADAudit Plus audita AD e Entra ID (Azure AD) <strong>do mesmo console</strong>, com uma visão de correlação que conecta a atividade on-premises e em nuvem — sem precisar alternar entre ferramentas para entender o quadro completo de uma identidade híbrida. Ver mais em <a href="auditoria-nuvem.html" style="color:var(--teal);">Entra ID &amp; segurança cloud</a>.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do ADAudit Plus (Change Auditing Reports).</p>
+    <p class="mono">ADAudit Plus · Auditoria de AD</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
