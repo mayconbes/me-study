@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cofre de credenciais | PAM360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">PAM360</a>
+      <span class="badge">PAM · ACESSO PRIVILEGIADO</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">PAM360</a><span class="sep">/</span><span>Cofre de credenciais</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#recursos">Recursos e contas</a></li>
+      <li><a href="#grupos">Grupos de recursos</a></li>
+      <li><a href="#politicas">Políticas de senha</a></li>
+      <li><a href="#rotacao">Rotação de senha</a></li>
+      <li><a href="#integridade">Verificação de integridade</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Enterprise Credential Vault</div>
+    <h1>O cofre de credenciais</h1>
+    <p class="lead" style="max-width:680px;">A fundação de tudo: um repositório criptografado (AES-256) onde senhas, chaves e certificados vivem — e de onde nunca saem em texto puro sem passar por um fluxo controlado.</p>
+
+    <h2 id="recursos">Recursos e contas</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Recurso</h3><p>Qualquer máquina, aplicação, dispositivo de rede ou appliance que guarda contas e senhas — servidor, estação, banco de dados, roteador, ou serviço em nuvem.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Conta privilegiada</h3><p>A credencial de alto nível associada a um recurso — root em Linux, administrador em Windows, modo enable em rede, DBA em banco, superuser em nuvem.</p></div>
+    </div>
+    <p>A partir da aba <strong>Resources</strong>, administradores gerenciam os recursos que possuem e os que foram compartilhados com eles; usuários comuns visualizam/solicitam senha, lançam conexão remota e exportam credenciais dentro do que lhes foi permitido.</p>
+
+    <h2 id="grupos">Grupos de recursos: o nível onde a automação acontece</h2>
+    <div class="callout tip">
+      <span class="mark">O DETALHE MAIS IMPORTANTE DESTA PÁGINA</span>
+      <p>Praticamente toda automação avançada do PAM360 — rotação agendada, delegação automática de acesso — só funciona no <strong>nível de grupo</strong>, não em recursos avulsos. Organizar bem os grupos não é opcional, é pré-requisito para usar o produto de verdade.</p>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="11" r="4.5"/><circle cx="23" cy="13" r="4"/><path d="M4,26 C4,20 8,17.5 12,17.5 C16,17.5 18,19 19.5,21"/><path d="M14,26 C14,21.5 18,19 23,19 C27,19 29,21.5 29,26"/></svg></div>
+        <h3>Grupo estático</h3><p>Você adiciona os recursos manualmente, um por um.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="11" r="4.5"/><circle cx="23" cy="13" r="4"/><path d="M4,26 C4,20 8,17.5 12,17.5 C16,17.5 18,19 19.5,21"/><path d="M14,26 C14,21.5 18,19 23,19 C27,19 29,21.5 29,26"/></svg></div>
+        <h3>Grupo criteria-based (recomendado)</h3><p>Um grupo <strong>dinâmico</strong>: você define o critério, e o PAM360 identifica e inclui automaticamente todo recurso que já existe ou que vier a existir e bater com aquele critério — sem trabalho manual.</p></div>
+    </div>
+    <p>Uma prática comum: criar sub-nós de grupo por time ou departamento, e usar campos customizados (colunas extras) ao adicionar recursos para enriquecer os critérios de agrupamento.</p>
+
+    <h2 id="politicas">Políticas de senha</h2>
+    <p>Definem regras de complexidade, periodicidade obrigatória de troca, e restrição de reuso de senhas antigas — aplicadas a um recurso, ou (mais comum) a um grupo inteiro de uma vez a partir da aba Resources.</p>
+
+    <h2 id="rotacao">Rotação de senha: agendada e por check-in</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="5"/><path d="M16,4 v4 M16,24 v4 M4,16 h4 M24,16 h4 M7,7 l3,3 M22,22 l3,3 M25,7 l-3,3 M10,22 l-3,3"/></svg></div>
+        <h3>Rotação periódica agendada</h3>
+        <p>Elimina a troca manual de senha — funciona em modo agentless ou via agente, mas só é configurável no <strong>nível de grupo de recursos</strong>.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Rotação após check-in exclusivo</h3>
+        <p>Quando habilitada, a senha é resetada automaticamente assim que devolvida ao cofre depois de um uso exclusivo — fechando a janela de exposição da credencial após cada acesso.</p>
+      </div>
+    </div>
+
+    <h2 id="integridade">Verificação de integridade de senha</h2>
+    <p>O PAM360 roda periodicamente uma checagem para confirmar que a senha guardada no cofre <strong>bate</strong> com a senha real do sistema-alvo. Divergências (chamadas de "conflicting passwords") geralmente acontecem quando alguém troca a senha direto no sistema sem passar pelo PAM360 — e ficam sinalizadas para correção antes que causem falha de autenticação. A verificação em lote roda por grupo, em <span class="chip">Groups → Actions → Find Out-of-Sync Passwords</span>.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do PAM360 e no Best Practices Guide.</p>
+    <p class="mono">PAM360 · Cofre de credenciais</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

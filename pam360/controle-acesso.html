@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Controle de acesso | PAM360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">PAM360</a>
+      <span class="badge">PAM · ACESSO PRIVILEGIADO</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">PAM360</a><span class="sep">/</span><span>Controle de acesso</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#request-approve">Request-approve</a></li>
+      <li><a href="#checkout">Checkout exclusivo</a></li>
+      <li><a href="#politicas-acesso">Políticas de acesso</a></li>
+      <li><a href="#precedencia">Precedência de condições</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Access control workflow</div>
+    <h1>Controle de acesso</h1>
+    <p class="lead" style="max-width:680px;">A diferença entre "compartilhar a senha" e "governar quem acessa o quê" — mora inteiramente nesse workflow.</p>
+
+    <h2 id="request-approve">Fluxo de requisição e aprovação</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Usuário solicita acesso</h4><p>Um usuário não-admin pede acesso a um recurso/conta específico, justificando o motivo e o período necessário.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Administrador aprova ou rejeita</h4><p>Com base na validade da justificativa — a decisão fica registrada.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Acesso concedido por tempo limitado</h4><p>O usuário lança a sessão (ou vê a senha, conforme a política) só dentro da janela aprovada.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Expiração dispara rotação</h4><p>Quando o prazo acaba, a senha da conta pode ser trocada automaticamente — fechando o ciclo.</p></div></div>
+    </div>
+
+    <h2 id="checkout">Checkout exclusivo e grace time</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Checkout exclusivo</h3>
+        <p>Enquanto um usuário tem a senha "em mãos", ninguém mais pode usar aquela credencial ao mesmo tempo — evita concorrência e mistura de responsabilidade sobre uma mesma sessão.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Grace time</h3>
+        <p>Uma margem configurável antes do check-in forçado da senha de volta ao cofre. Não se aplica se o usuário já devolveu a senha antes do prazo, ou se ele nunca chegou a fazer o checkout dentro da janela aprovada.</p>
+      </div>
+    </div>
+
+    <h2 id="politicas-acesso">Políticas de acesso</h2>
+    <p>Uma política de acesso é associada a um <strong>grupo de recursos</strong> (não a recursos avulsos) em <span class="chip">Groups → Edit Group Attributes → Access Policy</span>. É ela que define as regras automáticas de quem pode fazer o quê, sob quais condições, sem depender de um humano aprovar manualmente toda vez.</p>
+
+    <h2 id="precedencia">Como funciona a precedência entre condições</h2>
+    <div class="callout note">
+      <span class="mark">REGRA DE DESEMPATE</span>
+      <p>Quando uma política de acesso tem múltiplas condições com critérios diferentes, vence a condição com o <strong>maior valor de precedência</strong>. Ações restritivas como <strong>Deny/Terminate</strong> ou <strong>Exclude User Group</strong> têm prioridade sobre as demais — ou seja, em caso de conflito, a política tende a errar para o lado mais seguro.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do PAM360 (Access Control Workflow, FAQ).</p>
+    <p class="mono">PAM360 · Controle de acesso</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

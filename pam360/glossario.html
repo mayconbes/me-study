@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossário | PAM360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">PAM360</a>
+      <span class="badge">PAM · ACESSO PRIVILEGIADO</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">PAM360</a><span class="sep">/</span><span>Glossário</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Categorias</div>
+    <ul>
+      <li><a href="#core">Conceitos centrais de PAM</a></li>
+      <li><a href="#acesso">Acesso &amp; sessão</a></li>
+      <li><a href="#governanca">Governança &amp; risco</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Referência rápida</div>
+    <h1>Glossário</h1>
+    <p class="lead" style="max-width:680px;">Os termos que mais aparecem na documentação do PAM360, sem jargão.</p>
+
+    <h2 id="core">Conceitos centrais de PAM</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>PAM (Privileged Access Management)</h3><p>A categoria de solução que controla, monitora e audita o acesso a contas com privilégio elevado — admin, root, DBA e afins.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="11" r="4.5"/><circle cx="23" cy="13" r="4"/><path d="M4,26 C4,20 8,17.5 12,17.5 C16,17.5 18,19 19.5,21"/><path d="M14,26 C14,21.5 18,19 23,19 C27,19 29,21.5 29,26"/></svg></div>
+        <h3>PEDM (Privilege Elevation and Delegation Management)</h3><p>O subconjunto de PAM focado em conceder privilégio elevado de forma granular e temporária, em vez de permanente.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Zero Standing Privilege</h3><p>O princípio de eliminar privilégio permanente — acesso elevado só existe pelo tempo necessário para a tarefa.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>JIT (Just-In-Time) access</h3><p>Provisionamento automático de privilégio no momento da necessidade, com revogação automática ao expirar.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="17" r="5"/><circle cx="18" cy="13" r="6.5"/><circle cx="23" cy="18" r="4.5"/><path d="M8,21 h18"/></svg></div>
+        <h3>CIEM (Cloud Infrastructure Entitlements Management)</h3><p>Gestão de permissões excessivas e exposição de risco em contas de nuvem.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Zero Trust</h3><p>Modelo de segurança onde nenhum acesso é confiado por padrão — cada requisição é avaliada por identidade, contexto e política.</p></div>
+    </div>
+
+    <h2 id="acesso">Acesso &amp; sessão</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Checkout / check-in</h3><p>O ato de "retirar" uma credencial do cofre para uso exclusivo, e devolvê-la depois — pode disparar rotação automática.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Grace time</h3><p>Margem de tempo configurável antes do check-in forçado de uma senha de volta ao cofre.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Session gateway</h3><p>O componente que tunela sessões RDP/SSH/VNC/Telnet pelo servidor PAM360, sem exigir cliente adicional no dispositivo do usuário.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Keystroke logging</h3><p>Registro de teclas digitadas e eventos de sistema durante uma sessão privilegiada.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Application Gateway</h3><p>Ponte segura que conecta o servidor PAM360 a redes remotas ou segmentadas.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="22" height="9" rx="1.5"/><rect x="5" y="18" width="22" height="9" rx="1.5"/><line x1="9" y1="9.5" x2="13" y2="9.5"/><line x1="9" y1="22.5" x2="13" y2="22.5"/></svg></div>
+        <h3>Jump server</h3><p>Um host intermediário usado como ponto único de acesso a uma rede segmentada — recurso de nível Enterprise no PAM360.</p></div>
+    </div>
+
+    <h2 id="governanca">Governança &amp; risco</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="11" r="4.5"/><circle cx="23" cy="13" r="4"/><path d="M4,26 C4,20 8,17.5 12,17.5 C16,17.5 18,19 19.5,21"/><path d="M14,26 C14,21.5 18,19 23,19 C27,19 29,21.5 29,26"/></svg></div>
+        <h3>Grupo criteria-based</h3><p>Um grupo de recursos dinâmico, que se atualiza automaticamente conforme recursos passam a atender (ou deixam de atender) o critério definido.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Trust score</h3><p>Pontuação de confiança calculada por usuário, com base no quanto o comportamento recente se alinha ao padrão histórico dele.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="5"/><line x1="14" y1="14" x2="27" y2="27"/><line x1="21" y1="21" x2="25" y2="17"/><line x1="24" y1="24" x2="28" y2="20"/></svg></div>
+        <h3>Application-to-application (A2A) password management</h3><p>Gestão de credenciais usadas por aplicações para se comunicarem entre si, eliminando senhas hard-coded.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="5"/><line x1="14" y1="14" x2="27" y2="27"/><line x1="21" y1="21" x2="25" y2="17"/><line x1="24" y1="24" x2="28" y2="20"/></svg></div>
+        <h3>Out-of-sync password</h3><p>Uma senha guardada no cofre que não bate mais com a senha real do sistema-alvo — sinalizada pela verificação de integridade.</p></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — glossário de apoio à documentação oficial do PAM360.</p>
+    <p class="mono">PAM360 · Glossário</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

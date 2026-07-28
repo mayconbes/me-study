@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usuários &amp; papéis | PAM360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">PAM360</a>
+      <span class="badge">PAM · ACESSO PRIVILEGIADO</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">PAM360</a><span class="sep">/</span><span>Usuários &amp; papéis</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#seis-papeis">Os seis papéis</a></li>
+      <li><a href="#licenca">Quem conta pra licença</a></li>
+      <li><a href="#restricoes">Restrições adicionais</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Governança de acesso</div>
+    <h1>Usuários e papéis</h1>
+    <p class="lead" style="max-width:680px;">Entender essa tabela evita duas armadilhas em qualquer proposta: dimensionar licença errado, e dar mais poder do que a pessoa precisa.</p>
+
+    <h2 id="seis-papeis">Os seis papéis do PAM360</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Papel</th><th>Para quem</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Administrator</strong></td><td>Controle total: gestão de usuários, configuração do produto, além de gestão de senha. Deve ficar restrito a um punhado de pessoas.</td></tr>
+          <tr><td><strong>Password Administrator</strong></td><td>Gestão de credenciais e recursos, sem os poderes administrativos de configuração do produto em si.</td></tr>
+          <tr><td><strong>Privileged Administrator</strong></td><td>Papel voltado à administração de acesso privilegiado propriamente dito — sessões, elevação, políticas.</td></tr>
+          <tr><td><strong>Cloud Administrator</strong></td><td>Foco em gestão de credenciais e direitos em ambientes de nuvem (CIEM).</td></tr>
+          <tr><td><strong>Password Auditor</strong></td><td>Acesso de leitura para fins de auditoria — vê trilhas e relatórios, sem poder de gestão.</td></tr>
+          <tr><td><strong>Password User</strong></td><td>O usuário final: solicita, visualiza (quando permitido) e usa credenciais compartilhadas com ele.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="licenca">Quem conta para o limite de licença</h2>
+    <div class="callout warn">
+      <span class="mark">O DETALHE QUE MUDA O ORÇAMENTO</span>
+      <p>A licença do PAM360 restringe o número total de <strong>administradores</strong> — que engloba Administrator, Password Administrator, Privileged Administrator e Cloud Administrator somados. <strong>Password User e Password Auditor não têm limite</strong> — pode ter quantos precisar, sem custo adicional por usuário final.</p>
+    </div>
+    <p>Isso muda completamente como dimensionar uma proposta: o número de <em>pessoas com acesso a alguma senha</em> não é o que importa comercialmente — é quantas dessas pessoas exercem algum papel administrativo.</p>
+
+    <h2 id="restricoes">Restrições adicionais por papel</h2>
+    <ul>
+      <li><strong>Trust score</strong> (análise comportamental) só é visível para Administrator e Privileged Administrator — Password User, Password Auditor, Connection User e Password Administrator não veem nem recebem notificação relacionada.</li>
+      <li>Acesso via app mobile e via extensão de navegador pode ser restringido por usuário individualmente, em <span class="chip">Users → More Actions → Restrict Mobile Access / Restrict Browser Extension</span>.</li>
+    </ul>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do PAM360 (FAQ, Best Practices Guide).</p>
+    <p class="mono">PAM360 · Usuários &amp; papéis</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

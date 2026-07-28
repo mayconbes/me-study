@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevação de privilégio | PAM360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">PAM360</a>
+      <span class="badge">PAM · ACESSO PRIVILEGIADO</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">PAM360</a><span class="sep">/</span><span>Elevação de privilégio</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#pedm">O que é PEDM</a></li>
+      <li><a href="#jit">Elevação just-in-time (agentless)</a></li>
+      <li><a href="#selfservice">Elevação self-service (com agente)</a></li>
+      <li><a href="#admanager">Integração com ADManager Plus</a></li>
+      <li><a href="#epm">Controle de aplicação em endpoints</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">PEDM</div>
+    <h1>Elevação e delegação de privilégio</h1>
+    <p class="lead" style="max-width:680px;">O antídoto pro "todo mundo é admin local pra não travar o trabalho": privilégio concedido só na hora certa, pelo tempo certo.</p>
+
+    <h2 id="pedm">O que é PEDM (Privilege Elevation and Delegation Management)</h2>
+    <p>Uma categoria própria dentro de PAM: em vez de dar acesso administrativo permanente, o PEDM concede privilégio elevado <strong>granular e por tempo limitado</strong> — para uma aplicação, um comando, ou um sistema específico — mantendo o usuário sem privilégio o resto do tempo.</p>
+
+    <h2 id="jit">Elevação just-in-time (modo agentless)</h2>
+    <p>Usuários com requisição válida são elevados automaticamente a um <strong>grupo de segurança local</strong> para acesso temporário ao sistema-alvo, e revertidos ao privilégio padrão assim que o período da requisição expira. Aplicável a contas Windows locais e de domínio.</p>
+    <div class="callout note">
+      <span class="mark">LIMITAÇÃO DE PLATAFORMA</span>
+      <p>JIT via política de segurança local é específico para recursos <strong>Windows e Windows Domain</strong>. Para Linux, a elevação passa por outros módulos de PEDM: SSH Command Control e Self-Service Privilege Elevation.</p>
+    </div>
+
+    <h2 id="selfservice">Elevação self-service (modo com agente)</h2>
+    <p>Feita instalando e configurando agentes de elevação self-service diretamente nos endpoints — permite que o próprio usuário eleve o privilégio de uma aplicação específica quando necessário, sem depender de um administrador aprovar em tempo real toda vez.</p>
+
+    <h2 id="admanager">Elevação de conta de domínio via ADManager Plus</h2>
+    <p>Para elevar uma conta de <strong>domínio</strong> (não só local), o PAM360 se integra ao ADManager Plus: o Domain Controller é adicionado como recurso no PAM360 e associado a grupos de segurança específicos do AD (obtidos via essa integração). A partir daí, um usuário de domínio pode herdar privilégio de domain admin temporariamente, via o mesmo mecanismo de requisição-aprovação.</p>
+    <div class="callout warn">
+      <span class="mark">QUEM MANDA POR ÚLTIMO</span>
+      <p>Por precaução de segurança, se houver conflito, mudanças feitas pelos administradores do <strong>ADManager Plus</strong> sempre prevalecem sobre as que o PAM360 tentar aplicar — o PAM360 não assume controle definitivo sobre permissões de domínio geridas por outra ferramenta.</p>
+    </div>
+
+    <h2 id="epm">Controle de aplicação em endpoints (Endpoint Privilege Management)</h2>
+    <p>Powered by ManageEngine Application Control Plus, esse módulo vai além da elevação pontual — remove privilégio de administrador local de forma ampla, e controla o que pode rodar:</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Modo estrito (allowlist)</h3>
+        <p>Só aplicações na lista de permitidas podem rodar no endpoint — com a opção de conceder acesso just-in-time a algo fora da lista quando necessário.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="15" width="18" height="13" rx="2"/><path d="M11,15 V10 a5,5 0 0 1 10,0 v5"/></svg></div>
+        <h3>Controle de processo filho</h3>
+        <p>Define quais aplicações podem invocar processos filhos, e bloqueia isso para as demais — reduz o caminho que um processo comprometido teria para escalar.</p>
+      </div>
+    </div>
+    <p>A aba <strong>Admin Rights Summary</strong> lista todas as contas de admin local descobertas no ambiente num só lugar — o ponto de partida natural para uma limpeza de privilégios permanentes desnecessários.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do PAM360 (PEDM, JIT Privilege Elevation, Endpoint Privilege Management).</p>
+    <p class="mono">PAM360 · Elevação de privilégio</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

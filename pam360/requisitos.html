@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Requisitos &amp; portas | PAM360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">PAM360</a>
+      <span class="badge">PAM · ACESSO PRIVILEGIADO</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">PAM360</a><span class="sep">/</span><span>Requisitos &amp; portas</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#pre-requisitos">Pré-requisitos essenciais</a></li>
+      <li><a href="#gravacao">Disco para gravação de sessão</a></li>
+      <li><a href="#software">Software necessário</a></li>
+      <li><a href="#banco">Banco de dados</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Infraestrutura</div>
+    <h1>Requisitos de sistema e pré-requisitos</h1>
+    <p class="lead" style="max-width:680px;">Além do hardware padrão, dois itens fazem ou quebram uma implantação de PAM360: a conta de serviço certa, e o dimensionamento de disco pra gravação de sessão.</p>
+
+    <h2 id="pre-requisitos">Pré-requisitos essenciais (além do hardware básico)</h2>
+    <p>Se o cliente vai usar descoberta automática de contas e reset de senha (ou seja, praticamente sempre), três elementos são obrigatórios:</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="22" height="9" rx="1.5"/><rect x="5" y="18" width="22" height="9" rx="1.5"/><line x1="9" y1="9.5" x2="13" y2="9.5"/><line x1="9" y1="22.5" x2="13" y2="22.5"/></svg></div>
+        <h3>Servidor SMTP externo</h3><p>Necessário para o funcionamento do servidor PAM360 e para enviar notificações aos usuários.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Conta de serviço com privilégio</h3><p>Precisa de direitos de Domain Admin (ou admin local) tanto no servidor PAM360 quanto nos sistemas-alvo gerenciados.</p></div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Microsoft .NET Framework</h3><p>Necessário para as funcionalidades de descoberta e reset de senha — e para o Application Gateway, também o Visual C++ Redistributable (2015 ou superior).</p></div>
+    </div>
+
+    <h2 id="gravacao">Dimensionando disco para gravação de sessão</h2>
+    <div class="callout tip">
+      <span class="mark">REGRA PRÁTICA</span>
+      <p>Cada minuto de sessão gravada (sem contar tempo ocioso) consome aproximadamente <strong>1MB de disco</strong>. Multiplique pela expectativa de volume de sessões privilegiadas por dia/mês do cliente para chegar a uma estimativa realista — este é o item de dimensionamento mais frequentemente subestimado num projeto de PAM.</p>
+    </div>
+
+    <h2 id="software">Software necessário</h2>
+    <p>PAM360 roda em Windows ou Linux (ver <a href="arquitetura.html" style="color:var(--teal);">Arquitetura</a> para as diferenças práticas entre as duas opções). Um navegador compatível com HTML5 é suficiente para o console web e para lançar sessões remotas — sem necessidade de plugin.</p>
+
+    <h2 id="banco">Banco de dados</h2>
+    <p>A edição Registered (Enterprise) suporta <strong>SQL Server ou cluster SQL Server</strong> como banco de dados de produção — relevante para ambientes que já têm política de banco corporativo padronizado, ou que precisam de alta disponibilidade de banco além do que o banco embutido oferece.</p>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do PAM360 (Basic Requirements, System Requirements).</p>
+    <p class="mono">PAM360 · Requisitos &amp; portas</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

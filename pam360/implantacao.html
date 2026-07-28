@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de implantação no cliente | PAM360 | ME Study</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span>ME<span class="sub">study</span></a>
+    <nav class="nav">
+      <a href="../index.html">Soluções</a>
+      <a href="index.html" class="active">PAM360</a>
+      <span class="badge">PAM · ACESSO PRIVILEGIADO</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Soluções</a><span class="sep">/</span><a href="index.html">PAM360</a><span class="sep">/</span><span>Implantação no cliente</span></div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side">
+    <div class="label">Nesta página</div>
+    <ul>
+      <li><a href="#levantamento">Antes de instalar</a></li>
+      <li><a href="#instalacao">Instalação e primeiro acesso</a></li>
+      <li><a href="#sequencia">Sequência recomendada</a></li>
+      <li><a href="#validacao">Checklist de validação</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Guia prático para consultores</div>
+    <h1>Implantando o PAM360 num cliente</h1>
+    <p class="lead" style="max-width:680px;">Diferente de uma ferramenta de gestão comum, um projeto de PAM mexe com como as pessoas acessam sistemas críticos todo santo dia — o plano de rollout importa tanto quanto a configuração técnica.</p>
+
+    <h2 id="levantamento">Antes de instalar: o que levantar</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Windows ou Linux</h3>
+        <p>Depende do ambiente predominante e da política de segurança do cliente — ver <a href="arquitetura.html" style="color:var(--teal);">Arquitetura</a>.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Inventário de contas privilegiadas</h3>
+        <p>Quantas contas admin/root/DBA existem hoje, e onde estão guardadas (planilha, gerente de senha pessoal, papel)? Isso dimensiona o esforço de descoberta e onboarding.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Conta de serviço</h3>
+        <p>Precisa de privilégio de Domain Admin (ou admin local) tanto no servidor PAM360 quanto nos sistemas-alvo, para descoberta e reset automático de senha.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="24" height="17" rx="2"/><polyline points="4,9 16,19 28,9"/></svg></div>
+        <h3>Servidor de e-mail (SMTP)</h3>
+        <p>Externo, necessário para notificações — sem ele, boa parte dos alertas e fluxos de aprovação perdem utilidade.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Papéis e quem aprova o quê</h3>
+        <p>Quem serão os Administrators, Password Administrators, Privileged Administrators? Quem aprova uma requisição de acesso? Ver <a href="usuarios-papeis.html" style="color:var(--teal);">Usuários &amp; papéis</a>.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="12"/><polyline points="10,16 14,21 23,10"/></svg></div>
+        <h3>Ambiente distribuído?</h3>
+        <p>Múltiplas filiais ou redes segmentadas indicam a necessidade do Application Gateway desde o desenho inicial.</p>
+      </div>
+    </div>
+
+    <h2 id="instalacao">Instalação e primeiro acesso</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>Instale como serviço</h4><p>Em Windows, via instalador padrão ou silencioso; em Linux, com uma conta não-root, executando <span class="mono">sh pam360.sh install</span> para registrar como serviço de inicialização.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Primeiro login</h4><p>Acesse o console web e troque a senha padrão imediatamente — mesma disciplina de qualquer produto de segurança.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>Configure elementos-chave</h4><p>Chave de criptografia do PAM360, certificado do servidor web, e servidor de e-mail — a base que tudo o resto depende.</p></div></div>
+    </div>
+
+    <h2 id="sequencia">Sequência recomendada de configuração</h2>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="body"><h4>1. Usuários e papéis</h4><p>Cadastre os usuários e atribua papéis corretamente antes de qualquer coisa — administrador deve ficar restrito a quem realmente precisa.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>2. Descoberta e onboarding</h4><p>Rode a descoberta de contas na rede, ou importe manualmente — ver <a href="descoberta.html" style="color:var(--teal);">Descoberta de contas</a>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>3. Grupos de recursos criteria-based</h4><p>Organize os recursos descobertos em grupos dinâmicos antes de configurar políticas — quase toda automação avançada só funciona no nível de grupo.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>4. Políticas de senha e rotação</h4><p>Defina a política de complexidade e o cronograma de rotação automática por grupo.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>5. Workflow de aprovação</h4><p>Configure o fluxo request-approve para os grupos que exigem controle mais rígido — ver <a href="controle-acesso.html" style="color:var(--teal);">Controle de acesso</a>.</p></div></div>
+      <div class="step"><div class="n"></div><div class="body"><h4>6. Integrações</h4><p>Ticketing, SIEM, ADManager Plus — o quanto antes essas peças entrarem, menos retrabalho depois.</p></div></div>
+    </div>
+
+    <h2 id="validacao">Checklist de validação pós-implantação</h2>
+    <div class="callout tip">
+      <span class="mark">SMOKE TEST</span>
+      <p>
+      ✓ Um usuário de teste consegue logar e ver apenas os recursos que lhe foram compartilhados<br>
+      ✓ Uma requisição de acesso percorre o fluxo de aprovação configurado corretamente<br>
+      ✓ Uma sessão remota de teste (RDP ou SSH) abre sem exigir senha manual<br>
+      ✓ A gravação da sessão fica salva e reproduzível<br>
+      ✓ A rotação de senha dispara corretamente no check-in<br>
+      ✓ Um alerta de teste chega por e-mail
+      </p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ME Study — baseado no Help Center oficial do PAM360.</p>
+    <p class="mono">PAM360 · Implantação no cliente</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
