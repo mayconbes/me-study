@@ -205,9 +205,9 @@ td strong{ color:var(--text); }
 .step .body p{ margin-bottom:0; font-size:.9rem; }
 
 /* ---------- toc / sidebar layout ---------- */
-.layout{ display:grid; grid-template-columns:220px 1fr; gap:44px; align-items:start; padding:36px 0 70px; }
+.layout{ display:grid; grid-template-columns:260px 1fr; gap:44px; align-items:start; padding:36px 0 70px; }
 @media (max-width:880px){ .layout{ grid-template-columns:1fr; } .side{ display:none; } }
-.side{ position:sticky; top:88px; }
+.side{ position:sticky; top:88px; max-height:calc(100vh - 110px); overflow-y:auto; padding-right:6px; }
 .side .label{ font-family:var(--mono); font-size:.7rem; color:var(--text-mute); letter-spacing:.06em; text-transform:uppercase; margin-bottom:12px; }
 .side ul{ list-style:none; padding:0; margin:0; border-left:1px solid var(--line-soft); }
 .side li a{
@@ -215,6 +215,47 @@ td strong{ color:var(--text); }
   border-left:2px solid transparent; margin-left:-1px; transition:all .15s;
 }
 .side li a:hover, .side li a.active{ color:var(--teal); border-left-color:var(--teal); }
+
+/* tree navigation */
+.tree .label{ margin-bottom:10px; font-size:.72rem; color:var(--teal); }
+.tree > nav.tree{ margin-bottom:4px; }
+.tree-top-link{
+  display:flex; align-items:center; gap:8px; font-family:var(--display); font-weight:600;
+  font-size:.92rem; color:var(--text); padding:6px 4px; margin-bottom:10px; border-radius:6px;
+}
+.tree-top-link svg{ color:var(--text-mute); flex-shrink:0; }
+.tree-top-link:hover{ color:var(--teal); }
+.tree-top-link.active{ color:var(--teal); background:rgba(45,212,191,.08); }
+nav.tree details{ margin-bottom:2px; }
+nav.tree summary{
+  display:flex; align-items:center; gap:7px; padding:6px 4px; cursor:pointer;
+  font-size:.78rem; font-weight:600; color:var(--text-dim); list-style:none; border-radius:6px;
+  user-select:none;
+}
+nav.tree summary::-webkit-details-marker{ display:none; }
+nav.tree summary svg{ color:var(--text-mute); flex-shrink:0; }
+nav.tree summary:hover{ color:var(--text); }
+nav.tree summary::after{
+  content:"›"; margin-left:auto; color:var(--text-mute); font-size:.9rem;
+  transform:rotate(90deg); transition:transform .15s;
+}
+nav.tree details[open] summary::after{ transform:rotate(-90deg); }
+nav.tree details > ul{ list-style:none; margin:2px 0 6px; padding:0 0 0 10px; border-left:1px solid var(--line-soft); }
+nav.tree details > ul li a{
+  display:flex; align-items:center; gap:7px; padding:5px 8px; border-radius:6px;
+  font-size:.8rem; color:var(--text-dim); border-left:none;
+}
+nav.tree details > ul li a svg{ color:var(--text-mute); flex-shrink:0; }
+nav.tree details > ul li a:hover{ color:var(--text); background:rgba(255,255,255,.03); }
+nav.tree details > ul li a.active{ color:var(--teal); background:rgba(45,212,191,.08); font-weight:600; }
+nav.tree details > ul li a.active svg{ color:var(--teal); }
+.tree-related{ list-style:none; margin:0; padding:0; }
+.tree-related li a{
+  display:flex; align-items:center; gap:8px; padding:6px 4px; font-size:.82rem;
+  color:var(--text-dim); border-radius:6px;
+}
+.tree-related li a svg{ color:var(--text-mute); flex-shrink:0; }
+.tree-related li a:hover{ color:var(--teal); }
 
 .content h2{ margin-top:2.2em; scroll-margin-top:90px; }
 .content h2:first-child{ margin-top:0; }

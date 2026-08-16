@@ -24,15 +24,65 @@
 </div>
 
 <div class="wrap layout">
-  <aside class="side">
-    <div class="label">Nesta página</div>
-    <ul>
-      <li><a href="#grupos">Gestão de grupos</a></li>
-      <li><a href="#computadores">Gestão de computadores</a></li>
-      <li><a href="#contatos">Gestão de contatos</a></li>
-      <li><a href="#ous">Unidades organizacionais</a></li>
-    </ul>
-  </aside>
+  <aside class="side tree">
+  <div class="label">ADManager Plus</div>
+  <a href="index.html" class="tree-top-link"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4,11 L12,4 L20,11 V20 H4 Z"/><path d="M9,20 V13 H15 V20"/></svg> Visão geral</a>
+  <nav class="tree">
+    <details>
+      <summary><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3,6 h6 l2,2 h10 v11 h-18 Z"/></svg> Primeiros passos</summary>
+      <ul>
+        <li><a href="arquitetura.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Arquitetura</a></li>
+        <li><a href="implantacao.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Implantação no cliente</a></li>
+        <li><a href="requisitos.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Requisitos & portas</a></li>
+        <li><a href="licenciamento.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Licenciamento</a></li>
+      </ul>
+    </details>
+    <details open>
+      <summary><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3,6 h6 l2,2 h10 v11 h-18 Z"/></svg> Gestão</summary>
+      <ul>
+        <li><a href="gestao-usuarios.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Gestão de usuários</a></li>
+        <li><a href="gestao-grupos-computadores.html" class="active"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Grupos, computadores & contatos</a></li>
+        <li><a href="gestao-gpo.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Gestão de GPOs</a></li>
+        <li><a href="nuvem.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Exchange, M365 & Google Workspace</a></li>
+      </ul>
+    </details>
+    <details>
+      <summary><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3,6 h6 l2,2 h10 v11 h-18 Z"/></svg> Governança & automação</summary>
+      <ul>
+        <li><a href="delegacao-helpdesk.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Delegação & help desk</a></li>
+        <li><a href="workflow.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Workflow</a></li>
+        <li><a href="automacao-orquestracao.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Automação & orquestração</a></li>
+        <li><a href="relatorios.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Relatórios</a></li>
+      </ul>
+    </details>
+    <details>
+      <summary><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3,6 h6 l2,2 h10 v11 h-18 Z"/></svg> Add-ons</summary>
+      <ul>
+        <li><a href="governanca-risco.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Governança, risco & certificação</a></li>
+        <li><a href="backup-recovery.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Backup & recovery</a></li>
+      </ul>
+    </details>
+    <details>
+      <summary><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3,6 h6 l2,2 h10 v11 h-18 Z"/></svg> Ecossistema</summary>
+      <ul>
+        <li><a href="integracoes-mobile.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Integrações & app mobile</a></li>
+        <li><a href="permissoes.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Permissões</a></li>
+      </ul>
+    </details>
+    <details>
+      <summary><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3,6 h6 l2,2 h10 v11 h-18 Z"/></svg> Referência</summary>
+      <ul>
+        <li><a href="glossario.html" class=""><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6,3 h9 l4,4 v14 h-13 Z"/><path d="M15,3 v4 h4"/></svg> Glossário</a></li>
+      </ul>
+    </details>
+  </nav>
+  <div class="label" style="margin-top:18px;">Produtos relacionados</div>
+  <ul class="tree-related">
+    <li><a href="../ad360/index.html"><svg viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="16" r="3.2"/><circle cx="16" cy="7" r="3.2"/><circle cx="16" cy="25" r="3.2"/><circle cx="26" cy="16" r="3.2"/><line x1="9" y1="15" x2="13" y2="9"/><line x1="9" y1="17" x2="13" y2="23"/><line x1="19" y1="9" x2="23" y2="15"/><line x1="19" y1="23" x2="23" y2="17"/></svg> AD360</a></li>
+    <li><a href="../adaudit-plus/index.html"><svg viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3,16 C7,8 25,8 29,16 C25,24 7,24 3,16 Z"/><circle cx="16" cy="16" r="4"/></svg> ADAudit Plus</a></li>
+    <li><a href="../pam360/index.html"><svg viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="10" r="5"/><line x1="14" y1="14" x2="27" y2="27"/><line x1="21" y1="21" x2="25" y2="17"/><line x1="24" y1="24" x2="28" y2="20"/></svg> PAM360</a></li>
+  </ul>
+</aside>
 
   <main class="content">
     <div class="eyebrow">Management</div>
