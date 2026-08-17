@@ -148,10 +148,22 @@
             <div style="display:flex; align-items:center; gap:8px; padding:6px 0;"><div style="width:14px;height:14px;border:1px solid var(--teal); background:rgba(45,212,191,.15); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-dim);">Relatórios gerais</span></div>
             <div style="display:flex; align-items:center; gap:8px; padding:6px 0;"><div style="width:14px;height:14px;border:1px solid var(--line); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-mute);">Relatórios de segurança</span></div>
           </div>
+          <div style="margin-top:18px; padding-top:16px; border-top:1px solid var(--line-soft); max-width:520px;">
+            <div style="font-family:var(--mono); font-size:10px; color:var(--text-mute); margin-bottom:6px;">ESCOPO (OU)</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+              <div style="padding:5px 10px; border-radius:5px; background:rgba(45,212,191,.1); border:1px solid rgba(45,212,191,.35); color:var(--teal); font-size:11px;">OU=Filial-SP ✕</div>
+              <div style="padding:5px 10px; border-radius:5px; background:rgba(45,212,191,.1); border:1px solid rgba(45,212,191,.35); color:var(--teal); font-size:11px;">OU=Suporte ✕</div>
+              <div style="padding:5px 10px; border-radius:5px; border:1px dashed var(--line-soft); color:var(--text-mute); font-size:11px;">+ adicionar OU</div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-size:12px; color:var(--text-dim);">Impersonate as Admin</span>
+              <div style="width:32px; height:18px; border-radius:10px; background:var(--panel-2); border:1px solid var(--line-soft); position:relative;"><div style="width:14px;height:14px;border-radius:50%;background:var(--text-mute);position:absolute;top:1px;left:1px;"></div></div>
+            </div>
+          </div>
           <div style="margin-top:18px; display:inline-block; background:var(--teal); color:#04211d; font-weight:600; font-size:12px; padding:9px 20px; border-radius:6px;">Save role</div>
         </div>
       </div>
-      <p class="caption">Esquema simplificado — cada categoria de ação vira uma linha marcável; o que não for marcado fica invisível/inacessível para quem tiver esse papel.</p>
+      <p class="caption">Esquema simplificado — sem OU marcada, o papel vale para o domínio inteiro; "Impersonate as Admin" fica desligado por padrão, propositalmente.</p>
     </div>
 
     <h2 id="tecnicos">Criando técnicos de help desk</h2>

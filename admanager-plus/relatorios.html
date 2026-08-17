@@ -153,13 +153,21 @@
             <div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;border:1px solid var(--teal); background:rgba(45,212,191,.15); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-dim);">Último logon</span></div>
             <div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;border:1px solid var(--line); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-mute);">Descrição</span></div>
           </div>
-          <div style="display:flex; gap:10px;">
+          <div style="display:flex; gap:10px; margin-bottom:18px;">
             <div style="background:var(--teal); color:#04211d; font-weight:600; font-size:12px; padding:9px 20px; border-radius:6px;">Save report</div>
             <div style="border:1px solid var(--line-soft); color:var(--text-dim); font-size:12px; padding:9px 18px; border-radius:6px;">Preview</div>
           </div>
+          <div style="border-top:1px solid var(--line-soft); padding-top:14px;">
+            <div style="font-family:var(--mono); font-size:10px; color:var(--text-mute); margin-bottom:8px;">PREVIEW · 3 RESULTADOS</div>
+            <div style="border:1px solid var(--line-soft); border-radius:6px; overflow:hidden; max-width:460px;">
+              <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr; background:var(--panel-2); padding:6px 10px; font-family:var(--mono); font-size:9px; color:var(--text-mute);"><span>NOME</span><span>DEPARTAMENTO</span><span>ÚLTIMO LOGON</span></div>
+              <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr; padding:7px 10px; font-size:11px; color:var(--text-dim); border-top:1px solid var(--line-soft);"><span>j.silva</span><span>Financeiro</span><span style="color:var(--amber);">há 94 dias</span></div>
+              <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr; padding:7px 10px; font-size:11px; color:var(--text-dim); border-top:1px solid var(--line-soft);"><span>m.costa</span><span>TI</span><span style="color:var(--amber);">há 112 dias</span></div>
+            </div>
+          </div>
         </div>
       </div>
-      <p class="caption">Esquema simplificado — não é o layout real do produto, é uma representação genérica de onde cada campo fica.</p>
+      <p class="caption">Esquema simplificado — o Preview roda a mesma condição sem salvar nada, útil pra ajustar o filtro antes de comprometer o relatório.</p>
     </div>
 
     <h2 id="agendamento">Agendamento automático</h2>

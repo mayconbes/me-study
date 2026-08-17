@@ -1,55 +1,49 @@
-# Anotações privadas — ME Study
+# ME Study — Guia de estudos ManageEngine
 
-Esta pasta é **só sua**. Ela fica fora do repositório público do GitHub Pages — nunca deve ser commitada junto do site.
+Site estático (HTML/CSS puro, sem build) com conteúdo de estudo sobre as soluções ManageEngine, começando pelo AD360.
 
 ## Estrutura
 
 ```
-private-notes/
-  README.md
-  .gitignore
-  ad360/
-    anotacoes-ad360.md
-    screenshots/
-  admanager-plus/
-    anotacoes-admanager-plus.md
-    screenshots/
-  adaudit-plus/
-    anotacoes-adaudit-plus.md
-    screenshots/
-  pam360/
-    anotacoes-pam360.md
-    screenshots/
+index.html              → portal com o catálogo de soluções
+ad360/
+  index.html             → visão geral + diagrama de topologia
+  arquitetura.html        → modelo de integração e sincronização
+  componentes.html        → os 7 componentes explicados
+  instalacao.html         → modos de instalação, SSL, backup, updates
+  permissoes.html         → permissões mínimas por componente
+  requisitos.html         → hardware, SO e portas de rede
+  glossario.html          → termos técnicos
+assets/
+  css/style.css
+  js/main.js
 ```
 
-Cada `anotacoes-*.md` tem uma seção por página do site público correspondente, na mesma ordem da árvore de navegação — assim fica fácil estudar acompanhando o site e completando o arquivo em paralelo.
+Para adicionar uma nova solução (ex: ADManager Plus, PAM360...), crie uma pasta no mesmo padrão de `ad360/` e adicione o card correspondente em `index.html`.
 
-## Como usar
+## Publicar no GitHub Pages
 
-1. Enquanto estuda uma página do site, abra a tela real correspondente no seu ambiente (ou no ambiente de teste/homelab).
-2. Tire o print e salve dentro da pasta `screenshots/` do produto certo, com um nome descritivo (ex: `licenciamento-01.png`).
-3. No `.md`, descomente a linha de imagem daquela seção e ajuste o nome do arquivo:
-   ```markdown
-   ![Tela de License](./screenshots/licenciamento-01.png)
+1. Crie um repositório novo no GitHub (pode ser público ou privado, desde que o plano permita Pages).
+2. Envie todos os arquivos desta pasta para a raiz do repositório:
+   ```bash
+   git init
+   git add .
+   git commit -m "Site inicial: AD360"
+   git branch -M main
+   git remote add origin https://github.com/SEU-USUARIO/SEU-REPO.git
+   git push -u origin main
    ```
-4. Escreva suas próprias anotações no campo "Minhas anotações" — o que te chamou atenção, o que é diferente do que o site descreve, dúvidas pra revisar depois.
+3. No GitHub, vá em **Settings → Pages**.
+4. Em **Source**, selecione a branch `main` e a pasta `/ (root)`.
+5. Salve. Em cerca de 1 minuto o site estará em:
+   `https://SEU-USUARIO.github.io/SEU-REPO/`
 
-## Por que isso fica de fora do site público
+Qualquer novo `git push` para `main` atualiza o site automaticamente.
 
-O site público (`me-study`) é hospedado no GitHub Pages e é visível pra qualquer pessoa. A interface do ManageEngine — telas, ícones, cores da marca, layout — é propriedade intelectual deles. Print real do produto é apropriado pra uso **privado** (suas anotações, seu aprendizado), mas não pode ser publicado. Por isso os dois materiais ficam propositalmente separados:
+## Rodar localmente antes de publicar
 
-- **Site público** → wireframes esquemáticos, sem a identidade visual real
-- **Esta pasta** → prints reais, só pra você, nunca commitada
-
-## Se você usa Git para versionar essa pasta também
-
-Se quiser controlar versão dessa pasta separadamente (recomendado, para não perder o histórico), inicialize um repositório **local e privado** aqui dentro — nunca no mesmo remoto do site público:
-
+Não é obrigatório, mas se quiser conferir localmente:
 ```bash
-cd private-notes
-git init
-git add .
-git commit -m "Anotações iniciais"
+python3 -m http.server 8000
 ```
-
-Não adicione um `remote` a menos que seja um repositório GitHub marcado como **Private**. O `.gitignore` incluído já impede que os prints sejam versionados por engano caso você reaproveite essa pasta dentro do repositório do site — mas o mais seguro continua sendo mantê-la completamente separada, como está agora.
+e abrir `http://localhost:8000` no navegador.

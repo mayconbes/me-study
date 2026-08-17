@@ -101,6 +101,41 @@
     </div>
     <p>Uma prática comum: criar sub-nós de grupo por time ou departamento, e usar campos customizados (colunas extras) ao adicionar recursos para enriquecer os critérios de agrupamento.</p>
 
+    <div class="diagram">
+      <div style="border:1px solid var(--line-soft); border-radius:8px; overflow:hidden; background:var(--panel);">
+        <div style="display:flex; align-items:center; gap:6px; padding:9px 14px; border-bottom:1px solid var(--line-soft); background:var(--panel-2);">
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--line);"></div>
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--line);"></div>
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--line);"></div>
+          <div style="flex:1; margin-left:8px; font-family:var(--mono); font-size:11px; color:var(--text-mute);">hostname/resourceGroups/new</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="font-family:var(--display); font-weight:600; font-size:15px; color:var(--text); margin-bottom:16px;">Novo grupo: Servidores Linux — Produção</div>
+          <div style="display:flex; gap:10px; margin-bottom:18px;">
+            <div style="padding:6px 14px; border-radius:6px; border:1px solid var(--line-soft); color:var(--text-mute); font-size:12px;">Static group</div>
+            <div style="padding:6px 14px; border-radius:6px; background:rgba(45,212,191,.1); border:1px solid rgba(45,212,191,.35); color:var(--teal); font-size:12px;">Criteria-based group</div>
+          </div>
+          <div style="font-family:var(--mono); font-size:10px; color:var(--text-mute); margin-bottom:6px;">CRITÉRIOS (todos precisam bater)</div>
+          <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:16px; max-width:520px;">
+            <div style="display:flex; gap:8px; align-items:center;">
+              <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim); flex:1;">Resource Type</div>
+              <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim);">equals</div>
+              <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim); flex:1;">Linux</div>
+            </div>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim); flex:1;">Custom field: Ambiente</div>
+              <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim);">equals</div>
+              <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim); flex:1;">Produção</div>
+            </div>
+            <div style="color:var(--teal); font-size:11px; font-family:var(--mono);">+ add criteria</div>
+          </div>
+          <div style="border:1px solid rgba(45,212,191,.35); background:rgba(45,212,191,.06); border-radius:6px; padding:10px 14px; font-size:12px; color:var(--teal); max-width:400px; margin-bottom:16px;">✓ 34 recursos correspondem agora — o grupo atualiza sozinho quando novos servidores baterem com o critério</div>
+          <div style="display:inline-block; background:var(--teal); color:#04211d; font-weight:600; font-size:12px; padding:9px 20px; border-radius:6px;">Save group</div>
+        </div>
+      </div>
+      <p class="caption">Esquema simplificado — depois de salvo, é neste grupo que você liga política de acesso e rotação agendada, não nos servidores individualmente.</p>
+    </div>
+
     <h2 id="politicas">Políticas de senha</h2>
     <p>Definem regras de complexidade, periodicidade obrigatória de troca, e restrição de reuso de senhas antigas — aplicadas a um recurso, ou (mais comum) a um grupo inteiro de uma vez a partir da aba Resources.</p>
 

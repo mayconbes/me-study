@@ -83,6 +83,41 @@
     <h2 id="perfis">Mais de 50 perfis de alerta prontos</h2>
     <p>Cobrindo os eventos mais críticos por padrão: bloqueio de conta, mudança de membership de grupo, exclusão de GPO, escalonamento de privilégio, entre outros — em praticamente todo tipo de objeto do AD.</p>
 
+    <div class="diagram">
+      <div style="border:1px solid var(--line-soft); border-radius:8px; overflow:hidden; background:var(--panel);">
+        <div style="display:flex; align-items:center; gap:6px; padding:9px 14px; border-bottom:1px solid var(--line-soft); background:var(--panel-2);">
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--line);"></div>
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--line);"></div>
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--line);"></div>
+          <div style="flex:1; margin-left:8px; font-family:var(--mono); font-size:11px; color:var(--text-mute);">hostname/alertProfiles/new</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="font-family:var(--display); font-weight:600; font-size:15px; color:var(--text); margin-bottom:16px;">Novo perfil de alerta: Membro adicionado a Domain Admins</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px 16px; max-width:480px; margin-bottom:16px;">
+            <div><div style="font-family:var(--mono); font-size:10px; color:var(--text-mute); margin-bottom:4px;">EVENT CATEGORY</div><div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:8px 12px; font-size:12px; color:var(--text-dim);">Group Membership ▾</div></div>
+            <div><div style="font-family:var(--mono); font-size:10px; color:var(--text-mute); margin-bottom:4px;">SEVERITY</div><div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:8px 12px; font-size:12px; color:var(--rose);">Critical ▾</div></div>
+          </div>
+          <div style="font-family:var(--mono); font-size:10px; color:var(--text-mute); margin-bottom:6px;">THRESHOLD</div>
+          <div style="display:flex; gap:8px; align-items:center; margin-bottom:16px; flex-wrap:wrap;">
+            <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim);">quando ocorrer ≥</div>
+            <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim); width:44px; text-align:center;">1</div>
+            <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim);">vez(es) em</div>
+            <div style="border:1px solid var(--line-soft); background:var(--panel-2); border-radius:6px; padding:7px 12px; font-size:12px; color:var(--text-dim);">1 minuto ▾</div>
+          </div>
+          <div style="font-family:var(--mono); font-size:10px; color:var(--text-mute); margin-bottom:8px;">NOTIFICAÇÃO</div>
+          <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:14px;">
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;border:1px solid var(--teal); background:rgba(45,212,191,.15); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-dim);">E-mail</span></div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;border:1px solid var(--teal); background:rgba(45,212,191,.15); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-dim);">Abrir chamado (ServiceDesk Plus)</span></div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;border:1px solid var(--line); border-radius:3px;"></div><span style="font-size:12px; color:var(--text-mute);">SMS</span></div>
+          </div>
+          <div style="font-family:var(--mono); font-size:10px; color:var(--text-mute); margin-bottom:6px;">RESPOSTA AUTOMÁTICA (OPCIONAL)</div>
+          <div style="border:1px solid rgba(245,166,35,.35); background:rgba(245,166,35,.06); border-radius:6px; padding:10px 14px; font-size:12px; color:var(--amber); max-width:420px; margin-bottom:16px;">⚠ executar script: revert-group-membership.ps1</div>
+          <div style="display:inline-block; background:var(--teal); color:#04211d; font-weight:600; font-size:12px; padding:9px 20px; border-radius:6px;">Save alert profile</div>
+        </div>
+      </div>
+      <p class="caption">Esquema simplificado — o bloco de resposta automática é opcional; sem ele, o alerta só notifica, sem agir sozinho no ambiente.</p>
+    </div>
+
     <h2 id="contexto">Alertas com contexto, não só "algo mudou"</h2>
     <div class="grid cols-2">
       <div class="card">
